@@ -8,6 +8,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Security\Core\Role\Role;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Doctrine\ORM\Mapping as ORM;
@@ -32,17 +33,44 @@ class User implements UserInterface
     private $email;
 
     /**
+     * @ORM\Column(type="string")
+     */
+    private $roles = ['ROLE_USER'];
+
+
+    /**
      * @ORM\Column(type="datetime")
      */
     private $createdAt;
 
 
-    // getters and setters
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Urls", mappedBy="user")
+     */
+    private $urls;
 
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Phone", mappedBy="user")
+     */
+    private $phone;
+
+    public function __construct()
+    {
+        $this->urls = new ArrayCollection();
+        $this->phone = new ArrayCollection();
+    }
+
+
+    // getters and setters
 
     public function getId()
     {
         return $this->id;
+    }
+
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
     }
 
     public function getCreatedAt()
@@ -55,9 +83,24 @@ class User implements UserInterface
         return $this->email;
     }
 
+    public function setRoles($roles)
+    {
+        $this->roles = $roles;
+    }
+
+
     public function getRoles()
     {
-        return ['ROLE_USER'];
+        return $this->roles;
+    }
+
+    public function setEmail($email)
+    {
+        $this->email = $email;
+    }
+
+    public function eraseCredentials()
+    {
     }
 
     public function getPassword()
@@ -67,17 +110,5 @@ class User implements UserInterface
     public function getSalt()
     {
     }
-
-    public function eraseCredentials()
-    {
-        // TODO: Implement eraseCredentials() method.
-    }
-
-    public function setEmail($email)
-    {
-        $this->email = $email;
-    }
-
-
 
 }
