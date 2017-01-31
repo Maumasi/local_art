@@ -31,6 +31,25 @@ class User implements UserInterface
      */
     private $email;
 
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $createdAt;
+
+
+    // getters and setters
+
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
     public function getUsername()
     {
         return $this->email;
@@ -53,9 +72,6 @@ class User implements UserInterface
     {
         // TODO: Implement eraseCredentials() method.
     }
-
-    // getters and setters
-
 
     public function setEmail($email)
     {
