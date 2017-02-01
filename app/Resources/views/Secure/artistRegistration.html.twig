@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h1>Artist Registration</h1>
+
+    {{ form_start(artistRegistration) }}
+        {{ form_widget(artistRegistration) }}
+
+        <button type="submit">Register!</button>
+    {{ form_end(artistRegistration) }}
+
+{% endblock %}

@@ -39,7 +39,7 @@ class Artist
     private $bio;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", nullable=true)
      */
     private $businessName;
 
@@ -47,6 +47,11 @@ class Artist
      * @ORM\Column(type="string")
      */
     private $profileImage;
+
+    /**
+     * @ORM\Column(type="string", unique=true)
+     */
+    private $email;
 
     /**
      * @ORM\OneToOne(targetEntity="AppBundle\Entity\User")
@@ -124,6 +129,18 @@ class Artist
     {
         $this->user = $user;
     }
+
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    public function setEmail($email)
+    {
+        $this->email = $email;
+    }
+
+
 
 
 

@@ -35,30 +35,13 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="string")
      */
-    private $role = ['ROLE_USER'];
+    private $userRole = ['ROLE_USER'];
 
 
     /**
      * @ORM\Column(type="datetime")
      */
     private $createdAt;
-
-
-    /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Urls", mappedBy="user")
-     */
-    private $urls;
-
-    /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Phone", mappedBy="user")
-     */
-    private $phone;
-
-    public function __construct()
-    {
-        $this->urls = new ArrayCollection();
-        $this->phone = new ArrayCollection();
-    }
 
 
     // getters and setters
@@ -83,15 +66,16 @@ class User implements UserInterface
         return $this->email;
     }
 
-    public function setRoles($role)
+
+    public function setUserRole($userRole)
     {
-        $this->role = $role;
+        $this->userRole = $userRole;
     }
 
 
     public function getRoles()
     {
-        return $this->role;
+        return ['ROLE_USER', $this->userRole];
     }
 
     public function setEmail($email)

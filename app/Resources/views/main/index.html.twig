@@ -2,6 +2,12 @@
 
 {% block body %}
 
+    <div>
+        {% for msg in app.session.flashBag.get('artistRegistered') %}
+            <h2>{{ msg }}</h2>
+        {% endfor %}
+    </div>
+
     <h1>Home page</h1>
 
 {% endblock %}
