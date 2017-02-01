@@ -150,7 +150,6 @@ class Artist
         return $this->user;
     }
 
-
     public function setUser(User $user)
     {
         $this->user = $user;
