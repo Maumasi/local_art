@@ -15,3 +15,9 @@ services:
     app.secure.login_form:
         class: AppBundle\Security\LoginAuthentication
         autowire: true
+
+    app.doctrine.hash_password_listener:
+        class: AppBundle\Doctrine\HashNakedPasswordListener
+        autowire: true
+        tags:
+            - { name: doctrine.event_subscriber }

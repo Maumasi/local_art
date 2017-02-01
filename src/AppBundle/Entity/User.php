@@ -35,6 +35,13 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="string")
      */
+    private $password;
+
+    private $nakedPassword;
+
+    /**
+     * @ORM\Column(type="string")
+     */
     private $userRole = ['ROLE_USER'];
 
 
@@ -83,12 +90,35 @@ class User implements UserInterface
         $this->email = $email;
     }
 
-    public function eraseCredentials()
+    public function setPassword($password)
     {
+        $this->password = $password;
     }
 
     public function getPassword()
     {
+        $this->password;
+    }
+
+    public function getNakedPassword()
+    {
+        return $this->nakedPassword;
+    }
+
+    public function setNakedPassword($nakedPassword)
+    {
+        $this->nakedPassword = $nakedPassword;
+
+        // need this to trick doctrine to think $password has been changed
+        $this->password = null;
+    }
+
+
+
+    public function eraseCredentials()
+    {
+        // making sure this is never saved ever
+        $this->nakedPassword = null;
     }
 
     public function getSalt()

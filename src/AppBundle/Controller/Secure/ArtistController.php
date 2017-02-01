@@ -9,7 +9,10 @@
 namespace AppBundle\Controller\Secure;
 
 
-class ArtistController
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+
+class ArtistController extends Controller
 {
 
+    
 }

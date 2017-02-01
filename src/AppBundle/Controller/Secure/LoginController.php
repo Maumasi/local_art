@@ -38,4 +38,15 @@ class LoginController extends Controller
             'error'         => $error,
         ]);
     }
+
+
+    /**
+     * @Route("/logout", name="logout")
+     */
+    public function logout() {
+
+        // Symfony handles requests from '/logout'
+        // This is defined in security.yml under firewalls:main:logout
+        throw new \Exception('Should never hit this URL.');
+    }
 }
