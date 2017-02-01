@@ -3,7 +3,10 @@
 namespace AppBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -18,7 +21,11 @@ class ArtistRegitration extends AbstractType
             ->add('profileImage', FileType::class, [
                 'required' => true,
             ])
-            ->add('email')
+            ->add('email', EmailType::class)
+            ->add('nakedPassword', RepeatedType::class, [
+                'type' => PasswordType::class,
+
+            ])
             ->add('businessName', TextType::class, [
                 'empty_data' => null,
                 'required' => false,
@@ -33,6 +40,7 @@ class ArtistRegitration extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => 'AppBundle\Entity\Artist',
+            'validation_groups' => ['Default', 'registration'],
         ]);
     }
 

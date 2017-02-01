@@ -9,9 +9,12 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
+ * @UniqueEntity(fields={"email"}, message="A venue account already exists with this email")
  * @ORM\Table(name="venue")
  */
 class Venue
@@ -24,11 +27,13 @@ class Venue
     private $id;
 
     /**
+     * @Assert\NotBlank(groups={"registration"})
      * @ORM\Column(type="string")
      */
     private $firstName;
 
     /**
+     * @Assert\NotBlank(groups={"registration"})
      * @ORM\Column(type="string")
      */
     private $lastName;
@@ -39,6 +44,7 @@ class Venue
     private $bio;
 
     /**
+     * @Assert\NotBlank(groups={"registration"})
      * @ORM\Column(type="string")
      */
     private $marketName;
@@ -49,36 +55,48 @@ class Venue
     private $marketSubtitle;
 
     /**
+     * @Assert\NotBlank(groups={"registration"})
      * @ORM\Column(type="string")
      */
     private $profileImage;
 
     /**
+     * @Assert\NotBlank(groups={"registration"})
      * @ORM\Column(type="string", unique=true)
      */
     private $email;
 
     /**
+     * @ORM\Column(type="json_array")
+     */
+    private $urls = [];
+
+    /**
+     * @Assert\NotBlank(groups={"registration"})
      * @ORM\Column(type="string")
      */
     private $city;
 
     /**
+     * @Assert\NotBlank(groups={"registration"})
      * @ORM\Column(type="string")
      */
     private $state;
 
     /**
+     * @Assert\NotBlank(groups={"registration"})
      * @ORM\Column(type="string")
      */
     private $address1;
 
     /**
+     * @Assert\NotBlank(groups={"registration"})
      * @ORM\Column(type="string")
      */
     private $address2;
 
     /**
+     * @Assert\NotBlank(groups={"registration"})
      * @ORM\Column(type="string")
      */
     private $zipcode;
@@ -156,6 +174,16 @@ class Venue
     public function setEmail($email)
     {
         $this->email = $email;
+    }
+
+    public function getUrls()
+    {
+        return $this->urls;
+    }
+
+    public function setUrls($urls)
+    {
+        $this->urls = $urls;
     }
 
     public function getMarketSubtitle()

@@ -44,8 +44,9 @@ class RegistrationController extends Controller
             // create a new user entity for the artist
             $user = new User();
             $user->setEmail($newArtist->getEmail());
+            $user->setNakedPassword($newArtist->getNakedPassword());
             $user->setCreatedAt(new \DateTime());
-            $user->setUserRole('ROLE_ARTIST');
+            $user->setRoles(['ROLE_USER', 'ROLE_ARTIST']);
             $em->persist($user);
             $em->flush();
 
@@ -58,7 +59,7 @@ class RegistrationController extends Controller
 
 
             // success message
-            $this->addFlash('artistRegistered', 'Welcome '.$newArtist->getFirstName().'! to Local Art!');
+            $this->addFlash('artistRegistered', sprintf('Welcome %s! to Local Art!', $newArtist->getFirstName()));
 
             // TODO: Redirect to profile page
             // redirect
@@ -97,8 +98,9 @@ class RegistrationController extends Controller
             // create a new user entity for the venue
             $user = new User();
             $user->setEmail($newVenue->getEmail());
+            $user->setNakedPassword($newVenue->getNakedPassword());
             $user->setCreatedAt(new \DateTime());
-            $user->setUserRole('ROLE_VENUE');
+            $user->setRoles(['ROLE_USER', 'ROLE_VENUE']);
             $em->persist($user);
             $em->flush();
 

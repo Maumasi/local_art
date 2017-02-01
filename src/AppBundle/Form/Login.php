@@ -19,7 +19,9 @@ class Login extends AbstractType
 
     public function configureOptions(OptionsResolver $resolver)
     {
-
+        $resolver->setDefaults([
+            'validation_groups' => ['Default', 'login'],
+        ]);
     }
 
     public function getName()

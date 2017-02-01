@@ -10,6 +10,8 @@ namespace AppBundle\Entity;
 
 use Symfony\Component\Security\Core\User\UserInterface;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * @ORM\Entity
@@ -26,6 +28,7 @@ class User implements UserInterface
     private $id;
 
     /**
+     * @Assert\NotBlank(groups={"login"})
      * @ORM\Column(type="string", unique=true)
      */
     private $email;
@@ -35,12 +38,15 @@ class User implements UserInterface
      */
     private $password;
 
+    /**
+     * @Assert\NotBlank(groups={"login"})
+     */
     private $nakedPassword;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="json_array")
      */
-    private $userRole = ['ROLE_USER'];
+    private $roles = [];
 
 
     /**
@@ -71,16 +77,14 @@ class User implements UserInterface
         return $this->email;
     }
 
-
-    public function setUserRole($userRole)
-    {
-        $this->userRole = $userRole;
-    }
-
-
     public function getRoles()
     {
-        return ['ROLE_USER', $this->userRole];
+        return $this->roles;
+    }
+
+    public function setRoles($roles)
+    {
+        $this->roles = $roles;
     }
 
     public function setEmail($email)
@@ -110,8 +114,6 @@ class User implements UserInterface
         // need this to trick doctrine to think $password has been changed
         $this->password = null;
     }
-
-
 
     public function eraseCredentials()
     {

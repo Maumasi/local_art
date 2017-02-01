@@ -9,9 +9,12 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
+ * @UniqueEntity(fields={"email"}, message="An artist account already exists with this email")
  * @ORM\Table(name="artist")
  */
 class Artist
@@ -24,11 +27,13 @@ class Artist
     private $id;
 
     /**
+     * @Assert\NotBlank()
      * @ORM\Column(type="string")
      */
     private $firstName;
 
     /**
+     * @Assert\NotBlank()
      * @ORM\Column(type="string")
      */
     private $lastName;
@@ -44,14 +49,22 @@ class Artist
     private $businessName;
 
     /**
+     * @Assert\NotBlank(groups={"registration"})
      * @ORM\Column(type="string")
      */
     private $profileImage;
 
     /**
+     * @Assert\NotBlank()
+     * @Assert\Email()
      * @ORM\Column(type="string", unique=true)
      */
     private $email;
+
+    /**
+     * @ORM\Column(type="json_array")
+     */
+    private $urls = [];
 
     /**
      * @ORM\OneToOne(targetEntity="AppBundle\Entity\User")
@@ -59,7 +72,11 @@ class Artist
      */
     private $user;
 
-
+    // this password should never persist
+    /**
+     * @Assert\NotBlank()
+     */
+    private $nakedPassword;
 
     // getters and setters
 
@@ -140,7 +157,25 @@ class Artist
         $this->email = $email;
     }
 
+    public function getUrls()
+    {
+        return $this->urls;
+    }
 
+    public function setUrls($urls)
+    {
+        $this->urls = $urls;
+    }
+
+    public function getNakedPassword()
+    {
+        return $this->nakedPassword;
+    }
+
+    public function setNakedPassword($nakedPassword)
+    {
+        $this->nakedPassword = $nakedPassword;
+    }
 
 
 
