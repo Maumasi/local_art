@@ -16,10 +16,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 
+/**
+ * @Route("/registration")
+ */
 class RegistrationController extends Controller
 {
     /**
-     * @Route("/registration/artist", name="artist_registration")
+     * @Route("/artist", name="artist_registration")
      */
     public function artistRegistration(Request $request) {
         $form = $this->createForm(ArtistRegitration::class);
@@ -57,6 +60,7 @@ class RegistrationController extends Controller
             // success message
             $this->addFlash('artistRegistered', 'Welcome '.$newArtist->getFirstName().'! to Local Art!');
 
+            // TODO: Redirect to profile page
             // redirect
             return $this->redirectToRoute('home_page');
         }
@@ -66,10 +70,56 @@ class RegistrationController extends Controller
         ]);
     }
 
-    /**
-     * @Route("/registration/venue")
-     */
-    public function venueRegistration() {
 
+
+    /**
+     * @Route("/venue", name="venue_registration")
+     */
+    public function venueRegistration(Request $request) {
+
+        // TODO: correct form class
+        $form = $this->createForm(ArtistRegitration::class);
+
+        // save data to the database if no form errors
+        $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid()) {
+
+            // call entity manager and collect form data
+            $em = $this->getDoctrine()->getManager();
+            $newVenue = $form->getData();
+
+            // use custom service to upload venue profile image
+            $profileImg = $newVenue->getProfileImage();
+            $imageName = $this->get('app.save_file')->img($profileImg);
+            $newVenue->setProfileImage($imageName);
+
+
+            // create a new user entity for the venue
+            $user = new User();
+            $user->setEmail($newVenue->getEmail());
+            $user->setCreatedAt(new \DateTime());
+            $user->setUserRole('ROLE_VENUE');
+            $em->persist($user);
+            $em->flush();
+
+            // create new venue
+            $newVenue->setUser($user);
+            $em->persist($newVenue);
+            $em->flush();
+
+
+            // TODO: change success message. Market name maybe
+            // success message
+            $this->addFlash('venueRegistered', 'Welcome '.$newVenue->getFirstName().'! to Local Art!');
+
+            // TODO: Redirect to profile page
+            // redirect
+            return $this->redirectToRoute('home_page');
+        }
+
+        // TODO: send to correct twig file
+        return $this->render(':secure:artistRegistration.html.twig', [
+            'venueRegistration' => $form->createView(),
+        ]);
     }
 }
