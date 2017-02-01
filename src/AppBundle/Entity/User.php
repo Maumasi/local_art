@@ -35,7 +35,7 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="string")
      */
-    private $roles = ['ROLE_USER'];
+    private $role = ['ROLE_USER'];
 
 
     /**
@@ -83,15 +83,15 @@ class User implements UserInterface
         return $this->email;
     }
 
-    public function setRoles($roles)
+    public function setRoles($role)
     {
-        $this->roles = $roles;
+        $this->role = $role;
     }
 
 
     public function getRoles()
     {
-        return $this->roles;
+        return $this->role;
     }
 
     public function setEmail($email)

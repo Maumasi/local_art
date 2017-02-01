@@ -34,7 +34,7 @@ class Artist
     private $lastName;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="text", nullable=true)
      */
     private $bio;
 
@@ -57,6 +57,11 @@ class Artist
 
 
     // getters and setters
+
+    public function getId()
+    {
+        return $this->id;
+    }
 
     public function getFirstName()
     {
