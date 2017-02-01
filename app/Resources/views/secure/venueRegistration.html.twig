@@ -4,24 +4,34 @@
 
     <h1>Venue Registration</h1>
 
-    {{ form_start(artistRegistration) }}
+    {{ form_start(venueRegistration) }}
 
-    {{ form_row(artistRegistration.firstName) }}
-    {{ form_row(artistRegistration.lastName) }}
-    {{ form_row(artistRegistration.profileImage) }}
-    {{ form_row(artistRegistration.email) }}
+        {#basic market venue details#}
+        {{ form_row(venueRegistration.firstName) }}
+        {{ form_row(venueRegistration.lastName) }}
+        {{ form_row(venueRegistration.profileImage) }}
+        {{ form_row(venueRegistration.email) }}
 
-    {{ form_row(artistRegistration.nakedPassword.first, {
-        'label': 'Password'
-    }) }}
-    {{ form_row(artistRegistration.nakedPassword.second, {
-        'label': 'Confirm Password'
-    }) }}
+        {{ form_row(venueRegistration.nakedPassword.first, {
+            'label': 'Password'
+        }) }}
+        {{ form_row(venueRegistration.nakedPassword.second, {
+            'label': 'Confirm Password'
+        }) }}
 
-    {{ form_row(artistRegistration.businessName) }}
-    {{ form_row(artistRegistration.bio) }}
+        {#market info#}
+        {{ form_row(venueRegistration.marketName) }}
+        {{ form_row(venueRegistration.marketSubtitle) }}
+        {{ form_row(venueRegistration.marketName) }}
+        {{ form_row(venueRegistration.bio) }}
+        {{ form_row(venueRegistration.website) }}
+        {{ form_row(venueRegistration.address1) }}
+        {{ form_row(venueRegistration.address2) }}
+        {{ form_row(venueRegistration.city) }}
+        {{ form_row(venueRegistration.state) }}
+        {{ form_row(venueRegistration.zipCode) }}
 
-    <button type="submit">Register!</button>
-    {{ form_end(artistRegistration) }}
+        <button type="submit">Register!</button>
+    {{ form_end(venueRegistration) }}
 
 {% endblock %}

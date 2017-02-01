@@ -107,6 +107,12 @@ class Venue
      */
     private $user;
 
+    // this password should never persist
+    /**
+     * @Assert\NotBlank()
+     */
+    private $nakedPassword;
+
 
 
     // getters and setters
@@ -254,5 +260,15 @@ class Venue
     public function setUser(User $user)
     {
         $this->user = $user;
+    }
+
+    public function getNakedPassword()
+    {
+        return $this->nakedPassword;
+    }
+
+    public function setNakedPassword($nakedPassword)
+    {
+        $this->nakedPassword = $nakedPassword;
     }
 }

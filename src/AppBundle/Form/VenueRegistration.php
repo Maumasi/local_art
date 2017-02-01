@@ -5,6 +5,8 @@ namespace AppBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -22,13 +24,16 @@ class VenueRegistration extends AbstractType
                 'required' => true,
             ])
             ->add('email', EmailType::class)
+            ->add('nakedPassword', RepeatedType::class, [
+                'type' => PasswordType::class,
+
+            ])
 
             ->add('bio', TextType::class, [
                 'empty_data' => null,
                 'required' => false,
             ])
             ->add('website', UrlType::class)
-
 
             ->add('marketName')
             ->add('marketSubtitle')
@@ -43,7 +48,8 @@ class VenueRegistration extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => '',
+            'data_class' => 'AppBundle\Entity\Venue',
+            'validation_groups' => ['Default', 'registration']
         ]);
     }
 

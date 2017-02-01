@@ -58,7 +58,7 @@ class RegistrationController extends Controller
             $em->flush();
 
             // success message
-            $this->addFlash('artistRegistered', sprintf('Welcome %s! to Local Art!', $newArtist->getFirstName()));
+            $this->addFlash('artistRegistered', sprintf('Welcome %s, to Local Art!', $newArtist->getFirstName()));
 
             // send the user back to their intended path after registration
             // change default destination in AppBundle\Security\LoginAuthentication:getDefaultSuccessRedirectUrl
@@ -84,7 +84,6 @@ class RegistrationController extends Controller
      */
     public function venueRegistration(Request $request) {
 
-        // TODO: correct form class
         $form = $this->createForm(VenueRegistration::class);
 
         // save data to the database if no form errors
@@ -116,20 +115,19 @@ class RegistrationController extends Controller
             $em->flush();
 
             // success message
-            $this->addFlash('venueRegistered', 'Welcome '.$newVenue->getFirstName().'! to Local Art!');
+            $this->addFlash('venueRegistered', sprintf('Welcome %s, to Local Art!', $newVenue->getMarketName()));
 
             // send the user back to their intended path after registration
             // change default destination in AppBundle\Security\LoginAuthentication:getDefaultSuccessRedirectUrl
             return $this->get('security.authentication.guard_handler')
                 ->authenticateUserAndHandleSuccess(
-                    $newVenue->getUser(),                  // user entity
+                    $newVenue->getUser(),                   // user entity
                     $request,                               // request object
                     $this->get('app.secure.login_form'),    // authentication service
                     'main'                                  // firewall name from security.yml
                 );
         }
 
-        // TODO: send to correct twig file
         return $this->render(':secure:venueRegistration.html.twig', [
             'venueRegistration' => $form->createView(),
         ]);
