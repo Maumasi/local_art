@@ -7,3 +7,11 @@ services:
 #    service_name:
 #        class: AppBundle\Directory\ClassName
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+
+    app.save_file:
+        class: AppBundle\Service\FileSaver
+        arguments: ['%item_img_directory%']
+
+    app.secure.login_form:
+        class: AppBundle\Security\LoginAuthentication
+        autowire: true

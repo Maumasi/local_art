@@ -15,7 +15,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class MainController extends Controller
 {
     /**
-     * @Route("/", name="home")
+     * @Route("/", name="home_page")
      */
     public function homePage()
     {

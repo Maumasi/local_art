@@ -13,6 +13,7 @@ use AppBundle\Entity\User;
 use AppBundle\Form\ArtistRegitration;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 
 class RegistrationController extends Controller
@@ -31,7 +32,11 @@ class RegistrationController extends Controller
             $em = $this->getDoctrine()->getManager();
             $newArtist = $form->getData();
 
-            //dump($newArtist->getProfileImage());die;
+            // use custom service to upload artist profile image
+            $profileImg = $newArtist->getProfileImage();
+            $imageName = $this->get('app.save_file')->img($profileImg);
+            $newArtist->setProfileImage($imageName);
+
 
             // create a new user entity for the artist
             $user = new User();
@@ -41,18 +46,22 @@ class RegistrationController extends Controller
             $em->persist($user);
             $em->flush();
 
+            // create new artist
             $newArtist->setUser($user);
             $em->persist($newArtist);
             $em->flush();
+
+
+
 
             // success message
             $this->addFlash('artistRegistered', 'Welcome '.$newArtist->getFirstName().'! to Local Art!');
 
             // redirect
-            return $this->redirectToRoute('home');
+            return $this->redirectToRoute('home_page');
         }
 
-        return $this->render(':Secure:artistRegistration.html.twig', [
+        return $this->render(':secure:artistRegistration.html.twig', [
             'artistRegistration' => $form->createView(),
         ]);
     }
