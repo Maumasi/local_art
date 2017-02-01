@@ -13,7 +13,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\VenueRepository")
  * @UniqueEntity(fields={"email"}, message="A venue account already exists with this email")
  * @ORM\Table(name="venue")
  */
@@ -67,7 +67,7 @@ class Venue
     private $email;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", nullable=true)
      */
     private $website;
 
