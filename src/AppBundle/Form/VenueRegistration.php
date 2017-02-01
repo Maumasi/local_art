@@ -3,6 +3,10 @@
 namespace AppBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -17,15 +21,23 @@ class VenueRegistration extends AbstractType
             ->add('profileImage', FileType::class, [
                 'required' => true,
             ])
-            ->add('email')
-            ->add('businessName', TextType::class, [
-                'empty_data' => null,
-                'required' => false,
-            ])
+            ->add('email', EmailType::class)
+
             ->add('bio', TextType::class, [
                 'empty_data' => null,
                 'required' => false,
-            ]);
+            ])
+            ->add('website', UrlType::class)
+
+
+            ->add('marketName')
+            ->add('marketSubtitle')
+            ->add('address1')
+            ->add('address2')
+            ->add('city')
+            ->add('state')
+            ->add('zipCode')
+        ;
     }
 
     public function configureOptions(OptionsResolver $resolver)

@@ -67,9 +67,9 @@ class Venue
     private $email;
 
     /**
-     * @ORM\Column(type="json_array")
+     * @ORM\Column(type="string")
      */
-    private $urls = [];
+    private $website;
 
     /**
      * @Assert\NotBlank(groups={"registration"})
@@ -99,7 +99,7 @@ class Venue
      * @Assert\NotBlank(groups={"registration"})
      * @ORM\Column(type="string")
      */
-    private $zipcode;
+    private $zipCode;
 
     /**
      * @ORM\OneToOne(targetEntity="AppBundle\Entity\User")
@@ -176,14 +176,14 @@ class Venue
         $this->email = $email;
     }
 
-    public function getUrls()
+    public function getWebsite()
     {
-        return $this->urls;
+        return $this->website;
     }
 
-    public function setUrls($urls)
+    public function setWebsite($website)
     {
-        $this->urls = $urls;
+        $this->website = $website;
     }
 
     public function getMarketSubtitle()
@@ -236,14 +236,14 @@ class Venue
         $this->address2 = $address2;
     }
 
-    public function getZipcode()
+    public function getZipCode()
     {
-        return $this->zipcode;
+        return $this->zipCode;
     }
 
-    public function setZipcode($zipcode)
+    public function setZipCode($zipCode)
     {
-        $this->zipcode = $zipcode;
+        $this->zipCode = $zipCode;
     }
 
     public function getUser()

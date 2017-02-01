@@ -12,6 +12,7 @@ namespace AppBundle\Controller\Secure;
 use AppBundle\Entity\Artist;
 use AppBundle\Entity\User;
 use AppBundle\Form\ArtistRegitration;
+use AppBundle\Form\VenueRegistration;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
@@ -58,7 +59,7 @@ class RegistrationController extends Controller
 
             // success message
             $this->addFlash('artistRegistered', sprintf('Welcome %s! to Local Art!', $newArtist->getFirstName()));
-            
+
             // send the user back to their intended path after registration
             // change default destination in AppBundle\Security\LoginAuthentication:getDefaultSuccessRedirectUrl
             return $this->get('security.authentication.guard_handler')
@@ -84,7 +85,7 @@ class RegistrationController extends Controller
     public function venueRegistration(Request $request) {
 
         // TODO: correct form class
-        $form = $this->createForm(ArtistRegitration::class);
+        $form = $this->createForm(VenueRegistration::class);
 
         // save data to the database if no form errors
         $form->handleRequest($request);
@@ -114,18 +115,22 @@ class RegistrationController extends Controller
             $em->persist($newVenue);
             $em->flush();
 
-
-            // TODO: change success message. Market name maybe
             // success message
             $this->addFlash('venueRegistered', 'Welcome '.$newVenue->getFirstName().'! to Local Art!');
 
-            // TODO: Redirect to profile page
-            // redirect
-            return $this->redirectToRoute('home_page');
+            // send the user back to their intended path after registration
+            // change default destination in AppBundle\Security\LoginAuthentication:getDefaultSuccessRedirectUrl
+            return $this->get('security.authentication.guard_handler')
+                ->authenticateUserAndHandleSuccess(
+                    $newVenue->getUser(),                  // user entity
+                    $request,                               // request object
+                    $this->get('app.secure.login_form'),    // authentication service
+                    'main'                                  // firewall name from security.yml
+                );
         }
 
         // TODO: send to correct twig file
-        return $this->render(':secure:artistRegistration.html.twig', [
+        return $this->render(':secure:venueRegistration.html.twig', [
             'venueRegistration' => $form->createView(),
         ]);
     }

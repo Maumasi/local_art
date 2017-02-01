@@ -62,9 +62,9 @@ class Artist
     private $email;
 
     /**
-     * @ORM\Column(type="json_array")
+     * @ORM\Column(type="string")
      */
-    private $urls = [];
+    private $website;
 
     /**
      * @ORM\OneToOne(targetEntity="AppBundle\Entity\User")
@@ -135,6 +135,15 @@ class Artist
         $this->profileImage = $profileImage;
     }
 
+    public function getWebsite()
+    {
+        return $this->website;
+    }
+
+    public function setWebsite($website)
+    {
+        $this->website = $website;
+    }
 
     public function getUser()
     {
@@ -155,16 +164,6 @@ class Artist
     public function setEmail($email)
     {
         $this->email = $email;
-    }
-
-    public function getUrls()
-    {
-        return $this->urls;
-    }
-
-    public function setUrls($urls)
-    {
-        $this->urls = $urls;
     }
 
     public function getNakedPassword()
