@@ -9,6 +9,7 @@
 namespace AppBundle\Controller\Secure;
 
 
+use AppBundle\Entity\Artist;
 use AppBundle\Entity\User;
 use AppBundle\Form\ArtistRegitration;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -55,15 +56,19 @@ class RegistrationController extends Controller
             $em->persist($newArtist);
             $em->flush();
 
-
-
-
             // success message
             $this->addFlash('artistRegistered', sprintf('Welcome %s! to Local Art!', $newArtist->getFirstName()));
+            
+            // send the user back to their intended path after registration
+            // change default destination in AppBundle\Security\LoginAuthentication:getDefaultSuccessRedirectUrl
+            return $this->get('security.authentication.guard_handler')
+                ->authenticateUserAndHandleSuccess(
+                    $newArtist->getUser(),                  // user entity
+                    $request,                               // request object
+                    $this->get('app.secure.login_form'),    // authentication service
+                    'main'                                  // firewall name from security.yml
+                );
 
-            // TODO: Redirect to profile page
-            // redirect
-            return $this->redirectToRoute('home_page');
         }
 
         return $this->render(':secure:artistRegistration.html.twig', [
