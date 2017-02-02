@@ -1,9 +1,17 @@
-{% extends 'base.html.twig' %}
 
-{% block body %}
 
-    <footer>
+<footer>
+    <ul>
+        <li><p><a>Terms of service</a></p></li>
+        <li><p><a>Content guidline</a></p></li>
+        <li><p><a>Privacy police</a></p></li>
 
-    </footer>
+        <li><p><a>Contact local art</a></p></li>
+        <li><p><a>Advertise with us</a></p></li>
+        <li><p><a>FAQ</a></p></li>
 
-{% endblock %}
+        <li><p><a href="{{ path('secure_login') }}">Log in</a></p></li>
+        <li><p><a href="{{ path('venue_registration') }}">Venue sign up</a></p></li>
+        <li><p><a href="{{ path('artist_registration') }}">Artist sign up</a></p></li>
+    </ul>
+</footer>

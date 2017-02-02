@@ -9,4 +9,5 @@
 /build/
 /vendor/
 /bin/
+/devAssets/
 /composer.phar

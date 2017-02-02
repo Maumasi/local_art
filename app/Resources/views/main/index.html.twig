@@ -2,6 +2,8 @@
 
 {% block body %}
 
+    {% include(':common:header.html.twig') %}
+
     {# give different users a different message #}
     {% if is_granted('ROLE_ARTIST') %}
         <div>
@@ -21,4 +23,7 @@
 
     <h1>Home page</h1>
 
+
+
+    {% include(':common:footer.html.twig') %}
 {% endblock %}

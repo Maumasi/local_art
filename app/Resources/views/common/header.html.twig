@@ -1,9 +1,19 @@
-{% extends 'base.html.twig' %}
-
-{% block body %}
 
     <header>
+        <image src="{{ asset('assets/local_art_logo_50x50.svg') }}" alt="Local Art logo" width="50" height="50" />
+        <h1>Local Art</h1>
+        <p>Find art where ever you are.</p>
 
+        {#login and register#}
+        <ul>
+            <li><p><a href="{{ path('secure_login') }}">Log in</a></p></li>
+            <li>
+                <p><a href="#" class="sign_up">Sign up</a></p>
+                <ul>
+                    <li><p><a href="{{ path('venue_registration') }}">Venue sign up</a></p></li>
+                    <li><p><a href="{{ path('artist_registration') }}">Artist sign up</a></p></li>
+                </ul>
+            </li>
+        </ul>
     </header>
 
-{% endblock %}
