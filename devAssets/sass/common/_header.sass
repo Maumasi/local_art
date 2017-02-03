@@ -1,13 +1,9 @@
 
 // header
 header
-  +greyFont(0.8)
+  +greyFont($siteGreyShade)
   font-family: 'Roboto', sans-serif;
   display: flex
-
-  // content: ""
-  // display: block
-  // clear: both
 
   .logo
     margin-right: 2rem
@@ -18,11 +14,11 @@ header
     +colOffset('left', 0.25)
 
     h1
-      font-size: 6.2rem
+      font-size: 7.2rem
 
     p
+      padding-top: 1.5rem
       font-size: 2.4rem
-
 
 
   & > ul
@@ -33,12 +29,31 @@ header
 
       & > li
         font-size: 1.6rem
-        p
-          padding: 1rem 0
-          border-bottom: 1px solid red
 
-      & > li:nth-child(2)
+      & > li:first-child
+        p
+          padding-top: 1rem
+          a
+            +greyFont($siteGreyShade)
+            padding: 1rem 0
+            border-bottom: 1px solid rgba(0, 0, 0, $siteGreyShade)
+
+            &:visited
+              color: +greyFont($siteGreyShade)
+
+            &:hover
+              color: $orange
+              border-bottom: 1px solid $orange
+
+
+
+
+
+      & > li:last-child
         p
           padding: 1rem
           border-radius: 50rem
-          background: red
+          background: $orange
+
+          a
+            color: $white
