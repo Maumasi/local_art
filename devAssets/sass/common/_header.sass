@@ -1,20 +1,23 @@
 
 // header
+
 header
-  +greyFont($siteGreyShade)
   font-family: 'Roboto', sans-serif;
   display: flex
 
-  .logo
-    margin-right: 2rem
-    +col(1.25)
+  a
+    +greyFont($siteGreyShade)
+
+  a.logo
+    +col(1)
+    font-size: 0
+    background: url('../assets/local_art_logo_50x50.svg') no-repeat
 
   div
-    +col(3.5)
-    +colOffset('left', 0.25)
+    +col(4)
 
     h1
-      font-size: 7.2rem
+      font-size: 6.2rem
 
     p
       padding-top: 1.5rem
@@ -29,10 +32,11 @@ header
 
       & > li
         font-size: 1.6rem
+        p
+          padding-top: 1rem
 
       & > li:first-child
         p
-          padding-top: 1rem
           a
             +greyFont($siteGreyShade)
             padding: 1rem 0
@@ -42,8 +46,8 @@ header
               color: +greyFont($siteGreyShade)
 
             &:hover
-              color: $orange
-              border-bottom: 1px solid $orange
+              color: $blue
+              border-bottom: 1px solid $blue
 
 
 
@@ -51,9 +55,11 @@ header
 
       & > li:last-child
         p
-          padding: 1rem
-          border-radius: 50rem
-          background: $orange
-
           a
+            padding: 1rem
+            border-radius: 50rem
+            background: $orange
             color: $white
+
+            &:hover
+              background: $blue

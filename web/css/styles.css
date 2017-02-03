@@ -53,21 +53,22 @@ html {
   font-size: 10px; }
 
 header {
-  color: rgba(0, 0, 0, 0.6);
   font-family: 'Roboto', sans-serif;
   display: flex; }
-  header .logo {
-    margin-right: 2rem;
-    width: calc((100% / 12) * 1.25);
-    margin: 0;
-    padding: 0; }
-  header div {
-    width: calc((100% / 12) * 3.5);
+  header a {
+    color: rgba(0, 0, 0, 0.6); }
+  header a.logo {
+    width: calc((100% / 12) * (1 * 0.98));
     margin: 0;
     padding: 0;
-    margin-left: calc((100% / 12) * 0.25); }
+    font-size: 0;
+    background: url("../assets/local_art_logo_50x50.svg") no-repeat; }
+  header div {
+    width: calc((100% / 12) * 4);
+    margin: 0;
+    padding: 0; }
     header div h1 {
-      font-size: 7.2rem; }
+      font-size: 6.2rem; }
     header div p {
       padding-top: 1.5rem;
       font-size: 2.4rem; }
@@ -80,23 +81,55 @@ header {
     justify-content: space-between; }
     header > ul > li {
       font-size: 1.6rem; }
-    header > ul > li:first-child p {
-      padding-top: 1rem; }
-      header > ul > li:first-child p a {
-        color: rgba(0, 0, 0, 0.6);
-        padding: 1rem 0;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.6); }
-        header > ul > li:first-child p a:visited {
-          color: +greyFont(0.6); }
-        header > ul > li:first-child p a:hover {
-          color: #f37444;
-          border-bottom: 1px solid #f37444; }
-    header > ul > li:last-child p {
+      header > ul > li p {
+        padding-top: 1rem; }
+    header > ul > li:first-child p a {
+      color: rgba(0, 0, 0, 0.6);
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.6); }
+      header > ul > li:first-child p a:visited {
+        color: +greyFont(0.6); }
+      header > ul > li:first-child p a:hover {
+        color: #46c1f0;
+        border-bottom: 1px solid #46c1f0; }
+    header > ul > li:last-child p a {
       padding: 1rem;
       border-radius: 50rem;
-      background: #f37444; }
-      header > ul > li:last-child p a {
-        color: rgba(255, 255, 255, 0.89); }
+      background: #f37444;
+      color: rgba(255, 255, 255, 0.89); }
+      header > ul > li:last-child p a:hover {
+        background: #46c1f0; }
+
+footer {
+  display: flex;
+  padding-bottom: 2rem;
+  font-size: 1.6rem;
+  font-family: 'Roboto', sans-serif;
+  width: 100vw;
+  margin-left: -2%;
+  padding: 2%;
+  background: rgba(0, 0, 0, 0.2); }
+  footer a {
+    padding: 1rem 0;
+    color: rgba(0, 0, 0, 0.6); }
+    footer a:visited {
+      color: rgba(0, 0, 0, 0.6); }
+  footer ul {
+    width: calc((100% / 12) * 4);
+    margin: 0;
+    padding: 0; }
+    footer ul li {
+      padding-top: 2rem; }
+    footer ul li:nth-child(3n + 1) {
+      padding-top: 0; }
+  footer ul:last-child li a {
+    color: #f37444; }
+    footer ul:last-child li a:hover {
+      color: #46c1f0; }
+  footer ul:last-child li:first-child a {
+    color: rgba(0, 0, 0, 0.6); }
+    footer ul:last-child li:first-child a:hover {
+      color: #46c1f0; }
 
 .devGrid {
   background: rgba(255, 217, 0, 0.25);
