@@ -2,8 +2,25 @@
 
 {% block body %}
 
-    <h1>Artist Profile</h1>
+
+    {#/ hero image /#}
+    <image  src="{{ asset('uploads/' ~ user.profileImage) }}" alt="{{ user.firstName ~ ' ' ~ user.lastName }} profile image" />
+
+    {#/ use business name if user has one else use there name /#}
+    {% if user.businessName %}
+        <h1>{{ user.businessName }}</h1>
+    {% else  %}
+        <h1>{{ user.firstName ~ ' ' ~ user.lastName }}</h1>
+    {% endif %}
 
 
+    {#/ bio /#}
+    <h2>About {{ user.firstName ~ ' ' ~ user.lastName }}</h2>
+    <p>{{ user.bio }}</p>
 
+
+    <p><a target="_blank" href="{{ user.website }}" >Visit this artist's website</a></p>
+
+    <p>Contact:</p>
+    <p><a href="mailto:{{ user.email }}">{{ user.email }}</a></p>
 {% endblock %}

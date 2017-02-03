@@ -4,5 +4,32 @@
 
     <h1>Venue Profile</h1>
 
+    {#/ hero image /#}
+    <image  src="{{ asset('uploads/' ~ user.profileImage) }}" alt="{{ user.firstName ~ ' ' ~ user.lastName }} profile image" />
+
+    {#/ use market name if user has one else use there name /#}
+    <h1>{{ user.marketName }}</h1>
+
+    {#/ bio /#}
+    <h2>About {{ user.marketName }}</h2>
+    <p>{{ user.bio }}</p>
+
+    {#/ venue address /#}
+    <address>
+        <p>{{ user.address1 }}</p>
+
+        {% if user.address2 %}
+            <p>{{ user.address2 }}</p>
+        {% endif %}
+
+        <p>{{ user.city }}</p>
+        <p>{{ user.state }}</p>
+        <p>{{ user.zipCode }}</p>
+    </address>
+
+    <p><a target="_blank" href="{{ user.website }}" >Visit this market's website</a></p>
+
+    <p>Contact:</p>
+    <p><a href="mailto:{{ user.email }}">{{ user.email }}</a></p>
 
 {% endblock %}
