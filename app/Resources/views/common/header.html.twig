@@ -11,6 +11,9 @@
 
         {#login and register#}
         <ul>
+            {% if is_granted('ROLE_USER') %}
+                <li><p><a href="{{ path('logout') }}">Log out</a></p></li>
+            {% else %}
             <li><p><a href="{{ path('secure_login') }}">Log in</a></p></li>
             <li>
                 <p><a href="#" class="sign_up">Sign up</a></p>
@@ -19,5 +22,6 @@
                     {#<li><p><a href="{{ path('artist_registration') }}">Artist sign up</a></p></li>#}
                 {#</ul>#}
             </li>
+            {% endif %}
         </ul>
     </header>
