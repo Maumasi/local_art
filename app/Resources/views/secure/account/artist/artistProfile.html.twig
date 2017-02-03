@@ -21,11 +21,17 @@
 
         {#/ bio /#}
         <h2>About {{ user.firstName ~ ' ' ~ user.lastName }}</h2>
-        <p>{{ user.bio }}</p>
+        <p class="bio">{{ user.bio }}</p>
 
-        <p><a target="_blank" href="{{ user.website }}" >Visit this artist's website</a></p>
+        <h2>Contact Artist</h2>
+        <ul>
+            <li>
+                <p><a target="_blank" href="{{ user.website }}" >Visit artist's website</a></p>
+            </li>
 
-        <p>Contact:</p>
-        <p><a href="mailto:{{ user.email }}">{{ user.email }}</a></p>
+            <li>
+                <p><a href="mailto:{{ user.email }}">{{ user.email }}</a></p>
+            </li>
+        </ul>
     </main>
 {% endblock %}

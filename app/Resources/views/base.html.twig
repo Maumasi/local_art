@@ -13,21 +13,22 @@
 
     <body>
 
+
         {#/ this <ul> is only for development /#}
-        <ul class="devGrid">
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-            <li>4</li>
-            <li>5</li>
-            <li>6</li>
-            <li>7</li>
-            <li>8</li>
-            <li>9</li>
-            <li>10</li>
-            <li>11</li>
-            <li>12</li>
-        </ul>
+        {#<ul class="devGrid">#}
+            {#<li>1</li>#}
+            {#<li>2</li>#}
+            {#<li>3</li>#}
+            {#<li>4</li>#}
+            {#<li>5</li>#}
+            {#<li>6</li>#}
+            {#<li>7</li>#}
+            {#<li>8</li>#}
+            {#<li>9</li>#}
+            {#<li>10</li>#}
+            {#<li>11</li>#}
+            {#<li>12</li>#}
+        {#</ul>#}
 
         {#/ header component /#}
         {% block header %}
@@ -35,7 +36,13 @@
         {% endblock %}
 
         {#/ main body /#}
-        {% block body %}{% endblock %}
+        {% block body %}
+            <main></main>
+        {% endblock %}
+
+
+        {#/ only used to push the footer down /#}
+        <div class="footer-pusher"></div>
 
         {#/ footer component /#}
         {% block footer %}
