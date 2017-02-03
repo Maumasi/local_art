@@ -101,7 +101,6 @@ class RegistrationController extends Controller
             $imageName = $this->get('app.save_file')->img($profileImg);
             $newVenue->setProfileImage($imageName);
 
-
             // create a new user entity for the venue
             $user = new User();
             $user->setEmail($newVenue->getEmail());

@@ -2,7 +2,7 @@
 // header
 
 header
-  font-family: 'Roboto', sans-serif;
+  +displayFont(1)
   display: flex
 
   a
@@ -17,12 +17,11 @@ header
     +col(4)
 
     h1
-      font-size: 6.2rem
+      +displayFont(6.2)
 
     p
       padding-top: 1.5rem
-      font-size: 2.4rem
-
+      +displayFont(2.4)
 
   & > ul
       +col(2)
@@ -31,7 +30,7 @@ header
       justify-content: space-between
 
       & > li
-        font-size: 1.6rem
+        +displayFont(1.6)
         p
           padding-top: 1rem
 
