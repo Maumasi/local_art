@@ -1,0 +1,39 @@
+
+// mixins
+
+// media query call
+=media($max)
+	@media screen and (max-width: $max)
+		@content
+
+// fix for floated content
+=clearfix
+	&:before,
+	&:after
+		content: ""
+		display: block
+		clear: both
+
+
+// 12 unit grid
+=col($num)
+	@if $num == 1
+		width: calc((100% / 12) * (#{$num} * 0.98))
+	@else
+		width: calc((100% / 12) * #{$num})
+	margin: 0
+	padding: 0
+
+// 12 unit grid offset
+=colOffset($dir, $num)
+	margin-#{$dir}: calc((100% / 12) * #{$num})
+
+
+// 12 unit gutter offset
+=colGutter($dir, $num)
+  margin-#{$dir}: calc((100% / 12) * (#{$num} * 0.25))
+
+
+// visualize the element box for development
+=devBox($color)
+	border: 1px solid $color
