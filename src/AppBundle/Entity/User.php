@@ -87,6 +87,11 @@ class User implements UserInterface
         $this->roles = $roles;
     }
 
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
     public function setEmail($email)
     {
         $this->email = $email;
@@ -99,7 +104,7 @@ class User implements UserInterface
 
     public function getPassword()
     {
-        $this->password;
+        return $this->password;
     }
 
     public function getNakedPassword()

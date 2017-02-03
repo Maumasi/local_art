@@ -76,21 +76,26 @@ class LoginAuthentication extends AbstractFormLoginAuthenticator
 
 
 
-    public function getUser($credentials, UserProviderInterface $userProvider)
+        public function getUser($credentials, UserProviderInterface $userProvider)
     {
+
+
         $userEmail = $credentials['_email'];
 
-        $this->user = $this->em->getRepository(User::class)
+        $this->user = $this->em->getRepository('AppBundle:User')
             ->findOneBy(['email' => $userEmail]);
 
-        return $this->em->getRepository(User::class)
-            ->findOneBy(['email' => $userEmail]);
+        return $this->user;
     }
+
+
 
 
 
     public function checkCredentials($credentials, UserInterface $user)
     {
+
+
         $password = $credentials['_password'];
         $foundMatch = false;
 
@@ -99,6 +104,7 @@ class LoginAuthentication extends AbstractFormLoginAuthenticator
             $foundMatch = true;
         }
 
+
         return $foundMatch;
     }
 
@@ -106,6 +112,7 @@ class LoginAuthentication extends AbstractFormLoginAuthenticator
     // failed to login, keep user at /login
     protected function getLoginUrl()
     {
+
         return $this->router->generate('secure_login');
     }
 
@@ -113,17 +120,16 @@ class LoginAuthentication extends AbstractFormLoginAuthenticator
     // login success, send user to their profile page
     protected function getDefaultSuccessRedirectUrl()
     {
+        $roles = $this->user->getRoles();
+        if($roles == ['ROLE_USER', 'ROLE_ARTIST']) {
+            return $this->router->generate('artist_profile');
 
-//        if() {
-//            return $this->router->generate('artist_profile');
-//
-//        } elseif ($this->authorizationChecker->isGranted('ROLE_VENUE')) {
-//            return $this->router->generate('venue_profile');
-//
-//        } else {
+        } elseif ($roles == ['ROLE_USER', 'ROLE_VENUE']) {
+            return $this->router->generate('venue_profile');
+
+        } else {
             return $this->router->generate('home_page');
-//        }
+        }
     }
-
 
 }

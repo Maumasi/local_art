@@ -10,7 +10,9 @@ namespace AppBundle\Doctrine;
 
 
 
+use AppBundle\Entity\Artist;
 use AppBundle\Entity\User;
+use AppBundle\Entity\Venue;
 use Doctrine\Common\EventSubscriber;
 use Doctrine\ORM\Event\LifecycleEventArgs;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoder;
@@ -19,10 +21,20 @@ class HashNakedPasswordListener implements  EventSubscriber
 {
 
     private $passwordEncoder;
+    /**
+     * @var Artist
+     */
+    private $artist;
+    /**
+     * @var Venue
+     */
+    private $venue;
 
-    public function __construct(UserPasswordEncoder $passwordEncoder)
+    public function __construct(UserPasswordEncoder $passwordEncoder, Artist $artist, Venue $venue)
     {
         $this->passwordEncoder = $passwordEncoder;
+        $this->artist = $artist;
+        $this->venue = $venue;
     }
 
 
@@ -58,13 +70,13 @@ class HashNakedPasswordListener implements  EventSubscriber
         return ['prePersist', 'preUpdate'];
     }
 
-    /**
-     * @param User $entity
-     */
+
     private function encodePassword(User $entity)
     {
-        $encoded = $this->passwordEncoder->encodePassword($entity, $entity->getNakedPassword());
-        $entity->setPassword($encoded);
+        if(!empty($entity->getNakedPassword())) {
+            $encoded = $this->passwordEncoder->encodePassword($entity, $entity->getNakedPassword());
+            $entity->setPassword($encoded);
+        }
     }
 
 }
