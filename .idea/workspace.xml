@@ -2,14 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a7fe877e-51b3-481e-86fd-f51e2c15ad63" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/secure/account/artist/artistProfile.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/secure/account/artist/artistProfile.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/devAssets/sass/artist/_artistProfile.sass" afterPath="$PROJECT_DIR$/devAssets/sass/artist/_artistProfile.sass" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/devAssets/sass/common/_footer.sass" afterPath="$PROJECT_DIR$/devAssets/sass/common/_footer.sass" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/devAssets/sass/common/_header.sass" afterPath="$PROJECT_DIR$/devAssets/sass/common/_header.sass" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/devAssets/sass/styles.sass" afterPath="$PROJECT_DIR$/devAssets/sass/styles.sass" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/devAssets/sass/util/_var.sass" afterPath="$PROJECT_DIR$/devAssets/sass/util/_var.sass" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/Secure/RegistrationController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/Secure/RegistrationController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/devAssets/sass/util/_base.sass" afterPath="$PROJECT_DIR$/devAssets/sass/util/_base.sass" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/styles.css" afterPath="$PROJECT_DIR$/web/css/styles.css" />
     </list>
     <ignored path="local_art.iws" />
@@ -64,8 +60,8 @@
       <file leaf-file-name="artistProfile.html.twig" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/secure/account/artist/artistProfile.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="31" column="14" selection-start-line="31" selection-start-column="14" selection-end-line="31" selection-end-column="14" />
+            <state relative-caret-position="285">
+              <caret line="19" column="19" selection-start-line="19" selection-start-column="19" selection-end-line="19" selection-end-column="19" />
               <folding>
                 <element signature="e#160#359#0#HTML" expanded="true" />
               </folding>
@@ -585,12 +581,12 @@
       <workItem from="1485893562693" duration="29000" />
       <workItem from="1485893834129" duration="37635000" />
       <workItem from="1485971196229" duration="28166000" />
-      <workItem from="1486099641842" duration="23353000" />
+      <workItem from="1486099641842" duration="24554000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="109123000" />
+    <option name="totallyTimeSpent" value="110324000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="91" y="-720" width="1280" height="720" extended-state="0" />
@@ -999,8 +995,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/secure/account/artist/artistProfile.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="31" column="14" selection-start-line="31" selection-start-column="14" selection-end-line="31" selection-end-column="14" />
+        <state relative-caret-position="285">
+          <caret line="19" column="19" selection-start-line="19" selection-start-column="19" selection-end-line="19" selection-end-column="19" />
           <folding>
             <element signature="e#160#359#0#HTML" expanded="true" />
           </folding>

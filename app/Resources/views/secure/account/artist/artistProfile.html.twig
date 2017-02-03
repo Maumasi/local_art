@@ -10,15 +10,14 @@
                      background-size: cover;
                      background-position: center;
                      ">
-
-            {#/ use business name if user has one else use there name /#}
-            {% if user.businessName %}
-                <h1>{{ user.businessName }}</h1>
-            {% else  %}
-                <h1>{{ user.firstName ~ ' ' ~ user.lastName }}</h1>
-            {% endif %}
         </div>
 
+        {#/ use business name if user has one else use there name /#}
+        {% if user.businessName %}
+            <h1>{{ user.businessName }}</h1>
+        {% else  %}
+            <h1>{{ user.firstName ~ ' ' ~ user.lastName }}</h1>
+        {% endif %}
 
         {#/ bio /#}
         <h2>About {{ user.firstName ~ ' ' ~ user.lastName }}</h2>
