@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a7fe877e-51b3-481e-86fd-f51e2c15ad63" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/main/index.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/main/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/secure/account/artist/artistProfile.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/secure/account/artist/artistProfile.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/secure/account/venue/venueProfile.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/secure/account/venue/venueProfile.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/devAssets/sass/artist/_artistProfile.sass" afterPath="$PROJECT_DIR$/devAssets/sass/artist/_artistProfile.sass" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/devAssets/sass/styles.sass" afterPath="$PROJECT_DIR$/devAssets/sass/styles.sass" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/devAssets/sass/util/_base.sass" afterPath="$PROJECT_DIR$/devAssets/sass/util/_base.sass" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/devAssets/sass/util/_var.sass" afterPath="$PROJECT_DIR$/devAssets/sass/util/_var.sass" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/styles.css" afterPath="$PROJECT_DIR$/web/css/styles.css" />
-    </list>
+    <list default="true" id="a7fe877e-51b3-481e-86fd-f51e2c15ad63" name="Default" comment="" />
     <ignored path="local_art.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -622,12 +611,12 @@
       <workItem from="1485893562693" duration="29000" />
       <workItem from="1485893834129" duration="37635000" />
       <workItem from="1485971196229" duration="28166000" />
-      <workItem from="1486099641842" duration="27905000" />
+      <workItem from="1486099641842" duration="28321000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="113675000" />
+    <option name="totallyTimeSpent" value="114091000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
