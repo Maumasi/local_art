@@ -14,4 +14,4 @@
 /node_modules/
 *.DS_Store
 /composer.phar
-
+.idea/workspace.xml
