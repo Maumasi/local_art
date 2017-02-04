@@ -1,0 +1,38 @@
+
+// footer
+
+footer
+  display: flex
+  +displayFont(1.4)
+  width: 100vw
+  margin-left: -2%
+  padding: 2%
+  background: rgba(0, 0, 0, $lightGreyShade)
+
+  a
+    padding: 1rem 0
+    +greyFont($siteGreyShade)
+    &:visited
+      +greyFont($siteGreyShade)
+
+  ul
+    +col(4)
+
+    li
+      padding-top: 2rem
+    li:nth-child(3n + 1)
+      padding-top: 0
+
+  ul:last-child
+    li
+      a
+        color: $orange
+        &:hover
+          color: $blue
+
+    li:first-child
+
+      a
+        +greyFont($siteGreyShade)
+        &:hover
+          color: $blue

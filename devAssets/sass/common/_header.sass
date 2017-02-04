@@ -1,0 +1,64 @@
+
+// header
+
+header
+  +displayFont(1)
+  display: flex
+
+  a
+    +greyFont($siteGreyShade)
+
+  a.logo
+    +col(1)
+    font-size: 0
+    background: url('../assets/local_art_logo_50x50.svg') no-repeat
+
+  div
+    +col(4)
+
+    h1
+      +displayFont(6.2)
+
+    p
+      padding-top: 1.5rem
+      +displayFont(2.4)
+
+  & > ul
+      +col(2)
+      +colOffset('left', 4)
+      display: flex
+      justify-content: space-between
+
+      & > li
+        +displayFont(1.6)
+        p
+          padding-top: 1rem
+
+      & > li:first-child
+        p
+          a
+            +greyFont($siteGreyShade)
+            padding: 1rem 0
+            border-bottom: 1px solid rgba(0, 0, 0, $siteGreyShade)
+
+            &:visited
+              color: +greyFont($siteGreyShade)
+
+            &:hover
+              color: $blue
+              border-bottom: 1px solid $blue
+
+
+
+
+
+      & > li:last-child
+        p
+          a
+            padding: 1rem
+            border-radius: 50rem
+            background: $orange
+            color: $white
+
+            &:hover
+              background: $blue

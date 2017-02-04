@@ -1,24 +1,24 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    <main>
+        {# give different users a different message #}
+        {% if is_granted('ROLE_ARTIST') %}
+            <div>
+                {% for msg in app.session.flashBag.get('artistRegistered') %}
+                    <h2>{{ msg }}</h2>
+                {% endfor %}
+            </div>
 
-    {# give different users a different message #}
-    {% if is_granted('ROLE_ARTIST') %}
-        <div>
-            {% for msg in app.session.flashBag.get('artistRegistered') %}
-                <h2>{{ msg }}</h2>
-            {% endfor %}
-        </div>
+        {% elseif is_granted('ROLE_VENUE') %}
 
-    {% elseif is_granted('ROLE_VENUE') %}
+            <div>
+                {% for msg in app.session.flashBag.get('venueRegistered') %}
+                    <h2>{{ msg }}</h2>
+                {% endfor %}
+            </div>
+        {% endif %}
 
-        <div>
-            {% for msg in app.session.flashBag.get('venueRegistered') %}
-                <h2>{{ msg }}</h2>
-            {% endfor %}
-        </div>
-    {% endif %}
-
-    <h1>Home page</h1>
-
+        <h1>Home page</h1>
+    </main>
 {% endblock %}

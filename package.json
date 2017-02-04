@@ -1,0 +1,16 @@
+{
+  "name": "local_art",
+  "version": "1.0.0",
+  "description": "local_art_project",
+  "main": "app.php",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Liu Maumasi",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^3.1.0",
+    "node-sass": "^4.5.0"
+  }
+}

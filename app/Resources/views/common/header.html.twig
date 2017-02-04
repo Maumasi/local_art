@@ -1,9 +1,27 @@
-{% extends 'base.html.twig' %}
-
-{% block body %}
 
     <header>
 
-    </header>
+        <a href="{{ path('home_page') }}" class="logo" >logo</a>
+        {#<image class="logo" src="{{ asset('assets/local_art_logo_50x50.svg') }}" alt="Local Art logo" >#}
+        <div>
 
-{% endblock %}
+            <h1><a href="{{ path('home_page') }}">Local Art</a></h1>
+            <p><a href="{{ path('home_page') }}">Find art where ever you are.</a></p>
+        </div>
+
+        {#login and register#}
+        <ul>
+            {% if is_granted('ROLE_USER') %}
+                <li><p><a href="{{ path('logout') }}">Log out</a></p></li>
+            {% else %}
+            <li><p><a href="{{ path('secure_login') }}">Log in</a></p></li>
+            <li>
+                <p><a href="#" class="sign_up">Sign up</a></p>
+                {#<ul>#}
+                    {#<li><p><a href="{{ path('venue_registration') }}">Venue sign up</a></p></li>#}
+                    {#<li><p><a href="{{ path('artist_registration') }}">Artist sign up</a></p></li>#}
+                {#</ul>#}
+            </li>
+            {% endif %}
+        </ul>
+    </header>

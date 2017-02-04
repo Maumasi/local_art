@@ -1,0 +1,36 @@
+
+// colors
+
+=greyFont($shade)
+  color: rgba(0, 0, 0, $shade)
+
+$siteGreyShade: 0.6
+$lightGreyShade: 0.2
+
+// site colors
+$orange: rgba(243, 116, 68, 1)
+$green: rgba(128, 195, 66, 1)
+$blue: rgba(70, 193, 240, 1)
+
+// basic colors
+$white: rgba(255, 255, 255, 0.89)
+$black: rgba(0, 0, 0, 0.89)
+
+
+
+// fonts
+// font-family: 'Lato', sans-serif
+// font-family: 'Open Sans', sans-serif;
+// font-family: 'Raleway', sans-serif;
+// font-family: 'Roboto', sans-serif;
+// font-family: 'Slabo 27px', serif;
+
+=displayFont($fontSize)
+  font-family: 'Roboto', sans-serif
+  font-size: #{$fontSize}rem
+
+
+=paragraphFont($fontSize)
+  font-family: 'Slabo 27px', serif
+  font-size: #{$fontSize}rem
+  line-height: #{($fontSize * 1.4)}rem

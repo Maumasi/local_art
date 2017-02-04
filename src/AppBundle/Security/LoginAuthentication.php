@@ -15,6 +15,7 @@ use Doctrine\ORM\EntityManager;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\RouterInterface;
+use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoder;
 use Symfony\Component\Security\Core\Exception\AuthenticationException;
 use Symfony\Component\Security\Core\Security;
@@ -28,23 +29,23 @@ class LoginAuthentication extends AbstractFormLoginAuthenticator
     private $formFactory;
     private $em;
     private $router;
-    /**
-     * @var UserPasswordEncoder
-     */
     private $passwordEncoder;
+    private $user;
 
 
     public function __construct(
         FormFactoryInterface $formFactory,
         EntityManager $em,
         RouterInterface $router,
-        UserPasswordEncoder $passwordEncoder
+        UserPasswordEncoder $passwordEncoder,
+        User $user
     ){
 
         $this->formFactory = $formFactory;
         $this->em = $em;
         $this->router = $router;
         $this->passwordEncoder = $passwordEncoder;
+        $this->user = $user;
     }
 
 
@@ -75,18 +76,26 @@ class LoginAuthentication extends AbstractFormLoginAuthenticator
 
 
 
-    public function getUser($credentials, UserProviderInterface $userProvider)
+        public function getUser($credentials, UserProviderInterface $userProvider)
     {
+
+
         $userEmail = $credentials['_email'];
 
-        return $this->em->getRepository(User::class)
+        $this->user = $this->em->getRepository('AppBundle:User')
             ->findOneBy(['email' => $userEmail]);
+
+        return $this->user;
     }
+
+
 
 
 
     public function checkCredentials($credentials, UserInterface $user)
     {
+
+
         $password = $credentials['_password'];
         $foundMatch = false;
 
@@ -95,6 +104,7 @@ class LoginAuthentication extends AbstractFormLoginAuthenticator
             $foundMatch = true;
         }
 
+
         return $foundMatch;
     }
 
@@ -102,6 +112,7 @@ class LoginAuthentication extends AbstractFormLoginAuthenticator
     // failed to login, keep user at /login
     protected function getLoginUrl()
     {
+
         return $this->router->generate('secure_login');
     }
 
@@ -109,8 +120,16 @@ class LoginAuthentication extends AbstractFormLoginAuthenticator
     // login success, send user to their profile page
     protected function getDefaultSuccessRedirectUrl()
     {
-        return $this->router->generate('home_page');
-    }
+        $roles = $this->user->getRoles();
+        if($roles == ['ROLE_USER', 'ROLE_ARTIST']) {
+            return $this->router->generate('artist_profile');
 
+        } elseif ($roles == ['ROLE_USER', 'ROLE_VENUE']) {
+            return $this->router->generate('venue_profile');
+
+        } else {
+            return $this->router->generate('home_page');
+        }
+    }
 
 }

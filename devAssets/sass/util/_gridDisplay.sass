@@ -1,0 +1,22 @@
+
+.devGrid
+  background: rgba(255, 217, 0, 0.25)
+  position: fixed
+  width: 96%
+  height: 100%
+  float: left
+  color: red
+
+  li
+    +col(1)
+    display: inline-block
+    height: 100%
+
+    // +colGutter('right', 1)
+    background: rgba(0, 119, 255, 0.25)
+
+  li:first-child
+    margin-left: 0
+
+  li:last-child
+    margin-right: 0

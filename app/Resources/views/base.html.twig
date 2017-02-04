@@ -2,14 +2,53 @@
 <html>
     <head>
         <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <title>{% block title %}Local Art{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('css/styles.css') }}" />
+        {% endblock %}
 
         {#<link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />#}
     </head>
 
     <body>
-        {% block body %}{% endblock %}
+
+
+        {#/ this <ul> is only for development /#}
+        {#<ul class="devGrid">#}
+            {#<li>1</li>#}
+            {#<li>2</li>#}
+            {#<li>3</li>#}
+            {#<li>4</li>#}
+            {#<li>5</li>#}
+            {#<li>6</li>#}
+            {#<li>7</li>#}
+            {#<li>8</li>#}
+            {#<li>9</li>#}
+            {#<li>10</li>#}
+            {#<li>11</li>#}
+            {#<li>12</li>#}
+        {#</ul>#}
+
+        {#/ header component /#}
+        {% block header %}
+          {{ include(':common:header.html.twig') }}
+        {% endblock %}
+
+        {#/ main body /#}
+        {% block body %}
+            <main></main>
+        {% endblock %}
+
+
+        {#/ only used to push the footer down /#}
+        <div class="footer-pusher"></div>
+
+        {#/ footer component /#}
+        {% block footer %}
+          {{ include(':common:footer.html.twig') }}
+        {% endblock %}
+
         {% block javascripts %}{% endblock %}
     </body>
 </html>

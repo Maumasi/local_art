@@ -33,7 +33,10 @@ class VenueRegistration extends AbstractType
                 'empty_data' => null,
                 'required' => false,
             ])
-            ->add('website', UrlType::class)
+            ->add('website', UrlType::class, [
+                'empty_data' => null,
+                'required' => false,
+            ])
 
             ->add('marketName')
             ->add('marketSubtitle')

@@ -37,10 +37,11 @@ class RegistrationController extends Controller
             $em = $this->getDoctrine()->getManager();
             $newArtist = $form->getData();
 
+
             // use custom service to upload artist profile image
             $profileImg = $newArtist->getProfileImage();
             $imageName = $this->get('app.save_file')->img($profileImg);
-            $newArtist->setProfileImage($imageName);
+
 
 
             // create a new user entity for the artist
@@ -52,8 +53,9 @@ class RegistrationController extends Controller
             $em->persist($user);
             $em->flush();
 
-            // create new artist
             $newArtist->setUser($user);
+            $newArtist->setProfileImage($imageName);
+
             $em->persist($newArtist);
             $em->flush();
 
@@ -98,7 +100,6 @@ class RegistrationController extends Controller
             $profileImg = $newVenue->getProfileImage();
             $imageName = $this->get('app.save_file')->img($profileImg);
             $newVenue->setProfileImage($imageName);
-
 
             // create a new user entity for the venue
             $user = new User();

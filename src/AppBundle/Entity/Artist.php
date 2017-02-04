@@ -62,7 +62,7 @@ class Artist
     private $email;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", nullable=true)
      */
     private $website;
 
@@ -149,7 +149,6 @@ class Artist
     {
         return $this->user;
     }
-
 
     public function setUser(User $user)
     {

@@ -1,0 +1,30 @@
+
+main.artist-profile
+  div.profile-image
+    height: 45vh
+    margin-top: 1rem
+    position: relative
+    background-color: #fff
+    // border: 1px solid rgba(0,0,0,0.38)
+
+  h1
+    +displayFont(6.2)
+    +greyFont($siteGreyShade)
+    padding: 2rem 0
+
+    border-bottom: 1px solid rgba(0, 0, 0, $siteGreyShade)
+
+  h2
+    +displayFont(3.4)
+    +greyFont($siteGreyShade)
+    padding: 2rem 0
+
+  p.bio
+    +paragraphFont(1.6)
+    +greyFont($siteGreyShade)
+    margin-bottom: 4rem
+
+  h2:last-of-type + ul
+    li
+      a
+        +displayFont(1.8)
