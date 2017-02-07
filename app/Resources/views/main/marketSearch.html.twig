@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h1>Search results page</h1>
+
+    {{ form_start(marketSearch) }}
+        {{ form_row(marketSearch.city) }}
+        {{ form_row(marketSearch.state) }}
+        {{ form_row(marketSearch.zipCode) }}
+
+        <button type="submit">Search</button>
+    {{ form_end(marketSearch) }}
+
+    {% if results %}
+        {{ dump(results) }}
+
+    {% else %}
+        <p>No results</p>
+    {% endif %}
+
+{% endblock %}
+

@@ -1,0 +1,37 @@
+
+AppBundle\Entity\User:
+  user_{1..10}:
+    email (unique): <freeEmail()>
+    nakedPassword: "123qwe"
+    createdAt: <dateTime()>
+    roles: "['ROLE_USER', 'ROLE_VENUE']"
+
+
+AppBundle\Entity\Venue:
+  venue_{1..10}:
+    email (unique): <freeEmail()>
+    firstName: <name()>
+    lastName: <name()>
+    bio: <paragraph()>
+    marketName: <company()>
+    marketSubtitle: <sentence()>
+    profileImage: <imageUrl()>
+    website: <url()>
+    address1: <streetAddress()>
+    address2: <city()>, <stateAbbr()> <postcode()>
+    state: <stateAbbr()>
+    city: <city()>
+    zipCode: <postcode()>
+    user (unique): '@user_*'
+
+
+AppBundle\Entity\Artist:
+  artist_{1..10}:
+    email (unique): <freeEmail()>
+    firstName: <name()>
+    lastName: <name()>
+    bio: <paragraph()>
+    businessName: <company()>
+    profileImage: <imageUrl()>
+    website: <url()>
+    user (unique): '@user_*'
