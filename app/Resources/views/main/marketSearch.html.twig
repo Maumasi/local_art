@@ -13,7 +13,8 @@
     {{ form_end(marketSearch) }}
 
     {% if results %}
-        {{ dump(results) }}
+
+        {{ include(':main/partials:resultsList.html.twig') }}
 
     {% else %}
         <p>No results</p>

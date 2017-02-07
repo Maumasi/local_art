@@ -15,6 +15,7 @@ use Nelmio\Alice\Fixtures;
 
 class LoadDummyData implements FixtureInterface
 {
+
     public function load(ObjectManager $manager)
     {
         Fixtures::load(__DIR__.'/fixtures.yml', $manager);

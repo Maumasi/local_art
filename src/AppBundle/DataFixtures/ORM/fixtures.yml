@@ -1,4 +1,10 @@
 
+AppBundle\Entity\State:
+  state_{1..50}:
+    state (unique): <state()>
+    stateAbbr (unique): <stateAbbr()>
+
+
 AppBundle\Entity\User:
   user_{1..10}:
     email (unique): <freeEmail()>
@@ -19,7 +25,7 @@ AppBundle\Entity\Venue:
     website: <url()>
     address1: <streetAddress()>
     address2: <city()>, <stateAbbr()> <postcode()>
-    state: <stateAbbr()>
+    state: '@state_*'
     city: <city()>
     zipCode: <postcode()>
     user (unique): '@user_*'

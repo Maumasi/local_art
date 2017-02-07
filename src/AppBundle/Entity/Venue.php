@@ -79,21 +79,11 @@ class Venue
 
     /**
      * @Assert\NotBlank(groups={"registration"})
-     * @ORM\Column(type="string")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\State")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $state;
 
-    /**
-     * @Assert\NotBlank(groups={"registration"})
-     * @ORM\Column(type="string")
-     */
-    private $address1;
-
-    /**
-     * @Assert\NotBlank(groups={"registration"})
-     * @ORM\Column(type="string")
-     */
-    private $address2;
 
     /**
      * @Assert\NotBlank(groups={"registration"})

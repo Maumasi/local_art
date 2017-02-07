@@ -2,6 +2,8 @@
 
 namespace AppBundle\Form;
 
+use AppBundle\Entity\State;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -16,8 +18,10 @@ class MarketSearch extends AbstractType
                 'empty_data' => null,
                 'required' => false,
             ])
-            ->add('state', TextType::class, [
-                'empty_data' => null,
+            ->add('state', EntityType::class, [
+                'class' => State::class,
+                'choice_label' => 'stateAbbr',
+                'placeholder' => 'Select a state',
             ])
             ->add('zipCode', TextType::class, [
                 'empty_data' => null,

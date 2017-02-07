@@ -1,0 +1,14 @@
+
+
+<ul>
+
+{% for result in results %}
+    <li>
+        <a href="{{ path('market_details', { 'marketId': result.id, }) }}">{{ result.marketName }}</a>
+
+        {{ dump(result) }}
+
+    </li>
+{% endfor %}
+
+</ul>
