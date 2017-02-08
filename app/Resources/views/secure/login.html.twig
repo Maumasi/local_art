@@ -10,9 +10,12 @@
     {% endif %}
 
     {{ form_start(login_form) }}
+
+        {{ form_errors(login_form) }}
+
         {{ form_row(login_form._email) }}
         {{ form_row(login_form._password) }}
-        <button type="submit">Login</button>
+        <button type="submit" formnovalidate>Login</button>
     {{ form_end(login_form) }}
 
 

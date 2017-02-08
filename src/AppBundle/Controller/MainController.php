@@ -23,7 +23,7 @@ class MainController extends Controller
     /**
      * @Route("/", name="home_page")
      */
-    public function homePage()
+    public function homePage(Request $request)
     {
 
 
@@ -43,8 +43,46 @@ class MainController extends Controller
             }
         }
 
-        return $this->render('main/index.html.twig');
+
+
+
+
+        $form = $this->createForm(MarketSearch::class);
+        $venues = $em->getRepository(Venue::class);
+
+//        check for search results
+        $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid()) {
+
+            $search = $form->getData();
+            $marketSearchResults = [];
+
+            if(!$search['zipCode']) {
+                $marketSearchResults = $venues->findAllVenuesByAddress($search['city'], $search['state']);
+            } else {
+                $marketSearchResults = $venues->findAllVenuesByZipCode($search['zipCode']);
+            }
+
+
+            return $this->render(':main:index.html.twig', [
+                'marketSearch' => $form->createView(),
+                'results' => $marketSearchResults,
+            ]);
+        }
+
+//        search form not submitted
+        return $this->render(':main:index.html.twig', [
+            'marketSearch' => $form->createView(),
+            'results' => null,
+        ]);
+
+
+
+
+//        return $this->render('main/index.html.twig');
     }
+
+
 
 
     /**

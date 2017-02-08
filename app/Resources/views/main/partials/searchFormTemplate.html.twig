@@ -1,0 +1,23 @@
+
+
+<h1>Search for markets... where ever</h1>
+
+{{ form_start(marketSearch) }}
+    {{ form_row(marketSearch.city, {
+        attr: {
+            placeholder: 'City'
+        }
+    }) }}
+
+    {{ form_row(marketSearch.state) }}
+
+    <p>or</p>
+
+    {{ form_row(marketSearch.zipCode, {
+        attr: {
+            placeholder: 'Zip Code'
+        }
+    }) }}
+
+    <button type="submit" formnovalidate>Search</button>
+{{ form_end(marketSearch) }}

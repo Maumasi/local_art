@@ -1,0 +1,97 @@
+
+main.home-page
+  div.hero
+    background: url('../assets/local_art_hero.svg') no-repeat
+    background-size: cover
+    background-position: center
+    height: 50vh
+    +imageGreyFrame($quarterGrey)
+
+    margin-top: 2rem
+    display: flex
+
+    justify-content: center
+    align-items: center
+    flex-direction: column
+
+    h1
+      margin-bottom: 3rem
+      +displayFont(6.2)
+      +greyFont($siteGreyShade)
+
+    form
+      +col(6)
+      padding: 0.5rem
+      background: $green
+      border-radius: 50rem
+      display: flex
+      align-items: center
+      box-shadow: 0 0 2rem 0.5rem $white
+
+      p
+        +colOffset('left', .25)
+        +colOffset('right', .25)
+        display: inline-block
+        border-radius: 100%
+        background: $subduedOrange
+        width: 3rem
+        height: 3rem
+        line-height: 2.75rem
+        text-align: center
+        font-size: $formFontSize
+        font-family: 'Lato', sans-serif
+        color: $white
+
+      button
+        +colOffset('left', .25)
+        border-radius: 50rem
+        padding: 0.5rem 1rem
+        line-height: 2rem
+        background: $orange
+        font-size: $formFontSize
+        font-family: 'Lato', sans-serif
+
+        color: $white
+        border: none
+
+
+      div
+
+
+        +col(3)
+        display: inline-block
+        border-radius: 0
+
+        label
+          display: none
+
+        input
+          width: 100%
+          padding: 0.5rem 0.75rem
+          font-size: $formFontSize
+          font-family: 'Lato', sans-serif
+          color: $blue
+
+
+
+        select
+          width: 100%
+          -webkit-appearance: none
+          -moz-appearance: none
+          display: inline-block
+          margin-left: 0.25rem
+          padding: 0.5rem 0.75rem
+          border: 0
+          border-radius: 0
+          font-size: $formFontSize
+          font-family: 'Lato', sans-serif
+          color: $blue
+
+
+        &:first-of-type
+          input
+            border-radius: 50rem 0 0 50rem
+
+        &:last-of-type
+          input
+            border-radius: 0 50rem 50rem 0
