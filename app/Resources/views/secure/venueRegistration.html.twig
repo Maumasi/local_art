@@ -34,6 +34,33 @@
         {{ form_row(venueRegistration.state) }}
         {{ form_row(venueRegistration.zipCode) }}
 
+        {#market hours#}
+        {{ form_row(venueRegistration.sunOpen) }}
+        {{ form_row(venueRegistration.monOpen) }}
+        {{ form_row(venueRegistration.tueOpen) }}
+        {{ form_row(venueRegistration.wedOpen) }}
+        {{ form_row(venueRegistration.thuOpen) }}
+        {{ form_row(venueRegistration.friOpen) }}
+        {{ form_row(venueRegistration.satOpen) }}
+
+        {{ form_row(venueRegistration.sunClose) }}
+        {{ form_row(venueRegistration.monClose) }}
+        {{ form_row(venueRegistration.tueClose) }}
+        {{ form_row(venueRegistration.wedClose) }}
+        {{ form_row(venueRegistration.thuClose) }}
+        {{ form_row(venueRegistration.friClose) }}
+        {{ form_row(venueRegistration.satClose) }}
+
+        {{ form_row(venueRegistration.marketHours, {
+            'label': ' ',
+            'attr': {
+                hidden: true
+            }
+        }) }}
+
+
+
+
         <button type="submit" formnovalidate>Register!</button>
     {{ form_end(venueRegistration) }}
 

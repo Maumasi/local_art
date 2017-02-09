@@ -104,15 +104,93 @@ class Venue
      */
     private $user;
 
-    // this password should never persist
+//    this password should never persist
     /**
      * @Assert\NotBlank()
      */
     private $nakedPassword;
 
+//    market hours
+
+    /**
+     * @Assert\NotBlank()
+     */
+    private $sunOpen;
+
+    /**
+     * @Assert\NotBlank()
+     */
+    private $monOpen;
+
+    /**
+     * @Assert\NotBlank()
+     */
+    private $tueOpen;
+
+    /**
+     * @Assert\NotBlank()
+     */
+    private $wedOpen;
+
+    /**
+     * @Assert\NotBlank()
+     */
+    private $thuOpen;
+
+    /**
+     * @Assert\NotBlank()
+     */
+    private $friOpen;
+
+    /**
+     * @Assert\NotBlank()
+     */
+    private $satOpen;
+
+    /**
+     * @Assert\NotBlank()
+     */
+    private $sunClose;
+
+    /**
+     * @Assert\NotBlank()
+     */
+    private $monClose;
+
+    /**
+     * @Assert\NotBlank()
+     */
+    private $tueClose;
+
+    /**
+     * @Assert\NotBlank()
+     */
+    private $wedClose;
+
+    /**
+     * @Assert\NotBlank()
+     */
+    private $thuClose;
+
+    /**
+     * @Assert\NotBlank()
+     */
+    private $friClose;
+
+    /**
+     * @Assert\NotBlank()
+     */
+    private $satClose;
 
 
-    // getters and setters
+    /**
+     * @ORM\Column(type="json_array")
+     */
+    private $marketHours = [];
+
+
+
+//    getters and setters
 
     public function getId()
     {
@@ -258,4 +336,156 @@ class Venue
     {
         $this->nakedPassword = $nakedPassword;
     }
+
+    public function getSunOpen()
+    {
+        return $this->sunOpen;
+    }
+
+    public function setSunOpen($sunOpen)
+    {
+        $this->sunOpen = $sunOpen;
+    }
+
+    public function getMonOpen()
+    {
+        return $this->monOpen;
+    }
+
+    public function setMonOpen($monOpen)
+    {
+        $this->monOpen = $monOpen;
+    }
+
+    public function getTueOpen()
+    {
+        return $this->tueOpen;
+    }
+
+    public function setTueOpen($tueOpen)
+    {
+        $this->tueOpen = $tueOpen;
+    }
+
+    public function getWedOpen()
+    {
+        return $this->wedOpen;
+    }
+
+    public function setWedOpen($wedOpen)
+    {
+        $this->wedOpen = $wedOpen;
+    }
+
+    public function getThuOpen()
+    {
+        return $this->thuOpen;
+    }
+
+    public function setThuOpen($thuOpen)
+    {
+        $this->thuOpen = $thuOpen;
+    }
+
+    public function getFriOpen()
+    {
+        return $this->friOpen;
+    }
+
+    public function setFriOpen($friOpen)
+    {
+        $this->friOpen = $friOpen;
+    }
+
+    public function getSatOpen()
+    {
+        return $this->satOpen;
+    }
+
+    public function setSatOpen($satOpen)
+    {
+        $this->satOpen = $satOpen;
+    }
+
+    public function getSunClose()
+    {
+        return $this->sunClose;
+    }
+
+    public function setSunClose($sunClose)
+    {
+        $this->sunClose = $sunClose;
+    }
+
+    public function getMonClose()
+    {
+        return $this->monClose;
+    }
+
+    public function setMonClose($monClose)
+    {
+        $this->monClose = $monClose;
+    }
+
+    public function getTueClose()
+    {
+        return $this->tueClose;
+    }
+
+    public function setTueClose($tueClose)
+    {
+        $this->tueClose = $tueClose;
+    }
+
+    public function getWedClose()
+    {
+        return $this->wedClose;
+    }
+
+    public function setWedClose($wedClose)
+    {
+        $this->wedClose = $wedClose;
+    }
+
+    public function getThuClose()
+    {
+        return $this->thuClose;
+    }
+
+    public function setThuClose($thuClose)
+    {
+        $this->thuClose = $thuClose;
+    }
+
+    public function getFriClose()
+    {
+        return $this->friClose;
+    }
+
+    public function setFriClose($friClose)
+    {
+        $this->friClose = $friClose;
+    }
+
+    public function getSatClose()
+    {
+        return $this->satClose;
+    }
+
+    public function setSatClose($satClose)
+    {
+        $this->satClose = $satClose;
+    }
+
+    public function getMarketHours()
+    {
+        return $this->marketHours;
+    }
+
+    public function setMarketHours($marketHours)
+    {
+        $this->marketHours = $marketHours;
+    }
+
+
 }

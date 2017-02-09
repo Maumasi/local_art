@@ -3,7 +3,6 @@
 
 {% block body %}
 
-    {#{{ dump(market) }}#}
 <main class="venue-details-page">
     <div class="market-image"
          style=" background: url( {{ asset('uploads/' ~ market.profileImage) }} ) no-repeat;
@@ -18,6 +17,44 @@
     <p>{{ market.bio }}</p>
 
     <p><a href="{{ market.website }}">{{ market.marketName }} website</a></p>
+
+    
+    <h2>Market hours</h2>
+    <table>
+        <tr>
+            <th>day</th>
+            <th>open</th>
+            <th>close</th>
+        </tr>
+
+        {% set day = 0 %}
+        {% set open = 1 %}
+        {% set close = 2 %}
+        {% for hours in market.marketHours %}
+
+            <tr>
+                {# check if market is closed for this day or not #}
+                {% if not hours[open] and not hours[close]  %}
+
+                    <td><p>{{ hours[day] }}</p></td>
+                    <td><p>Closed</p></td>
+                    <td></td>
+
+                {% else %}
+                    <td><p>{{ hours[day] }}</p></td>
+                    <td><p>{{ hours[open] }}</p></td>
+                    <td><p>{{ hours[close] }}</p></td>
+
+                {% endif %}
+            </tr>
+
+        {% endfor %}
+    </table>
+
+
+
+
+
 
 </main>
 

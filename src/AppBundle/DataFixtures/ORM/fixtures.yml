@@ -28,6 +28,7 @@ AppBundle\Entity\Venue:
     city: <city()>
     zipCode: <postcode()>
     user (unique): '@user_*'
+    marketHours: [['sunday', null, null], ['monday', 9, 4], ['tuesday', 9, 4], ['wednesday', 9, 4], ['thursday', 9, 4], ['friday', 9, 4], ['saturday', 9, 4]]
 
 
 AppBundle\Entity\Artist:

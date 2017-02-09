@@ -5,6 +5,7 @@ namespace AppBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -46,6 +47,26 @@ class VenueRegistration extends AbstractType
                 'placeholder' => 'Select a state'
             ])
             ->add('zipCode')
+
+            ->add('sunOpen')
+            ->add('monOpen')
+            ->add('tueOpen')
+            ->add('wedOpen')
+            ->add('thuOpen')
+            ->add('friOpen')
+            ->add('satOpen')
+
+            ->add('sunClose')
+            ->add('monClose')
+            ->add('tueClose')
+            ->add('wedClose')
+            ->add('thuClose')
+            ->add('friClose')
+            ->add('satClose')
+
+            ->add('marketHours', FormType::class, [
+                'required' => false,
+            ])
         ;
     }
 
