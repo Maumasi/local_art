@@ -1,26 +1,30 @@
 
 
-<ul class="results">
+<section class="results-found">
+    <p class="total-results">Total results found: <span>{{ results | length }}</span></p>
 
-{% for venue in results %}
-    <li>
-        <a href="{{ path('market_details', { 'marketId': venue.id, 'marketName': venue.marketName }) }}">
-            <div class="market-image"
-                style=" background: url( {{ asset('uploads/' ~ venue.profileImage) }} ) no-repeat;
-                        background-size: cover;
-                        background-position: center;
-                        "
-            >
-            </div>
+    <ul class="results">
 
-            <div class="market-info">
-                    <h2>{{ venue.marketName }}</h2>
-                    <p>{{ venue.marketSubtitle }}</p>
-                    <p>{{ venue.streetAddress }}</p>
-                    <p>{{ venue.city }} {{ venue.state }} {{ venue.zipCode }}</p>
-            </div>
-        </a>
-    </li>
-{% endfor %}
+        {% for venue in results %}
+            <li>
+                <a href="{{ path('market_details', { 'marketId': venue.id, 'marketName': venue.marketName }) }}">
+                    <div class="market-image"
+                         style=" background: url( {{ asset('uploads/' ~ venue.profileImage) }} ) no-repeat;
+                                 background-size: cover;
+                                 background-position: center;
+                                 "
+                    >
+                    </div>
 
-</ul>
+                    <div class="market-info">
+                        <h2>{{ venue.marketName }}</h2>
+                        <p>{{ venue.marketSubtitle }}</p>
+                        <p>{{ venue.streetAddress }}</p>
+                        <p>{{ venue.city }} {{ venue.state }} {{ venue.zipCode }}</p>
+                    </div>
+                </a>
+            </li>
+        {% endfor %}
+
+    </ul>
+</section>

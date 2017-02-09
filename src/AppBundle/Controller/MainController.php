@@ -19,7 +19,6 @@ use Symfony\Component\HttpFoundation\Request;
 class MainController extends Controller
 {
 
-
     /**
      * @Route("/", name="home_page")
      */
@@ -42,9 +41,6 @@ class MainController extends Controller
                 $em->flush();
             }
         }
-
-
-
 
 
         $form = $this->createForm(MarketSearch::class);
@@ -95,55 +91,7 @@ class MainController extends Controller
             'results' => null,
             'search' => null,
         ]);
-
-
-
-
-//        return $this->render('main/index.html.twig');
     }
-
-
-
-//
-//    /**
-//     * @Route("/search", name="market_search")
-//     */
-//    public function  marketSearch(Request $request){
-//
-//
-//        $form = $this->createForm(MarketSearch::class);
-//        $em = $this->getDoctrine()->getEntityManager();
-//        $venues = $em->getRepository(Venue::class);
-//
-////        check for search results
-//        $form->handleRequest($request);
-//        if($form->isSubmitted() && $form->isValid()) {
-//
-//            $search = $form->getData();
-//
-//            if(!$search['zipCode']) {
-//                $marketSearchResults = $venues->findAllVenuesByAddress($search['city'], $search['state']);
-//
-//            } else {
-//                $marketSearchResults = $venues->findAllVenuesByZipCode($search['zipCode']);
-//            }
-//
-//
-//            return $this->render('main/marketSearch.html.twig', [
-//                'marketSearch' => $form->createView(),
-//                'results' => $marketSearchResults,
-//                'search' => $search,
-//            ]);
-//        }
-//
-////        search form not submitted
-//        return $this->render('main/marketSearch.html.twig', [
-//            'marketSearch' => $form->createView(),
-//            'results' => null,
-//            'search' => null,
-//        ]);
-//    }
-//
 
 
     /**
@@ -160,7 +108,6 @@ class MainController extends Controller
         ]);
 
     }
-
 
 
     public function states() {

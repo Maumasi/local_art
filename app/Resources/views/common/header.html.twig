@@ -12,11 +12,11 @@
         {#login and register#}
         <ul>
             {% if is_granted('ROLE_USER') %}
-                <li><p><a href="{{ path('logout') }}">Log out</a></p></li>
+                <li><p><a href="{{ path('logout') }}" rel="nofollow">Log out</a></p></li>
             {% else %}
-            <li><p><a href="{{ path('secure_login') }}">Log in</a></p></li>
+            <li><p><a href="{{ path('secure_login') }}" rel="nofollow">Log in</a></p></li>
             <li>
-                <p><a href="{{ path('home_page') }}#registration" class="sign_up">Sign up</a></p>
+                <p><a href="{{ path('home_page') }}#registration" class="sign_up" rel="nofollow">Sign up</a></p>
                 {#<ul>#}
                     {#<li><p><a href="{{ path('venue_registration') }}">Venue sign up</a></p></li>#}
                     {#<li><p><a href="{{ path('artist_registration') }}">Artist sign up</a></p></li>#}

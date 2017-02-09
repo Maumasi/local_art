@@ -1,48 +1,62 @@
 
+section.results-found
 
-ul.results
-  margin: 2rem 0
+  p.total-results
+    +col(5)
+    +displayFont(1.8)
+    color: rgba(0, 0, 0, 0.65)
+    margin-top: 2rem
+    padding-bottom: 0.5rem
+    border-bottom: 1px solid $black
 
-  li
-    padding: 2rem 0 2rem 2rem
-    margin: 0.25rem
-    height: 15vw
-    background: rgba(0, 0, 0, 0.2)
-    +clearfix
+    span
+      font-weight: 900
+      color: $orange
 
-    &:active
-      background: $orange
-    &:hover
-      background: $subduedBlue
 
-    &:nth-child(even)
-      background: rgba(0, 0, 0, 0.1)
+  ul.results
+    margin: 1rem 0 2rem
+
+    li
+      padding: 2rem 0 2rem 2rem
+      margin: 0.25rem
+      height: 15vw
+      background: rgba(0, 0, 0, 0.2)
+      +clearfix
 
       &:active
         background: $orange
       &:hover
         background: $subduedBlue
 
-    div
-      height: 100%
-      float: left
+      &:nth-child(even)
+        background: rgba(0, 0, 0, 0.1)
 
-    div.market-image
-      +col(4)
-      +imageGreyFrame($quarterGrey)
+        &:active
+          background: $orange
+        &:hover
+          background: $subduedBlue
 
-    div.market-info
-      +col(7)
-      +paragraphFont(1.8)
-      margin-left: 4rem
-      padding-top: 1rem
+      div
+        height: 100%
+        float: left
 
-      p
-        color: rgba(0, 0, 0, 0.65)
+      div.market-image
+        +col(4)
+        +imageGreyFrame($quarterGrey)
 
-      p:first-of-type
-        margin: 1rem 0 2rem
+      div.market-info
+        +col(7)
+        +paragraphFont(1.8)
+        margin-left: 4rem
+        padding-top: 1rem
 
-      h2
-        +displayFont(3.4)
-        color: rgba(0, 0, 0, 0.65)
+        p
+          color: rgba(0, 0, 0, 0.65)
+
+        p:first-of-type
+          margin: 1rem 0 2rem
+
+        h2
+          +displayFont(3.4)
+          color: rgba(0, 0, 0, 0.65)
