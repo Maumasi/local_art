@@ -3,10 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="a7fe877e-51b3-481e-86fd-f51e2c15ad63" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/main/marketDetailsPage.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/main/marketDetailsPage.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/secure/venueRegistration.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/secure/venueRegistration.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/DataFixtures/ORM/fixtures.yml" afterPath="$PROJECT_DIR$/src/AppBundle/DataFixtures/ORM/fixtures.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/Venue.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/Venue.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Form/VenueRegistration.php" afterPath="$PROJECT_DIR$/src/AppBundle/Form/VenueRegistration.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/devAssets/sass/visitor/_details_venue.sass" afterPath="$PROJECT_DIR$/devAssets/sass/visitor/_details_venue.sass" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/styles.css" afterPath="$PROJECT_DIR$/web/css/styles.css" />
     </list>
     <ignored path="local_art.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,7 +30,10 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="105">
               <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-              <folding />
+              <folding>
+                <element signature="e#91#109#0#Twig" expanded="false" />
+                <element signature="e#677#696#0#Twig" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -40,8 +41,8 @@
       <file leaf-file-name="marketDetailsPage.html.twig" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/main/marketDetailsPage.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="20" column="4" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
+            <state relative-caret-position="696">
+              <caret line="55" column="46" selection-start-line="55" selection-start-column="46" selection-end-line="55" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -586,12 +587,12 @@
       <workItem from="1486332033352" duration="1514000" />
       <workItem from="1486417368886" duration="39085000" />
       <workItem from="1486673322219" duration="9000" />
-      <workItem from="1486674616043" duration="4599000" />
+      <workItem from="1486674616043" duration="5644000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="159422000" />
+    <option name="totallyTimeSpent" value="160467000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -969,7 +970,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#91#109#0#Twig" expanded="false" />
+            <element signature="e#677#696#0#Twig" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -983,8 +987,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/main/marketDetailsPage.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="20" column="4" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
+        <state relative-caret-position="696">
+          <caret line="55" column="46" selection-start-line="55" selection-start-column="46" selection-end-line="55" selection-end-column="46" />
           <folding />
         </state>
       </provider>

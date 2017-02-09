@@ -4,4 +4,30 @@ main.venue-details-page
   div.market-image
     height: 60vh
     +imageGreyFrame($lightGreyShade)
-    margin: 2rem 0
+    margin: 2rem 0 1rem
+
+  h1
+    +displayFont(4.2)
+    color: rgba(0, 0, 0, 0.75)
+    padding-bottom: 1rem
+
+    & + p:first-of-type
+      +displayFont(1.8)
+      color: rgba(0, 0, 0, 0.75)
+      padding-bottom: 0.5rem
+      border-bottom: 1px solid rgba(0, 0, 0, 0.75)
+  h2
+    +displayFont(3.4)
+    color: rgba(0, 0, 0, 0.75)
+    margin: 2rem 0 1rem
+
+    & + p
+      +col(6)
+      +paragraphFont(1.8)
+      color: rgba(0, 0, 0, 0.75)
+      margin-bottom: 4rem
+
+  div.market-info
+    display: flex
+    +devBox(red)
+    justify-content: space-between
