@@ -71,6 +71,13 @@ class Venue
      */
     private $website;
 
+
+    /**
+     * @Assert\NotBlank(groups={"registration"})
+     * @ORM\Column(type="string")
+     */
+    private $streetAddress;
+
     /**
      * @Assert\NotBlank(groups={"registration"})
      * @ORM\Column(type="string")
@@ -192,6 +199,16 @@ class Venue
         $this->marketSubtitle = $marketSubtitle;
     }
 
+    public function getStreetAddress()
+    {
+        return $this->streetAddress;
+    }
+
+    public function setStreetAddress($streetAddress)
+    {
+        $this->streetAddress = $streetAddress;
+    }
+
     public function getCity()
     {
         return $this->city;
@@ -210,26 +227,6 @@ class Venue
     public function setState($state)
     {
         $this->state = $state;
-    }
-
-    public function getAddress1()
-    {
-        return $this->address1;
-    }
-
-    public function setAddress1($address1)
-    {
-        $this->address1 = $address1;
-    }
-
-    public function getAddress2()
-    {
-        return $this->address2;
-    }
-
-    public function setAddress2($address2)
-    {
-        $this->address2 = $address2;
     }
 
     public function getZipCode()

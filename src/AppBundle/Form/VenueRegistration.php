@@ -40,6 +40,7 @@ class VenueRegistration extends AbstractType
 
             ->add('marketName')
             ->add('marketSubtitle')
+            ->add('streetAddress')
             ->add('city')
             ->add('state', null, [
                 'placeholder' => 'Select a state'

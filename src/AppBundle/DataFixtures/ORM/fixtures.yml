@@ -8,7 +8,7 @@ AppBundle\Entity\State:
 AppBundle\Entity\User:
   user_{1..10}:
     email (unique): <freeEmail()>
-    nakedPassword: "123qwe"
+    nakedPassword: '123qwe'
     createdAt: <dateTime()>
     roles: ['ROLE_USER', 'ROLE_VENUE']
 
@@ -19,10 +19,11 @@ AppBundle\Entity\Venue:
     firstName: <name()>
     lastName: <name()>
     bio: <paragraph()>
-    marketName: <company()>
+    marketName: <company()> Market
     marketSubtitle: <sentence()>
     profileImage: '15ec6b5e7520fe83f58efc04421c818d.jpeg'
     website: <url()>
+    streetAddress: <streetAddress()>
     state: '@state_*'
     city: <city()>
     zipCode: <postcode()>

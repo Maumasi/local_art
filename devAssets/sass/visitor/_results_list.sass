@@ -1,0 +1,48 @@
+
+
+ul.results
+  margin: 2rem 0
+
+  li
+    padding: 2rem 0 2rem 2rem
+    margin: 0.25rem
+    height: 15vw
+    background: rgba(0, 0, 0, 0.2)
+    +clearfix
+
+    &:active
+      background: $orange
+    &:hover
+      background: $subduedBlue
+
+    &:nth-child(even)
+      background: rgba(0, 0, 0, 0.1)
+
+      &:active
+        background: $orange
+      &:hover
+        background: $subduedBlue
+
+    div
+      height: 100%
+      float: left
+
+    div.market-image
+      +col(4)
+      +imageGreyFrame($quarterGrey)
+
+    div.market-info
+      +col(7)
+      +paragraphFont(1.8)
+      margin-left: 4rem
+      padding-top: 1rem
+
+      p
+        color: rgba(0, 0, 0, 0.65)
+
+      p:first-of-type
+        margin: 1rem 0 2rem
+
+      h2
+        +displayFont(3.4)
+        color: rgba(0, 0, 0, 0.65)

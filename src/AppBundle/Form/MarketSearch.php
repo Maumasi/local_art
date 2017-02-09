@@ -20,7 +20,7 @@ class MarketSearch extends AbstractType
             ])
             ->add('state', EntityType::class, [
                 'class' => State::class,
-                'choice_label' => 'state',
+                'choice_label' => 'stateAbbr',
                 'placeholder' => 'Select a state',
             ])
             ->add('zipCode', TextType::class, [

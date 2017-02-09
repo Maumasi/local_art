@@ -78,7 +78,7 @@ class State
 
     public function __toString()
     {
-        return $this->getState();
+        return $this->getStateAbbr();
     }
 
 }

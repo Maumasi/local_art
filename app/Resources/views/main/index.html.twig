@@ -12,7 +12,8 @@
 
             {{ include(':main/partials/home:resultsList.html.twig') }}
 
-        {% else %}
+        {% elseif search %}
+        {#{% else %}#}
 
             {{ include(':main/partials/home:noResults.html.twig') }}
 

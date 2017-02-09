@@ -56,17 +56,36 @@ class MainController extends Controller
 
             $search = $form->getData();
             $marketSearchResults = [];
+            $usedZipCode = false;
 
-            if(!$search['zipCode']) {
-                $marketSearchResults = $venues->findAllVenuesByAddress($search['city'], $search['state']);
-            } else {
+//            only used the zip code to fild markets
+            if($search['zipCode']) {
                 $marketSearchResults = $venues->findAllVenuesByZipCode($search['zipCode']);
+                $usedZipCode = true;
             }
 
+//            if zip code input was quesied and there were no results returned or if zip code was not used
+            if($usedZipCode && !$marketSearchResults || !$usedZipCode) {
+                $marketSearchResults = $venues->findAllVenuesByAddress($search['city'], $search['state']);
+            }
+
+//            if the search form has been submitted with no searchable input, set to null
+            if( !($search['zipCode'] || $search['state'])) {
+                $noResultsResponce = null;
+
+            } elseif($search['zipCode']) {
+                $noResultsResponce = 'zip code '.$search['zipCode'];
+
+            } elseif($search['state'] && $search['city']) {
+                $noResultsResponce = ucwords($search['city']).', '.$search['state'];
+            } else {
+                $noResultsResponce = $search['state'];
+            }
 
             return $this->render(':main:index.html.twig', [
                 'marketSearch' => $form->createView(),
                 'results' => $marketSearchResults,
+                'search' => $noResultsResponce,
             ]);
         }
 
@@ -74,6 +93,7 @@ class MainController extends Controller
         return $this->render(':main:index.html.twig', [
             'marketSearch' => $form->createView(),
             'results' => null,
+            'search' => null,
         ]);
 
 
@@ -84,48 +104,50 @@ class MainController extends Controller
 
 
 
+//
+//    /**
+//     * @Route("/search", name="market_search")
+//     */
+//    public function  marketSearch(Request $request){
+//
+//
+//        $form = $this->createForm(MarketSearch::class);
+//        $em = $this->getDoctrine()->getEntityManager();
+//        $venues = $em->getRepository(Venue::class);
+//
+////        check for search results
+//        $form->handleRequest($request);
+//        if($form->isSubmitted() && $form->isValid()) {
+//
+//            $search = $form->getData();
+//
+//            if(!$search['zipCode']) {
+//                $marketSearchResults = $venues->findAllVenuesByAddress($search['city'], $search['state']);
+//
+//            } else {
+//                $marketSearchResults = $venues->findAllVenuesByZipCode($search['zipCode']);
+//            }
+//
+//
+//            return $this->render('main/marketSearch.html.twig', [
+//                'marketSearch' => $form->createView(),
+//                'results' => $marketSearchResults,
+//                'search' => $search,
+//            ]);
+//        }
+//
+////        search form not submitted
+//        return $this->render('main/marketSearch.html.twig', [
+//            'marketSearch' => $form->createView(),
+//            'results' => null,
+//            'search' => null,
+//        ]);
+//    }
+//
+
 
     /**
-     * @Route("/search", name="market_search")
-     */
-    public function  marketSearch(Request $request){
-
-
-        $form = $this->createForm(MarketSearch::class);
-        $em = $this->getDoctrine()->getEntityManager();
-        $venues = $em->getRepository(Venue::class);
-
-//        check for search results
-        $form->handleRequest($request);
-        if($form->isSubmitted() && $form->isValid()) {
-
-            $search = $form->getData();
-            $marketSearchResults = [];
-
-            if(!$search['zipCode']) {
-                $marketSearchResults = $venues->findAllVenuesByAddress($search['city'], $search['state']);
-            } else {
-                $marketSearchResults = $venues->findAllVenuesByZipCode($search['zipCode']);
-            }
-
-
-            return $this->render('main/marketSearch.html.twig', [
-                'marketSearch' => $form->createView(),
-                'results' => $marketSearchResults,
-            ]);
-        }
-
-//        search form not submitted
-        return $this->render('main/marketSearch.html.twig', [
-            'marketSearch' => $form->createView(),
-            'results' => null,
-        ]);
-    }
-
-
-
-    /**
-     * @Route("/details/{marketId}", name="market_details")
+     * @Route("/details/{marketId}/{marketName}", name="market_details")
      */
     public function marketDetails($marketId) {
 
