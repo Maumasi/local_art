@@ -5,19 +5,19 @@
 
         <div class="hero">
 
-            {{ include(':main/partials:searchFormTemplate.html.twig') }}
+            {{ include(':main/partials/home:searchFormTemplate.html.twig') }}
         </div>
 
         {% if results %}
 
-            {{ include(':main/partials:resultsList.html.twig') }}
+            {{ include(':main/partials/home:resultsList.html.twig') }}
 
         {% else %}
 
-            {{ include(':main/partials:noResults.html.twig') }}
+            {{ include(':main/partials/home:noResults.html.twig') }}
 
         {% endif %}
 
-
+        {{ include(':main/partials/home:homeContent.html.twig') }}
     </main>
 {% endblock %}

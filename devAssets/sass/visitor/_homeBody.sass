@@ -1,0 +1,69 @@
+
+section.home-content
+  display: flex
+  justify-content: center
+
+  div
+    width: 100%
+    min-height: 20vw
+    color: $white
+    transition: color 0.25s
+
+    a
+      width: 100%
+      height: 100%
+      padding: 3rem
+      display: flex
+      flex-direction: column
+      justify-content: center
+      align-items: center
+
+
+    &:first-child
+      border-right: 1px solid $white
+      background: $subduedGreen
+      transition: background 0.25s
+
+      &:hover
+        background: $green
+
+    &:last-child
+      border-left: 1px solid $white
+      background: $subduedBlue
+      transition: background 0.25s
+
+      &:hover
+        background: $blue
+
+
+    h2
+      +displayFont(4.2)
+      text-align: center
+      color: $white
+
+    ul
+      list-style: square
+      margin-top: 2rem
+      li
+        padding: 1rem
+        +displayFont(1.8)
+        color: $white
+        font-family: 'Lato', sans-serif
+
+
+
+
+section.home-about
+  h2
+    +displayFont(4.2)
+    color: rgba(0, 0, 0, 0.8)
+    margin: 4rem 0 1rem
+
+  p
+    display: flex
+    align-content: center
+    justify-content: space-around
+    +paragraphFont(1.8)
+
+    span
+      +col(6)
