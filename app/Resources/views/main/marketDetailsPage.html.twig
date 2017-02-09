@@ -2,8 +2,24 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Details page</h1>
-    {{ dump(market) }}
+
+    {#{{ dump(market) }}#}
+<main class="venue-details-page">
+    <div class="market-image"
+         style=" background: url( {{ asset('uploads/' ~ market.profileImage) }} ) no-repeat;
+                 background-size: cover;
+                 background-position: center;
+                 "
+    ></div>
+
+    <h1>{{ market.marketName }}</h1>
+    <p>{{ market.marketSubtitle }}</p>
+
+    <p>{{ market.bio }}</p>
+
+    <p><a href="{{ market.website }}">{{ market.marketName }} website</a></p>
+
+</main>
 
 {% endblock %}
 

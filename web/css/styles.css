@@ -358,6 +358,11 @@ section.no-results {
     section.no-results h2 span {
       color: #f37444; }
 
+main.venue-details-page div.market-image {
+  height: 60vh;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  margin: 2rem 0; }
+
 main.artist-profile div.profile-image {
   height: 45vh;
   margin-top: 1rem;
