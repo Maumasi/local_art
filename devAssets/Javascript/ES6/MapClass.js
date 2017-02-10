@@ -12,6 +12,7 @@ class Map {
     google.maps.event.addListener(this._map, event, callback);
   }
 
+
   zoom(num = null) {
     if(num) {
       this._map.setZoom(num);
