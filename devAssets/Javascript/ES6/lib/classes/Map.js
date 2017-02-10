@@ -2,11 +2,11 @@
 // ======================================================================
 // map methods
 
-class Map {
+class Map extends ArrayCollection {
   constructor(element, options) {
+    super();
     this._map = new google.maps.Map(element, options);
-    this.markerCollection = [];
-  }
+  }// constructor
 
 
   // capture a map even from the user and use it to trigger a callback function
@@ -14,22 +14,18 @@ class Map {
     google.maps.event.addListener(this._map, event, (e) => {
       callback.call(this, e);
     });
-  }
+  }// on
 
 
   // create a marker on this Map() instance
   marker(markerOptions){
-
     // configure marker options the way google needs them
     const { lat, lng, trigger, content } = markerOptions;
-
     markerOptions.position = { lat, lng, }
     markerOptions.map = this._map;
-
     // create marker and save it to the markers collection
     const marker = new google.maps.Marker(markerOptions);
-    this._collectMarker(marker);
-
+    this.add(marker);
     // there is a triggerable event execute it
     if(trigger) {
       const { event, callback } = trigger;
@@ -39,11 +35,10 @@ class Map {
         callback,
       });
     }// if
-
     // if content is given for an event, display it acording to the event
     if(content) {
       this._event({
-        event: 'click',
+        event: CLICK,
         marker,
         callback() {
           const markerMessage = new google.maps.InfoWindow({
@@ -53,22 +48,33 @@ class Map {
         },
       });
     }// if
-
     return marker;
-  }
+  }// marker
 
 
-  // collect all markers for this map
-  _collectMarker(marker) {
-    this.markerCollection.push(marker);
-  }
-
-  _deleteMarker(marker) {
-    const markerIndex = this.markerCollection.indexOf(marker);
-
-    if(markerIndex !== -1) {
-      this.markerCollection.splice(markerIndex, 1);
+  deleteMarker(marker) {
+    if(this.remove(marker)) {
       marker.setMap(null);
+    }// if
+  }// _deleteMarker
+
+
+  // set the map's zoom level or retun the zoom level
+  zoom(num = null) {
+    if(num) {
+      this._map.setZoom(num);
+    } else {
+      return this._map.getZoom();
+    }
+  }// zoom
+
+
+  // set or get map center
+  mapCenter(lat = null, lng = null) {
+    if(lat && lng) {
+      this._map.setCenter({ lat, lng });
+    } else {
+      return this._map.getCenter();
     }
   }
 
@@ -79,15 +85,5 @@ class Map {
      google.maps.event.addListener(marker, event, (e) => {
        callback.call(this, e);
      });
-   }
-
-
-  // set the map's zoom level or retun the zoom level
-  zoom(num = null) {
-    if(num) {
-      this._map.setZoom(num);
-    } else {
-      return this._map.getZoom();
-    }
-  }
-}
+   }// _event
+}// class

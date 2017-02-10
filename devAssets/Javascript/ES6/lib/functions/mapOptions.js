@@ -12,8 +12,8 @@ function options() {
     scrollwheel: false,
     draggable: true,
     mapTypeId: google.maps.MapTypeId.ROADMAP,
-    zoom: 14,
-    minZoom: 10,
+    zoom: 6,
+    minZoom: 1,
     maxZoom: 35,
     zoomControlOptions: {
       position: google.maps.ControlPosition.LEFT_BOTTOM,

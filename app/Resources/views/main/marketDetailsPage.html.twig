@@ -54,8 +54,8 @@
             <div id="venue-map"></div>
             <address>
                 <p>{{ market.marketName }}</p>
-                <p>{{ market.streetAddress }}</p>
-                <p>{{ market.city }} {{ market.state }} {{ market.zipCode }}</p>
+                <p id="geo-streetAddress">{{ market.streetAddress }}</p>
+                <p><span id="geo-city">{{ market.city }}</span> <span id="geo-state">{{ market.state }}</span> <span id="geo-zip-code">{{ market.zipCode }}</span> </p>
                 <p><a href="{{ market.website }}">{{ market.marketName }} website</a></p>
             </address>
         </div>
