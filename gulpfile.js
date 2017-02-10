@@ -20,7 +20,12 @@ gulp.task('sass', () => {
 
 // compile ES6 to legacy Javascript
 gulp.task('compileES6', () => {
-  return gulp.src(['./devAssets/Javascript/ES6/*.js'])
+  return gulp.src([
+      './devAssets/Javascript/ES6/lib/types/*.js',
+      './devAssets/Javascript/ES6/lib/classes/*.js',
+      './devAssets/Javascript/ES6/lib/functions/*.js',
+      './devAssets/Javascript/ES6/*.js'
+  ])
       .pipe(babel({presets: ['es2015']}))
       .pipe(concat('es5.js'))
       .pipe(gulp.dest('./devAssets/Javascript/ES6_to_ES5'))
@@ -29,7 +34,7 @@ gulp.task('compileES6', () => {
 
 // compress all js files into one file
 gulp.task('compressAllJS', ['compileES6'], () => {
-  return gulp.src(['./devAssets/Javascript/ES6/wrapper/start.js', './devAssets/Javascript/ES6_to_ES5/es5.js', './devAssets/Javascript/ES6/wrapper/end.js'])
+  return gulp.src(['./devAssets/Javascript/ES6/lib/wrapper/start.js', './devAssets/Javascript/ES6_to_ES5/es5.js', './devAssets/Javascript/ES6/lib/wrapper/end.js'])
       .pipe(concat('app.js'))
       .pipe(gulp.dest('./devAssets/Javascript/ES6_to_ES5/compressed/'));
 });
@@ -46,7 +51,7 @@ gulp.task('uglyJS', ['compressAllJS'], () => {
 
 // watch for sass file changes on save
 gulp.task('watch', () => {
-  gulp.watch(['./devAssets/sass/**/*.sass', './devAssets/Javascript/ES6/*.js'], ['sass', 'uglyJS']);
+  gulp.watch(['./devAssets/sass/**/*.sass', './devAssets/Javascript/ES6/**/**/*.js'], ['sass', 'uglyJS']);
 });
 
 

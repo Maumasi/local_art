@@ -95,7 +95,7 @@ class MainController extends Controller
 
 
     /**
-     * @Route("/details/{marketId}/{marketName}", name="market_details")
+     * @Route("/details/venue/{marketId}/{marketName}", name="market_details")
      */
     public function marketDetails($marketId) {
 
