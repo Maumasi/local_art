@@ -29,5 +29,62 @@ main.venue-details-page
 
   div.market-info
     display: flex
-    +devBox(red)
     justify-content: space-between
+
+    table
+      +col(4)
+      background: rgba(0, 0, 0, 0.11)
+
+      tr
+        padding: 1rem
+
+        &:nth-child(even)
+          background: $subduedBlue
+
+        &:first-of-type
+          background: $subduedOrange
+
+        th
+          +displayFont(1.8)
+          color: $white
+          text-align: left
+          padding: 1rem
+
+        td
+          +displayFont(1.4)
+          color: rgba(0, 0, 0, 0.5)
+          padding: 1rem 2rem
+
+          p
+            color: rgba(0, 0, 0, 0.75)
+
+          p.open
+            letter-spacing: 0.05rem
+
+          p.closed
+            color: rgba(0, 0, 0, 0.5)
+
+
+    div
+      +colOffset('right', 1)
+      +clearfix
+      width: 62rem
+
+      div.venue-map
+        height: 26rem
+        width: 26rem
+        float: left
+
+        +devBox(red)
+
+
+      address
+        +displayFont(1.8)
+        color: rgba(0, 0, 0, 0.5)
+        line-height: 2rem
+        width: 28rem
+        float: left
+
+        p:last-of-type
+          font-size: 1.4rem
+          margin-top: 1rem

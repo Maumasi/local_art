@@ -25,23 +25,23 @@
                 <th>close</th>
             </tr>
 
-            {% set day = 0 %}
+            {% set name = 0 %}
             {% set open = 1 %}
             {% set close = 2 %}
-            {% for hours in market.marketHours %}
+            {% for day in market.marketHours %}
 
                 <tr>
                     {# check if market is closed for this day or not #}
-                    {% if not hours[open] and not hours[close]  %}
+                    {% if not day[open] and not day[close]  %}
 
-                        <td><p>{{ hours[day] }}</p></td>
-                        <td><p>Closed</p></td>
-                        <td></td>
+                        <td><p class="closed">{{ day[name] }}</p></td>
+                        <td><p class="closed">Closed</p></td>
+                        <td><p class="closed">Closed</p></td>
 
                     {% else %}
-                        <td><p>{{ hours[day] }}</p></td>
-                        <td><p>{{ hours[open] }}</p></td>
-                        <td><p>{{ hours[close] }}</p></td>
+                        <td><p class="open">{{ day[name] }}</p></td>
+                        <td><p>{{ day[open] }}</p></td>
+                        <td><p>{{ day[close] }}</p></td>
 
                     {% endif %}
                 </tr>

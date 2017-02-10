@@ -392,8 +392,57 @@ main.venue-details-page h2 {
 
 main.venue-details-page div.market-info {
   display: flex;
-  border: 1px solid red;
   justify-content: space-between; }
+  main.venue-details-page div.market-info table {
+    width: calc((100% / 12) * 4);
+    margin: 0;
+    padding: 0;
+    background: rgba(0, 0, 0, 0.11); }
+    main.venue-details-page div.market-info table tr {
+      padding: 1rem; }
+      main.venue-details-page div.market-info table tr:nth-child(even) {
+        background: rgba(70, 193, 240, 0.75); }
+      main.venue-details-page div.market-info table tr:first-of-type {
+        background: rgba(243, 116, 68, 0.75); }
+      main.venue-details-page div.market-info table tr th {
+        font-family: 'Roboto', sans-serif;
+        font-size: 1.8rem;
+        color: rgba(255, 255, 255, 0.89);
+        text-align: left;
+        padding: 1rem; }
+      main.venue-details-page div.market-info table tr td {
+        font-family: 'Roboto', sans-serif;
+        font-size: 1.4rem;
+        color: rgba(0, 0, 0, 0.5);
+        padding: 1rem 2rem; }
+        main.venue-details-page div.market-info table tr td p {
+          color: rgba(0, 0, 0, 0.75); }
+        main.venue-details-page div.market-info table tr td p.open {
+          letter-spacing: 0.05rem; }
+        main.venue-details-page div.market-info table tr td p.closed {
+          color: rgba(0, 0, 0, 0.5); }
+  main.venue-details-page div.market-info div {
+    margin-right: calc((100% / 12) * 1);
+    width: 62rem; }
+    main.venue-details-page div.market-info div:before, main.venue-details-page div.market-info div:after {
+      content: "";
+      display: block;
+      clear: both; }
+    main.venue-details-page div.market-info div div.venue-map {
+      height: 26rem;
+      width: 26rem;
+      float: left;
+      border: 1px solid red; }
+    main.venue-details-page div.market-info div address {
+      font-family: 'Roboto', sans-serif;
+      font-size: 1.8rem;
+      color: rgba(0, 0, 0, 0.5);
+      line-height: 2rem;
+      width: 28rem;
+      float: left; }
+      main.venue-details-page div.market-info div address p:last-of-type {
+        font-size: 1.4rem;
+        margin-top: 1rem; }
 
 main.artist-profile div.profile-image {
   height: 45vh;
