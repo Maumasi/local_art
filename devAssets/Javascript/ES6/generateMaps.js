@@ -1,13 +1,18 @@
+// ======================================================================
+// generate maps
 
+  // map options
+  const options = options();
 
-((global) => {
+  const venueMapElement = document.getElementById('venue-map')
 
-  let options = global.mapOptions;
-  // map canvas
-  const mapElement = document.getElementById('map');
-  const map = global.MapMethods.create(mapElement, options);
+  // map
+  const venueMap = new Map(venueMapElement, options);
 
-  console.log(map);
-  map.zoom(10);
+  venueMap.zoom(15);
 
-})(window);
+  venueMap.on('click', () => {
+    alert('zoom is ' + venueMap.zoom());
+  });
+
+  console.log(venueMap.zoom());

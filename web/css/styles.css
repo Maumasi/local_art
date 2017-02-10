@@ -428,7 +428,7 @@ main.venue-details-page div.market-info {
       content: "";
       display: block;
       clear: both; }
-    main.venue-details-page div.market-info div div.venue-map {
+    main.venue-details-page div.market-info div div#venue-map {
       height: 26rem;
       width: 26rem;
       float: left;

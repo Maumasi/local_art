@@ -1,41 +1,27 @@
+// ======================================================================
+// map options
 
-
-((global, google) => {
-
-  const {
-    Map,
-    MapTypeId,
-    ControlPosition,
-    ZoomControlStyle,
-
-  } = google.maps;
-
-  // map options
-  global.mapOptions = {
+function options() {
+  return {
     center: {
-      lat: 37.1111,
-      lng: -122.11111,
+      lat: 37,
+      lng: -122,
     },
 
-    disableDefaultUI: false,
-    scrollwheel: true,
+    disableDefaultUI: true,
+    scrollwheel: false,
     draggable: true,
-    mapTypeId: MapTypeId.ROADMAP,
-
+    mapTypeId: google.maps.MapTypeId.ROADMAP,
+    zoom: 14,
+    minZoom: 10,
+    maxZoom: 35,
     zoomControlOptions: {
-      position: ControlPosition.BOTTOM_LEFT,
-      style: ZoomControlStyle.DEFAULT,
+      position: google.maps.ControlPosition.LEFT_BOTTOM,
+      style: google.maps.ZoomControlStyle.SMALL,
     },
 
     panControlOptions: {
-      position: ControlPosition.LEFT_BOTTOM,
-    },
-
-    zoom: 8,
-    maxZoom: 100,
-    minZoom: 1,
-
+      position: google.maps.ControlPosition.LEFT_BOTTOM
+    }
   }
-
-
-})(window, google);
+}
