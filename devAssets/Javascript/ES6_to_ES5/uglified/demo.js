@@ -1,0 +1,1 @@
+"use strict";!function(){console.log("demo file")}();
