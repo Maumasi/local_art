@@ -21,7 +21,10 @@ class ArrayCollection {
   }// remove
 
 
-  removeAll(object = null) {
-    // this.collection.forEach()
-  }
+  removeAll() {
+    this.collection.forEach((object) => {
+      this.remove(object);
+      object.setMap(null);
+    });
+  }// removeAll
 }// class

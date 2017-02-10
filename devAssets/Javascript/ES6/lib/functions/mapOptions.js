@@ -12,7 +12,7 @@ function options() {
     scrollwheel: false,
     draggable: true,
     mapTypeId: google.maps.MapTypeId.ROADMAP,
-    zoom: 6,
+    zoom: 15,
     minZoom: 1,
     maxZoom: 35,
     zoomControlOptions: {

@@ -4,7 +4,6 @@
 
 // Google Maps event triggers
 var CLICK = 'click';
-var DOUBLE_CLICK = 'double_click';
 "use strict";
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -43,36 +42,18 @@ var ArrayCollection = function () {
   }, {
     key: "removeAll",
     value: function removeAll() {
-      // this.collection.forEach()
+      var _this = this;
 
-      var object = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
-    }
+      this.collection.forEach(function (object) {
+        _this.remove(object);
+        object.setMap(null);
+      });
+    } // removeAll
+
   }]);
 
   return ArrayCollection;
 }(); // class
-"use strict";
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Geocode = function (_ArrayCollection) {
-  _inherits(Geocode, _ArrayCollection);
-
-  function Geocode() {
-    _classCallCheck(this, Geocode);
-
-    var _this = _possibleConstructorReturn(this, (Geocode.__proto__ || Object.getPrototypeOf(Geocode)).call(this));
-
-    _this._geo = new google.maps.Geocoder();
-    return _this;
-  }
-
-  return Geocode;
-}(ArrayCollection);
 "use strict";
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -232,7 +213,7 @@ function options() {
     scrollwheel: false,
     draggable: true,
     mapTypeId: google.maps.MapTypeId.ROADMAP,
-    zoom: 6,
+    zoom: 15,
     minZoom: 1,
     maxZoom: 35,
     zoomControlOptions: {
@@ -250,105 +231,86 @@ function options() {
 // ======================================================================
 // generate maps
 
-var venueStreetAddress = document.getElementById('geo-streetAddress').textContent;
-var venueCity = document.getElementById('geo-city').textContent;
-var venueState = document.getElementById('geo-state').textContent;
-var venueZipCode = document.getElementById('geo-zip-code').textContent;
-
-// map options
+var url = /details\/venue/;
+var venueDetailsPage = window.location.href.match(url);
 var options = options();
-
-var venueMapElement = document.getElementById('venue-map');
 var GEO = new google.maps.Geocoder();
 
-// remove any markers if there are any
-setMapOnAll(null);
+if (venueDetailsPage !== null) {
+  (function () {
+    var markByAddress = function markByAddress(options) {
+      var _this = this;
 
-// map
-var venueMap = new Map(venueMapElement, options);
+      var address = options.address,
+          cityState = options.cityState,
+          zipCode = options.zipCode,
+          state = options.state,
+          success = options.success,
+          error = options.error;
+      var OK = google.maps.GeocoderStatus.OK;
 
-var point1 = {
-  lat: 37,
-  lng: -122,
-  content: 'point 1'
-};
-
-var point2 = {
-  lat: 36,
-  lng: -122,
-  content: 'point 2'
-};
-
-// markers
-var p1 = venueMap.marker(point1);
-var p2 = venueMap.marker(point2);
-
-function markByAddress(options) {
-  var _this = this;
-
-  var address = options.address,
-      cityState = options.cityState,
-      zipCode = options.zipCode,
-      state = options.state,
-      success = options.success,
-      error = options.error;
-  var OK = google.maps.GeocoderStatus.OK;
-
-  GEO.geocode({ address: address }, function (responce, status) {
-    if (status === OK) {
-      console.log(responce);
-      console.log('fullAddress');
-      success.call(_this, responce, status);
-    } else {
-      GEO.geocode({ address: cityState }, function (responce, status) {
+      GEO.geocode({ address: address }, function (responce, status) {
         if (status === OK) {
-          console.log(responce);
-          console.log('cityState');
+          console.log('fullAddress');
           success.call(_this, responce, status);
         } else {
-          GEO.geocode({ address: zipCode }, function (responce, status) {
+          GEO.geocode({ address: cityState }, function (responce, status) {
             if (status === OK) {
-              console.log(responce);
-              console.log('zipCode');
+              console.log('cityState');
               success.call(_this, responce, status);
             } else {
-              GEO.geocode({ address: state }, function (responce, status) {
+              GEO.geocode({ address: zipCode }, function (responce, status) {
                 if (status === OK) {
-                  console.log(responce);
-                  console.log('state');
+                  console.log('zipCode');
                   success.call(_this, responce, status);
                 } else {
-                  console.log(status);
-                  error.call(_this, status);
+                  GEO.geocode({ address: state }, function (responce, status) {
+                    if (status === OK) {
+                      console.log('state');
+                      success.call(_this, responce, status);
+                    } else {
+                      error.call(_this, status);
+                    }
+                  }); // look for state
                 }
-              }); // look for state
+              }); // look for zip code
             }
-          }); // look for zip code
+          }); // look for city and state
         }
-      }); // look for city and state
-    }
-  }); // look for full address
-} // markByAddress
+      }); // look for full address
+    }; // markByAddress
 
-function addressSuccess(responce) {
-  var geometry = responce[0].geometry;
 
-  var lat = geometry.location.lat();
-  var lng = geometry.location.lng();
-  venueMap.marker({
-    lat: lat,
-    lng: lng
-  });
-  venueMap.mapCenter(lat, lng);
+    var addressSuccess = function addressSuccess(responce) {
+      var geometry = responce[0].geometry;
+
+      var lat = geometry.location.lat();
+      var lng = geometry.location.lng();
+      venueMap.marker({
+        lat: lat,
+        lng: lng
+      });
+      venueMap.mapCenter(lat, lng);
+    };
+
+    var venueStreetAddress = document.getElementById('geo-streetAddress').textContent;
+    var venueCity = document.getElementById('geo-city').textContent;
+    var venueState = document.getElementById('geo-state').textContent;
+    var venueZipCode = document.getElementById('geo-zip-code').textContent;
+    var venueMapElement = document.getElementById('venue-map');
+
+    // map
+    var venueMap = new Map(venueMapElement, options);
+
+    markByAddress({
+      address: venueStreetAddress,
+      cityState: venueCity + ', ' + venueState,
+      zipCode: venueZipCode,
+      state: venueState,
+      success: addressSuccess,
+      error: function error(responceStatus) {
+        console.log(responceStatus);
+      }
+    });
+  })();
 }
-
-markByAddress({
-  address: '#{venueStreetAddress}',
-  cityState: '#{venueCity}, #{venueState}',
-  zipCode: '#{venueZipCode}',
-  state: '#{venueState}',
-  success: addressSuccess,
-  error: function error(responceStatus) {
-    console.log(responceStatus);
-  }
-});
