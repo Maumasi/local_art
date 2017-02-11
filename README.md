@@ -3,6 +3,7 @@
 ###### A Symfony project created on January 26, 2017, 8:23 pm. <br>
  A place to discover art markets in your area or an area you're looking to visit.
 
+
 <br>
 
 ## Index
