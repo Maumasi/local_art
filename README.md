@@ -36,6 +36,18 @@ $ cd path/to/new/root/directory
 $ git init
 $ git pull https://github.com/Maumasi/local_art.git
 ```
+<br>
+
+After pulling down the project the dependencies need to be installed and configured. <br>
+
+Install dependencies:
+```bash
+$ npm install
+$ composer install
+```
+After these lines are executed you will be promoted with `Creating the "app/config/parameters.yml" file` where you will configure the project credentials. All the credentials requested have defaults, you will have to provide the credentials you intend to use. The only default parameter that should not be changed is `image_upload_directory`. Also, the `mailer_*` parameters are not being used in this project but have been left in for future expansion.
+<br>
+
 
 
 
