@@ -15,4 +15,5 @@
 *.DS_Store
 /composer.phar
 /.idea/workspace.xml
+*.idea/*.xml
 /.idea/*
