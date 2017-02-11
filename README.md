@@ -15,8 +15,6 @@
 
 - [MVC](#user-content-mvc)
 
-- [Security](#user-content-security)
-
 - [Development](#user-content-development)
 
 - [Resources](#user-content-resources)
@@ -183,37 +181,6 @@ The `MainController.php` manages all the routes and data the site visitor uses.<
 
 Secure controllers are in the subdirectory `Secure/`<br>
 These controllers manage the routes and data for the account holders.
-
----
-<br>
-
-
-## Security
-Users are given at least one **`ROLE`**. The role(s) users have allow them access to specified sections of the site and denied to other sections of the site for users without the proper **`ROLE`** group. Roles are defined on the routs in the controller and checks the user's role(s) using **`@Security("is_granted('ROLE_EXAMPLE')")`**.<br>
-Example:<br>
-```java
-/**
- * @Route("/account/venue")
- * @Security("is_granted('ROLE_VENUE')")
- */
-class VenueController extends Controller
-{
-
-    /**
-     * @Route("/", name="venue_profile")
-     */
-    public function venueProfile() {
-        $em = $this->getDoctrine()->getEntityManager();
-        $venue = $em->getRepository(Venue::class)
-            ->findVenueByUser($this->getUser());
-
-        return $this->render(':secure/account/venue:venueProfile.html.twig', [
-            'user' => $venue[0],
-        ]);
-    }
-}
-```
-This example only allows users with the role of **`ROLE_VENUE`**
 
 ---
 <br>
