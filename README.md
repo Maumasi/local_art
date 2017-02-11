@@ -15,6 +15,10 @@
 
 - [MVC](#user-content-mvc)
 
+- [Security](#user-content-security)
+
+- [Development](#user-content-development)
+
 - [Resources](#user-content-resources)
 
 ---
@@ -181,35 +185,159 @@ These controllers manage the routes and data for the account holders.
 ---
 <br>
 
+
+## Security
+Users are given at least one **`ROLE`**. The role(s) users have allow them access to specified sections of the site and denied to other sections of the site for users without the proper **`ROLE`** group. Roles are defined on the routs in the controller and checks the user's role(s) using **`@Security("is_granted('ROLE_EXAMPLE')")`**.<br>
+Example:<br>
+```java
+/**
+ * @Route("/account/venue")
+ * @Security("is_granted('ROLE_VENUE')")
+ */
+class VenueController extends Controller
+{
+
+    /**
+     * @Route("/", name="venue_profile")
+     */
+    public function venueProfile() {
+        $em = $this->getDoctrine()->getEntityManager();
+        $venue = $em->getRepository(Venue::class)
+            ->findVenueByUser($this->getUser());
+
+        return $this->render(':secure/account/venue:venueProfile.html.twig', [
+            'user' => $venue[0],
+        ]);
+    }
+}
+```
+This example only allows users with the role of **`ROLE_VENUE`**
+
+---
+<br>
+
+
 ## Development
 
+### Fixtures
+Fixtures provide fake data to the database to aid with development and testing.<br>
+To add or edit the fixtures go to `ROOT/src/AppBundle/DataFixtures/ORM/fixtures.yml`<br>
+When creating a fixture or editing a fixture, only parameters defined in the entity can be used.<br>
+YAML uses a tab deliniated scope, so be carefule with white space.<br>
+```yml
+AppBundle\Entity\User:    # Entity
+  user_{1..10}:   # number of instances (10 users)
+    email (unique): <freeEmail()>   
+    nakedPassword: '123qwe'
+    createdAt: <dateTime()>
+    # roles: 'ROLE_USER' <-- commented out
+```
+
+**Note:**<br>
+If your note familiar with fixtures check it out in the [Resources](#user-content-resources) section.
+<br>
+
+### SASS
+SASS provides a way for CSS to be dynamic and DRY (Don't Repeat Yourself)<br>
+SASS files are located in `ROOT/devAssets/sass`<br>
+There are several subdirectory in this path to help keep the styles organized but all SASS files are imported into one single SASS file.<br>
+
+```SASS
+// styles.sass
+
+// Google fonts
+// =================================================
+@import url('https://fonts.googleapis.com/css?family=Lato|Open+Sans|Raleway|Roboto|Slabo+27px')
 
 
+// base settings
+// =================================================
+@import "util/reset"
+@import "util/base"
+@import "util/mixin"
+@import "util/var"
+```
+Any new SASS files need to be imported to the `styles.sass` file.<br>
+If you're not familiar with SASS, check it out in the [Resources](#user-content-resources) section.
+<br>
 
+### ES6
+In this project the one of the main jobs of Javascript is to handle the Google Maps API<br>
+ES6 scripts are located in `ROOT/devAssets/Javascript/ES6`.<br>
+The main scripts are located at the directory, all supporting scripts are in the subdirectory `lib`. Inside `lib` are several more subdirectories to help organize scripts by what they are or what they do.
+Example:
 
+```bash
+ES6/
+  - app.js
+  - lib/
+      - classes/
+        - Map.js
+      - functions/
+        - mapOptions.js
+      - types/
+        - constants.js
+```
+these scripts do not have to be written in ES6, but if you would like to get up to date with what you can do with ES6 check it out in the [Resources](#user-content-resources) section.
+<br>
 
+### Gulp
+Gulp is a great and easy to use productivity tool.<br>
+The grunt script is located at `ROOT/gulpfile.js`<br>
+In this project Gulp is being used to trans-pile SASS into CSS and sends it to the `ROOT/web/css` public directory. It also trans-piles ES6 into legacy Javascript, concatenating all trans-piled Javascript files and then *uglifing* Javascript and creating a file in the `ROOT/web/js` public directory.
+<br>
 
+Example:
+```Javascript
+const gulp = require('gulp'),
+    sass = require('gulp-sass'),
+    babel = require('gulp-babel'),
+    uglify = require('gulp-uglify'),
+    concat = require('gulp-concat');
 
+// compile SASS files
+gulp.task('sass', () => {
+  // ... some gulp logic ...
+});
 
+// compile ES6 to legacy Javascript
+gulp.task('compileES6', () => {
+  // ... some gulp logic ...
+});
 
+// compress all js files into one file
+gulp.task('compressAllJS', ['compileES6'], () => {
+  // ... some gulp logic ...
+});
 
+// uglify the compiled ES6
+// This gives us a chance to make changes to the compiled ES6 if we need to
+gulp.task('uglyJS', ['compressAllJS'], () => {
+  // ... some gulp logic ...
+});
 
+// watch for sass file changes on save
+gulp.task('watch', () => {
+  gulp.watch(['./devAssets/sass/**/*.sass', './devAssets/Javascript/ES6/**/**/*.js'], ['sass', 'uglyJS']);
+});
 
+gulp.task('default', ['sass', 'uglyJS', 'watch']);
+```
+Some of the gulp tasks have a dependency on another task finishing first, so those dependent tasks are called in an array before the self-evoking anonymous function. The `watch` task monitors an array of file paths for changes when they are saved.The `default` task calls the tasks that end up running all the defined tasks.<br>
+To run the default gulp task execute the following command:<br>
+```bash
+# yup, that's it
+$ gulp
+```
+**Note:**
+If you're not familiar with Gulp.js, check it out in the [Resources](#user-content-resources) section.
 
-
-
-
-
-
-
-
-
-
+---
+<br>
 
 ## Resources
 
 ### Installations
-
 - [Install Git globally](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 
 - [Install Symfony 2.8.x](https://symfony.com/download)
