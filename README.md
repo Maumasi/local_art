@@ -175,6 +175,8 @@ This directory holds all the views that a site visitor can see
 This directory holds all the components that will require an `HTTPS` protocol. These are the views that deal with user credentials.
 <br>
 
+---
+
 ### Controllers
 Controllers are found in **`ROOT/src/AppBundle/Controller/`**<br>
 The `MainController.php` manages all the routes and data the site visitor uses.<br>
