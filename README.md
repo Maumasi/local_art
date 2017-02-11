@@ -89,6 +89,7 @@ The directories that are going to be worked in the most, in the order your IDE w
 
 - `ROOT/web`
 
+---
 <br>
 
 ## MVC
@@ -98,55 +99,57 @@ Models are known as **Entities** in Symfony. All entity classes are defined in *
 Every entity class makes efficient use of *Annotations*. If you're not familiar with Annotations and how to use them check out Annotations in the [Resources](#user-content-resources) section.
 <br>
 
-Entity example:
-
-```java
-
-namespace AppBundle\Entity;
-
-use Doctrine\ORM\Mapping as ORM;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
-use Symfony\Component\Validator\Constraints as Assert;
-
-/**
- * @ORM\Entity(repositoryClass="AppBundle\Repository\ArtistRepository")
- * @UniqueEntity(fields={"email"}, message="An artist account already exists with this email")
- * @ORM\Table(name="artist")
- */
-class Artist
-{
-    /**
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
-     * @ORM\Column(type="integer")
-     */
-    private $id;
-
-    /**
-     * @Assert\NotBlank()
-     * @Assert\Email()
-     * @ORM\Column(type="string", unique=true)
-     */
-    private $email;
-
-
-    // getters and setters
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    public function getFirstName()
-    {
-        return $this->email;
-    }
-
-    public function setFirstName($email)
-    {
-        $this->email = $email;
-    }
-```
+Some entities have custom database query methods. These methods are located in `ROOT/src/AppBundle/Repository`<br>
+If there is a need to create complex database queries make a class for the query methods that extends a base class of `EntityRepository` if one does not already exist. If you are not familiar with Symfony's Doctrine/ORM queries, check it out in the [Resources](#user-content-resources).
 <br>
+
+### The Form Builder
+Symfony's form classes are located in `ROOT/src/AppBundle/Form`<br>
+Forms can be mapped to an entity class for processing using the configureOptions() method in the form class:
+```java
+class ArtistRegitration extends AbstractType
+{
+    public function buildForm(FormBuilderInterface $builder, array $options)
+    {
+        $builder
+            ->add('firstName')
+            ->add('lastName')
+            ->add('profileImage', FileType::class, [
+                'required' => true,
+            ])
+            ->add('email', EmailType::class)
+            ->add('nakedPassword', RepeatedType::class, [
+                'type' => PasswordType::class,
+
+            ])
+            ->add('businessName', TextType::class, [
+                'empty_data' => null,
+                'required' => false,
+            ])
+
+            ->add('website', UrlType::class, [
+                'empty_data' => null,
+                'required' => false,
+            ])
+            ->add('bio', TextType::class, [
+                'empty_data' => null,
+                'required' => false,
+            ]);
+    }
+
+    public function configureOptions(OptionsResolver $resolver)
+    {
+        $resolver->setDefaults([
+            'data_class' => Artist::class,// <-- form mapped to the Artist entity
+            'validation_groups' => ['Default', 'registration'],
+        ]);
+    }
+}
+```
+**Note:**<br>
+If you're not familiar with Symfony's form builder check it out in the [Resources](#user-content-resources) section.
+
+---
 <br>
 
 ### Views
@@ -156,7 +159,6 @@ Views are build in components using Twig as the front-end framework. If you're n
 
 `base.html.twig`<br>
 This file holds the base HTML wrapper for every view.
-<br>
 <br>
 
 `common/`<br>
@@ -168,7 +170,6 @@ This directory holds all the views that a site visitor can see
 `secure/`<br>
 This directory holds all the components that will require an `HTTPS` protocol. These are the views that deal with user credentials.
 <br>
-<br>
 
 ### Controllers
 Controllers are found in **`ROOT/src/AppBundle/Controller/`**<br>
@@ -177,6 +178,10 @@ The `MainController.php` manages all the routes and data the site visitor uses.<
 Secure controllers are in the subdirectory `Secure/`<br>
 These controllers manage the routes and data for the account holders.
 
+---
+<br>
+
+## Development
 
 
 
@@ -219,9 +224,13 @@ These controllers manage the routes and data for the account holders.
 
 - [Twig: HTML templating](http://twig.sensiolabs.org)
 
+- [Twig: Form Widgets](https://symfony.com/doc/current/form/form_customization.html)
+
 - [Annotations: Routes](https://www.sitepoint.com/getting-started-symfony2-route-annotations/)
 
 - [Annotations: Models](http://symfony.com/doc/2.8/doctrine/reverse_engineering.html)
+
+- [Symfony's Form Builder](http://symfony.com/doc/current/forms.html)
 
 - [Doctrine ORM: Models and Database Queries](http://symfony.com/doc/current/doctrine.html)
 
