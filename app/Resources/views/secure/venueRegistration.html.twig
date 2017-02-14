@@ -2,66 +2,256 @@
 
 {% block body %}
 
+
+<main class="venue-regisrtation">
+
     <h1>Venue Registration</h1>
 
     {{ form_start(venueRegistration) }}
 
     {{ form_errors(venueRegistration) }}
 
-        {#basic market venue details#}
-        {{ form_row(venueRegistration.firstName) }}
-        {{ form_row(venueRegistration.lastName) }}
-        {{ form_row(venueRegistration.profileImage) }}
-        {{ form_row(venueRegistration.email) }}
+    {#basic market venue details#}
 
-        {{ form_row(venueRegistration.nakedPassword.first, {
-            'label': 'Password'
-        }) }}
-        {{ form_row(venueRegistration.nakedPassword.second, {
-            'label': 'Confirm Password'
-        }) }}
+    <h2>Venue Login</h2>
 
-        {#market info#}
-        {{ form_row(venueRegistration.marketName) }}
-        {{ form_row(venueRegistration.marketSubtitle) }}
-        {{ form_row(venueRegistration.marketName) }}
-        {{ form_row(venueRegistration.bio) }}
-        {{ form_row(venueRegistration.website) }}
+    {{ form_row(venueRegistration.profileImage) }}
+    {{ form_row(venueRegistration.email, {
+        attr: {
+            placeholder: 'Email'
+        }
+    }) }}
 
-        {#market address#}
-        {{ form_row(venueRegistration.streetAddress) }}
-        {{ form_row(venueRegistration.city) }}
-        {{ form_row(venueRegistration.state) }}
-        {{ form_row(venueRegistration.zipCode) }}
+    {{ form_row(venueRegistration.nakedPassword.first, {
+        'label': 'Password',
+        attr: {
+            placeholder: 'Password'
+        }
+    }) }}
+    {{ form_row(venueRegistration.nakedPassword.second, {
+        'label': 'Confirm Password',
+        attr: {
+            placeholder: 'Confirm Password'
+        }
+    }) }}
 
-        {#market hours#}
-        {{ form_row(venueRegistration.sunOpen) }}
-        {{ form_row(venueRegistration.monOpen) }}
-        {{ form_row(venueRegistration.tueOpen) }}
-        {{ form_row(venueRegistration.wedOpen) }}
-        {{ form_row(venueRegistration.thuOpen) }}
-        {{ form_row(venueRegistration.friOpen) }}
-        {{ form_row(venueRegistration.satOpen) }}
+    {#market info#}
 
-        {{ form_row(venueRegistration.sunClose) }}
-        {{ form_row(venueRegistration.monClose) }}
-        {{ form_row(venueRegistration.tueClose) }}
-        {{ form_row(venueRegistration.wedClose) }}
-        {{ form_row(venueRegistration.thuClose) }}
-        {{ form_row(venueRegistration.friClose) }}
-        {{ form_row(venueRegistration.satClose) }}
+    <h2>Market info</h2>
 
-        {{ form_row(venueRegistration.marketHours, {
-            'label': ' ',
-            'attr': {
-                hidden: true
+    <div class="venue-name">
+        {{ form_row(venueRegistration.firstName, {
+            attr: {
+                placeholder: 'First Name'
             }
         }) }}
+        {{ form_row(venueRegistration.lastName, {
+            attr: {
+                placeholder: 'Last Name'
+            }
+        }) }}
+    </div>
+
+    {{ form_row(venueRegistration.marketName, {
+        attr: {
+            placeholder: 'Mark Name'
+        }
+    }) }}
+    {{ form_row(venueRegistration.marketSubtitle, {
+        attr: {
+            placeholder: 'Market Subtitle: What can be found at your market'
+        }
+    }) }}
+    {{ form_row(venueRegistration.bio, {
+        attr: {
+            placeholder: 'Bio: Tell people what it\'s like at your market'
+        }
+    }) }}
+    {{ form_row(venueRegistration.website, {
+        attr: {
+            placeholder: 'main website, facebook page, instagram, etc.'
+        }
+    }) }}
+
+    {#market address#}
+
+    <h2>Market address</h2>
+    {{ form_row(venueRegistration.streetAddress, {
+        attr: {
+            placeholder: 'Street address'
+        }
+    }) }}
+    {{ form_row(venueRegistration.city, {
+        attr: {
+            placeholder: 'City'
+        }
+    }) }}
+    {{ form_row(venueRegistration.state) }}
+    {{ form_row(venueRegistration.zipCode, {
+        attr: {
+            placeholder: 'Zip code'
+        }
+    }) }}
+
+    {#market hours#}
+
+    <h2>Market hours of operation</h2>
+    <table>
+        <tr>
+            <th>Day</th>
+            <th>Open</th>
+            <th>Close</th>
+        </tr>
+
+        <tr>
+            <td>Sunday</td>
+            <td>
+                {{ form_row(venueRegistration.sunOpen, {
+                    attr: {
+                        placeholder: 'HH:MM'
+                    }
+                }) }}
+            </td>
+
+            <td>
+                {{ form_row(venueRegistration.sunClose, {
+                    attr: {
+                        placeholder: 'HH:MM'
+                    }
+                }) }}
+            </td>
+        </tr>
+
+        <tr>
+            <td>Monday</td>
+            <td>
+                {{ form_row(venueRegistration.monOpen, {
+                    attr: {
+                        placeholder: 'HH:MM'
+                    }
+                }) }}
+            </td>
+
+            <td>
+                {{ form_row(venueRegistration.monClose, {
+                    attr: {
+                        placeholder: 'HH:MM'
+                    }
+                }) }}
+            </td>
+        </tr>
+
+        <tr>
+            <td>Tuesday</td>
+            <td>
+                {{ form_row(venueRegistration.tueOpen, {
+                    attr: {
+                        placeholder: 'HH:MM'
+                    }
+                }) }}
+            </td>
+
+            <td>
+                {{ form_row(venueRegistration.tueClose, {
+                    attr: {
+                        placeholder: 'HH:MM'
+                    }
+                }) }}
+            </td>
+        </tr>
+
+        <tr>
+            <td>Wednesday</td>
+            <td>
+                {{ form_row(venueRegistration.wedOpen, {
+                    attr: {
+                        placeholder: 'HH:MM'
+                    }
+                }) }}
+            </td>
+
+            <td>
+                {{ form_row(venueRegistration.wedClose, {
+                    attr: {
+                        placeholder: 'HH:MM'
+                    }
+                }) }}
+            </td>
+        </tr>
+
+        <tr>
+            <td>Thursday</td>
+            <td>
+                {{ form_row(venueRegistration.thuOpen, {
+                    attr: {
+                        placeholder: 'HH:MM'
+                    }
+                }) }}
+            </td>
+
+            <td>
+                {{ form_row(venueRegistration.thuClose, {
+                    attr: {
+                        placeholder: 'HH:MM'
+                    }
+                }) }}
+            </td>
+        </tr>
+
+        <tr>
+            <td>Friday</td>
+            <td>
+                {{ form_row(venueRegistration.friOpen,{
+                    attr: {
+                        placeholder: 'HH:MM'
+                    }
+                }) }}
+            </td>
+
+            <td>
+                {{ form_row(venueRegistration.friClose, {
+                    attr: {
+                        placeholder: 'HH:MM'
+                    }
+                }) }}
+            </td>
+        </tr>
+
+        <tr>
+            <td>Saturday</td>
+            <td>
+                {{ form_row(venueRegistration.satOpen, {
+                    attr: {
+                        placeholder: 'HH:MM'
+                    }
+                }) }}
+            </td>
+
+            <td>
+                {{ form_row(venueRegistration.satClose, {
+                    attr: {
+                        placeholder: 'HH:MM'
+                    }
+                }) }}
+            </td>
+        </tr>
+    </table>
 
 
 
+    {{ form_row(venueRegistration.marketHours, {
+        'label': ' ',
+        'attr': {
+            hidden: true
+        }
+    }) }}
 
-        <button type="submit" formnovalidate>Register!</button>
+
+
+    <button type="submit" formnovalidate>Register!</button>
     {{ form_end(venueRegistration) }}
+
+</main>
+
 
 {% endblock %}

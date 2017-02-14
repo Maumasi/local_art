@@ -32,7 +32,7 @@
 
                 <tr>
                     {# check if market is closed for this day or not #}
-                    {% if not day[open] and not day[close]  %}
+                    {% if not day[open] and not day[close] or day[open] == 'closed' and day[close] == 'closed'  %}
 
                         <td><p class="closed">{{ day[name] }}</p></td>
                         <td><p class="closed">Closed</p></td>
@@ -56,7 +56,11 @@
                 <p>{{ market.marketName }}</p>
                 <p id="geo-streetAddress">{{ market.streetAddress }}</p>
                 <p><span id="geo-city">{{ market.city }}</span> <span id="geo-state">{{ market.state }}</span> <span id="geo-zip-code">{{ market.zipCode }}</span> </p>
-                <p><a href="{{ market.website }}">{{ market.marketName }} website</a></p>
+
+                {% if market.website %}
+                    <p><a href="{{ market.website }}">{{ market.marketName }} website</a></p>
+                {% endif %}
+
             </address>
         </div>
     </div>

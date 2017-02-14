@@ -2,29 +2,73 @@
 
 {% block body %}
 
+<main class="artist-regisrtation">
     <h1>Artist Registration</h1>
 
     {{ form_start(artistRegistration) }}
+    {{ form_errors(artistRegistration) }}
 
-        {{ form_errors(artistRegistration) }}
+    <h2>Login info</h2>
+    {{ form_row(artistRegistration.email, {
+        attr: {
+            placeholder: 'Email'
+        }
+    }) }}
 
-        {{ form_row(artistRegistration.firstName) }}
-        {{ form_row(artistRegistration.lastName) }}
-        {{ form_row(artistRegistration.profileImage) }}
-        {{ form_row(artistRegistration.email) }}
+    {{ form_row(artistRegistration.nakedPassword.first, {
+        'label': 'Password',
+        attr: {
+            placeholder: 'New Password'
+        }
+    }) }}
+    {{ form_row(artistRegistration.nakedPassword.second, {
+        'label': 'Confirm Password',
+        attr: {
+            placeholder: 'Confirm Password'
+        }
+    }) }}
 
-        {{ form_row(artistRegistration.nakedPassword.first, {
-            'label': 'Password'
+    <h2>Artist info</h2>
+
+    <div class="artist-name">
+        {{ form_row(artistRegistration.firstName, {
+            attr: {
+                placeholder: 'First Name'
+            }
         }) }}
-        {{ form_row(artistRegistration.nakedPassword.second, {
-            'label': 'Confirm Password'
+        {{ form_row(artistRegistration.lastName, {
+            attr: {
+                placeholder: 'Last Name'
+            }
         }) }}
+    </div>
 
-        {{ form_row(artistRegistration.businessName) }}
-        {{ form_row(artistRegistration.bio) }}
-        {{ form_row(artistRegistration.website) }}
+    {{ form_row(artistRegistration.profileImage, {
+        attr: {
+            placeholder: 'Profile Image'
+        }
+    }) }}
+    {{ form_row(artistRegistration.businessName, {
+        attr: {
+            placeholder: 'Business Name (optional)'
+        }
+    }) }}
 
-        <button type="submit" formnovalidate>Register!</button>
+    {{ form_row(artistRegistration.bio, {
+        attr: {
+            placeholder: 'Bio: Let people know what your style is (optional)',
+            class: 'bio'
+        }
+    }) }}
+    {{ form_row(artistRegistration.website, {
+        attr: {
+            placeholder: 'URL to your main website, facebook page, Instagram, etc.'
+        }
+    }) }}
+
+    <button type="submit" formnovalidate>Register!</button>
     {{ form_end(artistRegistration) }}
+</main>
+
 
 {% endblock %}

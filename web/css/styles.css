@@ -474,6 +474,90 @@ main.artist-profile h2:last-of-type + ul li a {
   font-family: 'Roboto', sans-serif;
   font-size: 1.8rem; }
 
+main.artist-regisrtation h1 {
+  text-align: center;
+  color: rgba(0, 0, 0, 0.6);
+  margin-top: 4rem;
+  font-family: 'Roboto', sans-serif;
+  font-size: 4.2rem; }
+
+main.artist-regisrtation form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; }
+  main.artist-regisrtation form h2 {
+    width: calc((100% / 12) * 6);
+    margin: 0;
+    padding: 0;
+    color: rgba(0, 0, 0, 0.6);
+    margin: 8rem 0 1rem;
+    text-align: left;
+    font-family: 'Roboto', sans-serif;
+    font-size: 3.4rem; }
+  main.artist-regisrtation form label {
+    display: none; }
+  main.artist-regisrtation form div,
+  main.artist-regisrtation form button {
+    width: calc((100% / 12) * 6);
+    margin: 0;
+    padding: 0; }
+    main.artist-regisrtation form div input,
+    main.artist-regisrtation form div button,
+    main.artist-regisrtation form button input,
+    main.artist-regisrtation form button button {
+      padding: 0.5rem 0.75rem;
+      width: 100%;
+      margin-top: 2rem;
+      padding-bottom: 0.15rem;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.6);
+      font-family: 'Slabo 27px', serif;
+      font-size: 1.8rem;
+      line-height: 2.52rem; }
+    main.artist-regisrtation form div input#app_bundle_artist_regitration_profileImage,
+    main.artist-regisrtation form button input#app_bundle_artist_regitration_profileImage {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      margin-left: 0.25rem;
+      padding: 0.5rem 0.75rem;
+      border: 0;
+      border-radius: 0rem;
+      font-size: 1.8rem;
+      font-family: 'Lato', sans-serif;
+      color: #46c1f0; }
+    main.artist-regisrtation form div label[for='app_bundle_artist_regitration_bio'],
+    main.artist-regisrtation form button label[for='app_bundle_artist_regitration_bio'] {
+      border: none; }
+    main.artist-regisrtation form div textarea#app_bundle_artist_regitration_bio,
+    main.artist-regisrtation form button textarea#app_bundle_artist_regitration_bio {
+      font-family: 'Slabo 27px', serif;
+      font-size: 1.8rem;
+      line-height: 2.52rem;
+      padding: 0.5rem;
+      margin-top: 2rem;
+      width: 100%;
+      height: 20rem;
+      border: none;
+      background: rgba(0, 0, 0, 0.6);
+      color: rgba(255, 255, 255, 0.89); }
+  main.artist-regisrtation form div.artist-name {
+    display: flex;
+    border: none; }
+    main.artist-regisrtation form div.artist-name div:first-child {
+      margin-right: 4rem; }
+  main.artist-regisrtation form button {
+    border: none;
+    background: rgba(243, 116, 68, 0.75);
+    color: rgba(255, 255, 255, 0.89);
+    letter-spacing: 2px;
+    border-radius: 50rem;
+    padding: 1rem;
+    margin-top: 4rem;
+    font-family: 'Roboto', sans-serif;
+    font-size: 2.4rem; }
+    main.artist-regisrtation form button:hover, main.artist-regisrtation form button:active {
+      background: #f37444; }
+
 main.venue-profile div.profile-image {
   height: 45vh;
   margin-top: 1rem;
@@ -503,6 +587,113 @@ main.venue-profile p.bio {
 main.venue-profile h2:last-of-type + ul li a {
   font-family: 'Roboto', sans-serif;
   font-size: 1.8rem; }
+
+main.venue-regisrtation h1 {
+  text-align: center;
+  color: rgba(0, 0, 0, 0.6);
+  margin-top: 4rem;
+  font-family: 'Roboto', sans-serif;
+  font-size: 4.2rem; }
+
+main.venue-regisrtation form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; }
+  main.venue-regisrtation form h2 {
+    width: calc((100% / 12) * 6);
+    margin: 0;
+    padding: 0;
+    color: rgba(0, 0, 0, 0.6);
+    margin: 8rem 0 1rem;
+    text-align: left;
+    font-family: 'Roboto', sans-serif;
+    font-size: 3.4rem; }
+  main.venue-regisrtation form label {
+    display: none; }
+  main.venue-regisrtation form div,
+  main.venue-regisrtation form button {
+    width: calc((100% / 12) * 6);
+    margin: 0;
+    padding: 0; }
+    main.venue-regisrtation form div input,
+    main.venue-regisrtation form div button,
+    main.venue-regisrtation form button input,
+    main.venue-regisrtation form button button {
+      padding: 0.5rem 0.75rem;
+      width: 100%;
+      margin-top: 2rem;
+      padding-bottom: 0.15rem;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.6);
+      font-family: 'Slabo 27px', serif;
+      font-size: 1.8rem;
+      line-height: 2.52rem; }
+    main.venue-regisrtation form div input#app_bundle_venue_registration_profileImage,
+    main.venue-regisrtation form button input#app_bundle_venue_registration_profileImage {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      margin-left: 0.25rem;
+      padding: 0.5rem 0.75rem;
+      border: 0;
+      border-radius: 0rem;
+      font-size: 1.8rem;
+      font-family: 'Lato', sans-serif;
+      color: #46c1f0; }
+    main.venue-regisrtation form div label[for='app_bundle_venue_registration_bio'],
+    main.venue-regisrtation form button label[for='app_bundle_venue_registration_bio'] {
+      border: none; }
+    main.venue-regisrtation form div textarea#app_bundle_venue_registration_bio,
+    main.venue-regisrtation form button textarea#app_bundle_venue_registration_bio {
+      font-family: 'Slabo 27px', serif;
+      font-size: 1.8rem;
+      line-height: 2.52rem;
+      padding: 0.5rem;
+      margin-top: 2rem;
+      width: 100%;
+      height: 20rem;
+      border: none;
+      background: rgba(0, 0, 0, 0.6);
+      color: rgba(255, 255, 255, 0.89); }
+  main.venue-regisrtation form div.venue-name {
+    display: flex;
+    border: none; }
+    main.venue-regisrtation form div.venue-name div:first-child {
+      margin-right: 4rem; }
+  main.venue-regisrtation form button {
+    border: none;
+    background: rgba(243, 116, 68, 0.75);
+    color: rgba(255, 255, 255, 0.89);
+    letter-spacing: 2px;
+    border-radius: 50rem;
+    padding: 1rem;
+    margin-top: 4rem;
+    font-family: 'Roboto', sans-serif;
+    font-size: 2.4rem; }
+    main.venue-regisrtation form button:hover, main.venue-regisrtation form button:active {
+      background: #f37444; }
+  main.venue-regisrtation form table {
+    width: calc((100% / 12) * 6);
+    margin: 0;
+    padding: 0;
+    color: rgba(0, 0, 0, 0.6);
+    margin-top: 2rem; }
+    main.venue-regisrtation form table tr th {
+      font-family: 'Roboto', sans-serif;
+      font-size: 2.4rem;
+      text-align: left;
+      padding: 1rem; }
+    main.venue-regisrtation form table tr td {
+      font-family: 'Roboto', sans-serif;
+      font-size: 1.8rem;
+      padding: 1rem; }
+      main.venue-regisrtation form table tr td div {
+        margin: 0;
+        padding: 0; }
+        main.venue-regisrtation form table tr td div input {
+          margin: 0;
+          padding: 0.5rem; }
+    main.venue-regisrtation form table tr:nth-child(odd) {
+      background: rgba(0, 0, 0, 0.1); }
 
 .devGrid {
   background: rgba(255, 217, 0, 0.25);

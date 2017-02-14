@@ -96,10 +96,60 @@ class RegistrationController extends Controller
             $em = $this->getDoctrine()->getManager();
             $newVenue = $form->getData();
 
+
             // use custom service to upload venue profile image
             $profileImg = $newVenue->getProfileImage();
             $imageName = $this->get('app.save_file')->img($profileImg);
             $newVenue->setProfileImage($imageName);
+
+//            market hours
+            $marketHours = [
+                [
+                    'Sunday',
+                    $newVenue->getSunOpen(),
+                    $newVenue->getSunClose()
+
+                ],
+                [
+                    'Monday',
+                    $newVenue->getMonOpen(),
+                    $newVenue->getMonClose()
+
+                ],
+                [
+                    'Tuesday',
+                    $newVenue->getTueOpen(),
+                    $newVenue->getTueClose()
+
+                ],
+                [
+                    'Wednesday',
+                    $newVenue->getWedOpen(),
+                    $newVenue->getWedClose()
+
+                ],
+                [
+                    'Thursday',
+                    $newVenue->getThuOpen(),
+                    $newVenue->getThuClose()
+
+                ],
+                [
+                    'Friday',
+                    $newVenue->getFriOpen(),
+                    $newVenue->getFriClose()
+
+                ],
+                [
+                    'Saturday',
+                    $newVenue->getSatOpen(),
+                    $newVenue->getSatClose()
+
+                ],
+            ];
+
+            $newVenue->setMarketHours($marketHours);
+
 
             // create a new user entity for the venue
             $user = new User();

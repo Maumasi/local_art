@@ -1,0 +1,86 @@
+
+main.artist-regisrtation
+
+  h1
+    text-align: center
+    color: rgba(0, 0, 0, $siteGreyShade)
+    margin-top: 4rem
+    +displayFont(4.2)
+
+  form
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+
+    h2
+      +col(6)
+      color: rgba(0, 0, 0, $siteGreyShade)
+      margin: 8rem 0 1rem
+      text-align: left
+      +displayFont(3.4)
+
+
+    label
+      display: none
+
+    div,
+    button
+      +col(6)
+
+      input,
+      button
+        padding: 0.5rem 0.75rem
+        width: 100%
+        margin-top: 2rem
+        padding-bottom: 0.15rem
+        border-bottom: 1px solid rgba(0, 0, 0, $siteGreyShade)
+        +paragraphFont(1.8)
+
+      label[for='app_bundle_artist_regitration_profileImage']
+
+      input#app_bundle_artist_regitration_profileImage
+        // display: none
+        -webkit-appearance: none
+        -moz-appearance: none
+        margin-left: 0.25rem
+        padding: 0.5rem 0.75rem
+        border: 0
+        border-radius: 0rem
+        font-size: $formFontSize
+        font-family: 'Lato', sans-serif
+        color: $blue
+
+      label[for='app_bundle_artist_regitration_bio']
+        border: none
+
+      textarea#app_bundle_artist_regitration_bio
+        +paragraphFont(1.8)
+        padding: 0.5rem
+        margin-top: 2rem
+        width: 100%
+        height: 20rem
+        border: none
+        background: rgba(0, 0, 0, $siteGreyShade)
+        color: $white
+
+    div.artist-name
+      display: flex
+      border: none
+
+      div:first-child
+        margin-right: 4rem
+
+    button
+      border: none
+      background: $subduedOrange
+      color: $white
+      letter-spacing: 2px
+      border-radius: 50rem
+      padding: 1rem
+      margin-top: 4rem
+      +displayFont(2.4)
+
+      &:hover,
+      &:active
+        background: $orange
