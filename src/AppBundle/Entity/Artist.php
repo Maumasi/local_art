@@ -72,6 +72,16 @@ class Artist
      */
     private $user;
 
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\PendingInvitations", mappedBy="artist")
+     */
+    private $invitations;
+
+    /**
+     * @ORM\Column(type="json_array")
+     */
+    private $marketGroups = [];
+
     // this password should never persist
     /**
      * @Assert\NotBlank()
@@ -175,6 +185,24 @@ class Artist
         $this->nakedPassword = $nakedPassword;
     }
 
+    public function getInvitations()
+    {
+        return $this->invitations;
+    }
 
+    public function setInvitations($invitations)
+    {
+        $this->invitations = $invitations;
+    }
+
+    public function getMarketGroups()
+    {
+        return $this->marketGroups;
+    }
+
+    public function setMarketGroups($marketGroups)
+    {
+        $this->marketGroups = $marketGroups;
+    }
 
 }

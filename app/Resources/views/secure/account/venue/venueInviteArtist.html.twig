@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <main class="venue-invite-artists">
+
+        {{ form_start(artistSearch) }}
+        {{ form_row(artistSearch.artist) }}
+
+        <button type="submit">Search</button>
+        {{ form_end(artistSearch) }}
+
+    </main>
+
+{% endblock %}

@@ -104,6 +104,17 @@ class Venue
      */
     private $user;
 
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\PendingInvitations", mappedBy="venue")
+     */
+    private $invitations;
+
+    /**
+     * @ORM\Column(type="json_array")
+     */
+    private $artistCollection = [];
+
+
 //    this password should never persist
     /**
      * @Assert\NotBlank()
@@ -485,6 +496,26 @@ class Venue
     public function setMarketHours($marketHours)
     {
         $this->marketHours = $marketHours;
+    }
+
+    public function getInvitations()
+    {
+        return $this->invitations;
+    }
+
+    public function setInvitations($invitations)
+    {
+        $this->invitations = $invitations;
+    }
+
+    public function getArtistCollection()
+    {
+        return $this->artistCollection;
+    }
+
+    public function setArtistCollection($artistCollection)
+    {
+        $this->artistCollection = $artistCollection;
     }
 
 
