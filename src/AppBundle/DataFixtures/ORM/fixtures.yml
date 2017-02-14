@@ -10,7 +10,7 @@ AppBundle\Entity\User:
     email (unique): <freeEmail()>
     nakedPassword: '123qwe'
     createdAt: <dateTime()>
-    roles: ['ROLE_USER', 'ROLE_VENUE']
+    roles: ['ROLE_USER', 'ROLE_ARTIST']
 
 
 AppBundle\Entity\Venue:
@@ -36,8 +36,17 @@ AppBundle\Entity\Artist:
     email (unique): <freeEmail()>
     firstName: <name()>
     lastName: <name()>
+    profileImage: '15ec6b5e7520fe83f58efc04421c818d.jpeg'
     bio: <paragraph()>
     businessName: <company()>
     profileImage: <imageUrl()>
     website: <url()>
     user (unique): '@user_*'
+
+
+
+AppBundle\Entity\PendingInvitations:
+  invitations_{1..100}:
+    artist: '@artist_*'
+    venue: '@venue_*'
+    requestStatus: 'pending'

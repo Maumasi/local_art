@@ -122,7 +122,6 @@ class Venue
     private $nakedPassword;
 
 //    market hours
-
     /**
      * @Assert\NotBlank()
      */

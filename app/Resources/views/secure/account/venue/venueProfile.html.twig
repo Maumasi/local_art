@@ -44,6 +44,23 @@
                 <p><a href="mailto:{{ user.email }}">{{ user.email }}</a></p>
             </li>
         </ul>
+
+        <div>
+            {% if pending_invites %}
+                <ul>
+                    {% for invite in pending_invites %}
+
+                        <li>
+
+                            <p>{{ invite.artist.firstName }}</p>
+                            <p>{{ invite.requestStatus }}</p>
+
+                        </li>
+
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
     </main>
 
 {% endblock %}

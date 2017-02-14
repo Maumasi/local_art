@@ -10,6 +10,24 @@
         <button type="submit">Search</button>
         {{ form_end(artistSearch) }}
 
+
+        {% if artists %}
+
+            <ul>
+                {% for artist in artists %}
+                    <li>
+
+                        <p><a href="{{ path('send_to_invite_artist', { 'id': artist.id }) }}">{{ artist.firstName }} {{ artist.lastName }}</a> </p>
+
+                    </li>
+                {% endfor %}
+            </ul>
+
+        {% else %}
+
+        {% endif %}
+
+
     </main>
 
 {% endblock %}

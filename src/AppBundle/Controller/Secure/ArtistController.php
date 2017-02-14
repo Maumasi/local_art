@@ -9,6 +9,7 @@
 namespace AppBundle\Controller\Secure;
 
 use AppBundle\Entity\Artist;
+use AppBundle\Entity\PendingInvitations;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -26,10 +27,28 @@ class ArtistController extends Controller
     public function artistProfile() {
         $em = $this->getDoctrine()->getEntityManager();
         $artist = $em->getRepository(Artist::class)
-            ->findArtistByUser($this->getUser());
+            ->findArtistByUser($this->getUser())[0];
 
         return $this->render(':secure/account/artist:artistProfile.html.twig', [
-            'user' => $artist[0],
+            'user' => $artist,
+        ]);
+    }
+
+
+    /**
+     * @Route("/marketInites", name="market_invites")
+     */
+    public function artistInvitations() {
+        $em = $this->getDoctrine()->getEntityManager();
+        $artist = $em->getRepository(Artist::class)
+            ->findArtistByUser($this->getUser())[0];
+
+        $invitations = $em->getRepository(PendingInvitations::class)
+            ->findByArtist($artist);
+
+        return $this->render(':secure/account/artist:artistInvitations.html.twig', [
+            'user' => $artist,
+            'invitations' => $invitations,
         ]);
     }
 }

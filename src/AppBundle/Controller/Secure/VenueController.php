@@ -9,6 +9,7 @@
 namespace AppBundle\Controller\Secure;
 
 use AppBundle\Entity\Artist;
+use AppBundle\Entity\PendingInvitations;
 use AppBundle\Entity\Venue;
 use AppBundle\Form\ArtistSearch;
 use AppBundle\Repository\ArtistRepository;
@@ -30,21 +31,27 @@ class VenueController extends Controller
     public function venueProfile() {
         $em = $this->getDoctrine()->getEntityManager();
         $venue = $em->getRepository(Venue::class)
-            ->findVenueByUser($this->getUser());
+            ->findVenueByUser($this->getUser())[0];
+
+        $pendingInites = $em->getRepository(PendingInvitations::class)
+            ->findByVenue($venue);
+
 
         return $this->render(':secure/account/venue:venueProfile.html.twig', [
-            'user' => $venue[0],
+            'user' => $venue,
+            'pending_invites' => $pendingInites,
         ]);
     }
 
 
     /**
-     * @Route("/inviteArtists", name="invite_artist_to_market")
+     * @Route("/inviteArtist", name="invite_artist_to_market")
      */
     public function inviteArtistToMarket(Request $request) {
 
         $form = $this->createForm(ArtistSearch::class);
         $form->handleRequest($request);
+
         if($form->isSubmitted() && $form->isValid()) {
 
             $em = $this->getDoctrine()->getEntityManager();
@@ -61,20 +68,41 @@ class VenueController extends Controller
                 $artistsRequested = $artist->findByEitherFirstLastOrBusinessName($artistQuery['artist']);
             }
 
-            dump($artistsRequested); die;
+            return $this->render(':secure/account/venue:venueInviteArtist.html.twig', [
+                'artistSearch' => $form->createView(),
+                'artists' => $artistsRequested
+            ]);
 
         }
 
         return $this->render(':secure/account/venue:venueInviteArtist.html.twig', [
             'artistSearch' => $form->createView(),
+            'artists' => null
         ]);
     }
 
     /**
-     * @Route("/inviteArtists/{artist}")
+     * @Route("/inviteArtist/{id}", name="send_to_invite_artist")
      */
-    public function sendInvitationToArtist(Artist $artist) {
+    public function sendInvitationToArtist($id) {
 
+        $em = $this->getDoctrine()->getEntityManager();
+        $selectedArtist = $em->getRepository(Artist::class)
+            ->find($id );
 
+        $currentVenue = $em->getRepository(Venue::class)
+            ->findVenueByUser($this->getUser());
+
+        $invitation = new PendingInvitations();
+        $invitation->setArtist($selectedArtist);
+        $invitation->setVenue($currentVenue[0]);
+        $invitation->setRequestStatus('pending');
+
+        $em->persist($invitation);
+        $em->flush();
+
+        return $this->render(':secure/account/venue:venueProfile.html.twig', [
+            'user' => $currentVenue[0],
+        ]);
     }
 }

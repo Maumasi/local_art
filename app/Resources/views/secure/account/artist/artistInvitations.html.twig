@@ -1,0 +1,23 @@
+
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <main class="artist-invitations">
+
+        {% if invitations %}
+
+            <ul>
+                {% for invite in invitations %}
+                    <li>
+
+                        <p>{{ invite.venue.marketName }}</p>
+
+                    </li>
+                {% endfor %}
+            </ul>
+
+        {% endif %}
+
+    </main>
+{% endblock %}
