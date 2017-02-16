@@ -25,29 +25,39 @@ class ArtistRepository extends EntityRepository
     }
 
 
-    public function findByEitherFirstLastOrBusinessName($name) {
+    public function findByEitherFirstLastOrBusinessName($name, $artistIds) {
+
+//        prevent this query from returning everything from this table
+        if(!$name) {
+            return null;
+        }
+
         $qb = $this->createQueryBuilder('artist');
 
         return $this->createQueryBuilder('artist')
             ->andWhere($qb->expr()->like('artist.firstName', ':name'))
             ->orWhere($qb->expr()->like('artist.lastName', ':name'))
             ->orWhere($qb->expr()->like('artist.businessName', ':name'))
+            ->andWhere('artist.id NOT IN (:artistIds)')
             ->setParameter('name', $name.'%')
+            ->setParameter('artistIds', $artistIds)
             ->getQuery()
             ->execute();
     }
 
 
-    public function findByFullNameAndBusinessName($firstName, $lastName, $businessName) {
+    public function findByFullNameAndBusinessName($firstName, $lastName, $businessName, $artistIds) {
         $qb = $this->createQueryBuilder('artist');
 
         return $this->createQueryBuilder('artist')
             ->andWhere($qb->expr()->like('artist.firstName', ':firstName'))
             ->orWhere($qb->expr()->like('artist.lastName', ':lastName'))
             ->orWhere($qb->expr()->like('artist.businessName', ':businessName'))
+            ->andWhere('artist.id NOT IN (:artistIds)')
             ->setParameter('firstName', $firstName.'%')
             ->setParameter('lastName', $lastName.'%')
             ->setParameter('businessName', $businessName.'%')
+            ->setParameter('artistIds', $artistIds)
             ->getQuery()
             ->execute();
     }

@@ -67,16 +67,25 @@ class VenueController extends Controller
 
             $em = $this->getDoctrine()->getEntityManager();
             $artist = $em->getRepository(Artist::class);
-//            $artistByFirstName;
+
+            $venue = $em->getRepository(Venue::class)
+                ->findVenueByUser($this->getUser())[0];
+            $sentRequests = $em->getRepository(PendingInvitations::class)
+                ->findByVenue($venue);
+
+            $artistIds = [];
+            foreach($sentRequests as $request) {
+                $artistIds[] = $request->getArtist()->getId();
+            }
 
             $artistQuery = $form->getData();
             $artistSearch = explode(" ", $artistQuery['artist']);
 
 //            is it possible that a first name and last name was queried?
             if(count($artistSearch) >= 2) {
-                $artistsRequested = $artist->findByFullNameAndBusinessName($artistSearch[0], $artistSearch[1], $artistQuery['artist']);
+                $artistsRequested = $artist->findByFullNameAndBusinessName($artistSearch[0], $artistSearch[1], $artistQuery['artist'], $artistIds);
             } else {
-                $artistsRequested = $artist->findByEitherFirstLastOrBusinessName($artistQuery['artist']);
+                $artistsRequested = $artist->findByEitherFirstLastOrBusinessName($artistQuery['artist'], $artistIds);
             }
 
             return $this->render(':secure/account/venue:venueInviteArtist.html.twig', [
@@ -93,7 +102,7 @@ class VenueController extends Controller
     }
 
     /**
-     * @Route("/inviteArtist/{id}", name="send_to_invite_artist")
+     * @Route("/inviteArtist/{id}", name="send_invite_to_artist")
      */
     public function sendInvitationToArtist($id) {
 
@@ -112,9 +121,10 @@ class VenueController extends Controller
         $em->persist($invitation);
         $em->flush();
 
-        return $this->render(':secure/account/venue:venueProfile.html.twig', [
-            'user' => $currentVenue[0],
-        ]);
+//        return $this->render(':secure/account/venue:venueProfile.html.twig', [
+//            'user' => $currentVenue[0],
+//        ]);
+        return $this->redirectToRoute('invite_artist_to_market');
     }
 
 

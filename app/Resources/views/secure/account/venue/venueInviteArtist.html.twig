@@ -17,9 +17,7 @@
                 {% for artist in artists %}
                     <li>
 
-                        <p><a href="{{ path('send_to_invite_artist', { 'id': artist.id }) }}">{{ artist.firstName }} {{ artist.lastName }}</a> </p>
-
-                        <p><a href="{{ path('') }}">Remove</a></p>
+                        <p><a href="{{ path('send_invite_to_artist', { 'id': artist.id }) }}">{{ artist.firstName }} {{ artist.lastName }}</a> </p>
                     </li>
                 {% endfor %}
             </ul>

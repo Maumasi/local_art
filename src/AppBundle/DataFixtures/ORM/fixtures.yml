@@ -6,7 +6,7 @@ AppBundle\Entity\State:
 
 
 AppBundle\Entity\User:
-  user_{1..10}:
+  user_{1..25}:
     email (unique): <freeEmail()>
     nakedPassword: '123qwe'
     createdAt: <dateTime()>
@@ -32,7 +32,7 @@ AppBundle\Entity\Venue:
 
 
 AppBundle\Entity\Artist:
-  artist_{1..5}:
+  artist_{1..20}:
     email (unique): <freeEmail()>
     firstName: <name()>
     lastName: <name()>
@@ -44,9 +44,8 @@ AppBundle\Entity\Artist:
     user (unique): '@user_*'
 
 
-
 AppBundle\Entity\PendingInvitations:
-  invitations_{1..100}:
+  invitations_{1..2}:
     artist: '@artist_*'
     venue: '@venue_*'
     requestStatus: 'pending'

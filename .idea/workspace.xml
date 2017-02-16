@@ -2,13 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a7fe877e-51b3-481e-86fd-f51e2c15ad63" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Resources/views/main/artistDetailPage.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/secure/account/venue/venueInviteArtist.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/secure/account/venue/venueInviteArtist.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/secure/account/venue/venueProfile.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/secure/account/venue/venueProfile.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/MainController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/MainController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/Secure/VenueController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/Secure/VenueController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/DataFixtures/ORM/fixtures.yml" afterPath="$PROJECT_DIR$/src/AppBundle/DataFixtures/ORM/fixtures.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Repository/MarketGroupRepository.php" afterPath="$PROJECT_DIR$/src/AppBundle/Repository/MarketGroupRepository.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Repository/ArtistRepository.php" afterPath="$PROJECT_DIR$/src/AppBundle/Repository/ArtistRepository.php" />
     </list>
     <ignored path="local_art.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -35,7 +34,7 @@
             <state relative-caret-position="600">
               <caret line="43" column="19" selection-start-line="36" selection-start-column="8" selection-end-line="43" selection-end-column="19" />
               <folding>
-                <element signature="e#1352#1366#0#Twig" expanded="true" />
+                <element signature="e#12#26#0#Twig" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -46,7 +45,9 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="885">
               <caret line="62" column="0" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
-              <folding />
+              <folding>
+                <element signature="e#13#27#0#Twig" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -56,42 +57,23 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-              <folding />
+              <folding>
+                <element signature="e#12#26#0#Twig" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="venueProfile.html.twig" pinned="false" current-in-tab="true">
+      <file leaf-file-name="venueProfile.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/secure/account/venue/venueProfile.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="711">
-              <caret line="63" column="14" selection-start-line="63" selection-start-column="14" selection-end-line="63" selection-end-column="14" />
+            <state relative-caret-position="441">
+              <caret line="45" column="13" selection-start-line="45" selection-start-column="13" selection-end-line="45" selection-end-column="13" />
               <folding>
-                <element signature="e#1860#1874#0#Twig" expanded="true" />
+                <element signature="e#12#26#0#Twig" expanded="false" />
+                <element signature="e#1498#1517#0#Twig" expanded="false" />
+                <marker date="1487215426000" expanded="true" signature="32:2133" ph="{% block body ...%}" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MainController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/MainController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="531">
-              <caret line="121" column="19" selection-start-line="121" selection-start-column="13" selection-end-line="121" selection-end-column="19" />
-              <folding>
-                <element signature="e#127#155#0#PHP" expanded="true" />
-                <element signature="e#3661#3695#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="artistDetailPage.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Resources/views/main/artistDetailPage.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="43" selection-start-line="9" selection-start-column="43" selection-end-line="9" selection-end-column="43" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -99,15 +81,39 @@
       <file leaf-file-name="VenueController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/Secure/VenueController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-579">
-              <caret line="52" column="25" selection-start-line="52" selection-start-column="13" selection-end-line="52" selection-end-column="25" />
+            <state relative-caret-position="51">
+              <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
               <folding>
                 <element signature="e#133#161#0#PHP" expanded="true" />
                 <element signature="e#1366#1412#0#PHP" expanded="true" />
-                <element signature="e#2545#2596#0#PHP" expanded="true" />
-                <element signature="e#2759#2810#0#PHP" expanded="true" />
-                <element signature="e#4115#4172#0#PHP" expanded="true" />
-                <element signature="e#4680#4701#1#PHP" expanded="true" />
+                <element signature="e#2915#2966#0#PHP" expanded="true" />
+                <element signature="e#3129#3180#0#PHP" expanded="true" />
+                <element signature="e#4096#4121#1#PHP" expanded="true" />
+                <element signature="e#4557#4614#0#PHP" expanded="true" />
+                <element signature="e#5122#5143#1#PHP" expanded="true" />
+                <marker date="1487217497000" expanded="false" signature="3953:3997" ph=":secure/account/venue:venueProfile" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ArtistRepository.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Repository/ArtistRepository.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="390">
+              <caret line="32" column="9" selection-start-line="32" selection-start-column="9" selection-end-line="32" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="venueInviteArtist.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Resources/views/secure/account/venue/venueInviteArtist.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="24" column="18" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
+              <folding>
+                <element signature="e#12#26#0#Twig" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -141,8 +147,8 @@
       <file leaf-file-name="fixtures.yml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/DataFixtures/ORM/fixtures.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+            <state relative-caret-position="666">
+              <caret line="47" column="19" selection-start-line="47" selection-start-column="19" selection-end-line="47" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -156,7 +162,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/Resources/views/common/footer.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/main/partials/home/homeContent.html.twig" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/devAssets/Javascript/ES6/demo/demo.js" />
@@ -183,7 +188,6 @@
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/PendingInvatations.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/User.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Form/ArtistSearch.php" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Repository/ArtistRepository.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/PendingInvitations.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Repository/InvitationRepository.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/Secure/UserSubRequestController.php" />
@@ -193,7 +197,6 @@
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/InvitationSubRequestController.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/Secure/InvitationSubRequestController.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/common/header.html.twig" />
-        <option value="$PROJECT_DIR$/app/Resources/views/secure/account/venue/venueInviteArtist.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/secure/account/artist/artistInvitations.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/secure/account/venue/venuePendingInvitations.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/Artist.php" />
@@ -201,12 +204,15 @@
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/MarketGroup.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/secure/account/artist/artistProfile.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/Secure/ArtistController.php" />
-        <option value="$PROJECT_DIR$/src/AppBundle/DataFixtures/ORM/fixtures.yml" />
         <option value="$PROJECT_DIR$/src/AppBundle/Repository/MarketGroupRepository.php" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Controller/Secure/VenueController.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/MainController.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/main/artistDetailPage.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/secure/account/venue/venueProfile.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/views/main/marketSearch.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/views/secure/account/venue/venueInviteArtist.html.twig" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Controller/Secure/VenueController.php" />
+        <option value="$PROJECT_DIR$/src/AppBundle/DataFixtures/ORM/fixtures.yml" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Repository/ArtistRepository.php" />
       </list>
     </option>
   </component>
@@ -509,7 +515,71 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
+              <option name="myItemId" value="secure" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="local_art" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="local_art" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="secure" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="account" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="venue" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="local_art" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="local_art" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="secure" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="account" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -620,12 +690,12 @@
       <workItem from="1486673322219" duration="9000" />
       <workItem from="1486674616043" duration="23025000" />
       <workItem from="1486786549388" duration="524000" />
-      <workItem from="1487027711980" duration="34849000" />
+      <workItem from="1487027711980" duration="37336000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="213221000" />
+    <option name="totallyTimeSpent" value="215708000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -803,16 +873,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/main/marketSearch.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding>
-            <element signature="e#12#26#0#Twig" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/main/partials/home/resultsList.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -828,16 +888,6 @@
         <state relative-caret-position="405">
           <caret line="33" column="64" selection-start-line="33" selection-start-column="24" selection-end-line="33" selection-end-column="64" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Repository/ArtistRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="24" column="5" selection-start-line="17" selection-start-column="4" selection-end-line="24" selection-end-column="5" />
-          <folding>
-            <element signature="e#126#152#0#PHP" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -908,17 +958,6 @@
             <element signature="e#838#844#0#Twig" expanded="false" />
             <element signature="e#948#960#0#Twig" expanded="false" />
             <element signature="e#1056#1065#0#Twig" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/secure/account/venue/venueInviteArtist.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="28" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
-          <folding>
-            <element signature="e#12#26#0#Twig" expanded="false" />
-            <element signature="e#418#439#0#Twig" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1002,14 +1041,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/DataFixtures/ORM/fixtures.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Repository/MarketGroupRepository.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
@@ -1025,7 +1056,7 @@
         <state relative-caret-position="600">
           <caret line="43" column="19" selection-start-line="36" selection-start-column="8" selection-end-line="43" selection-end-column="19" />
           <folding>
-            <element signature="e#1352#1366#0#Twig" expanded="true" />
+            <element signature="e#12#26#0#Twig" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1045,7 +1076,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="885">
           <caret line="62" column="0" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#13#27#0#Twig" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1053,7 +1086,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#12#26#0#Twig" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1076,28 +1111,66 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/Secure/VenueController.php">
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/main/marketSearch.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-579">
-          <caret line="52" column="25" selection-start-line="52" selection-start-column="13" selection-end-line="52" selection-end-column="25" />
-          <folding>
-            <element signature="e#133#161#0#PHP" expanded="true" />
-            <element signature="e#1366#1412#0#PHP" expanded="true" />
-            <element signature="e#2545#2596#0#PHP" expanded="true" />
-            <element signature="e#2759#2810#0#PHP" expanded="true" />
-            <element signature="e#4115#4172#0#PHP" expanded="true" />
-            <element signature="e#4680#4701#1#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="300">
+          <caret line="20" column="15" selection-start-line="20" selection-start-column="15" selection-end-line="20" selection-end-column="15" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/secure/account/venue/venueProfile.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="711">
-          <caret line="63" column="14" selection-start-line="63" selection-start-column="14" selection-end-line="63" selection-end-column="14" />
+        <state relative-caret-position="441">
+          <caret line="45" column="13" selection-start-line="45" selection-start-column="13" selection-end-line="45" selection-end-column="13" />
           <folding>
-            <element signature="e#1860#1874#0#Twig" expanded="true" />
+            <element signature="e#12#26#0#Twig" expanded="false" />
+            <element signature="e#1498#1517#0#Twig" expanded="false" />
+            <marker date="1487215426000" expanded="true" signature="32:2133" ph="{% block body ...%}" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/secure/account/venue/venueInviteArtist.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="18" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
+          <folding>
+            <element signature="e#12#26#0#Twig" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/Secure/VenueController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+          <folding>
+            <element signature="e#133#161#0#PHP" expanded="true" />
+            <element signature="e#1366#1412#0#PHP" expanded="true" />
+            <element signature="e#2915#2966#0#PHP" expanded="true" />
+            <element signature="e#3129#3180#0#PHP" expanded="true" />
+            <element signature="e#4096#4121#1#PHP" expanded="true" />
+            <element signature="e#4557#4614#0#PHP" expanded="true" />
+            <element signature="e#5122#5143#1#PHP" expanded="true" />
+            <marker date="1487217497000" expanded="false" signature="3953:3997" ph=":secure/account/venue:venueProfile" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/DataFixtures/ORM/fixtures.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="666">
+          <caret line="47" column="19" selection-start-line="47" selection-start-column="19" selection-end-line="47" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Repository/ArtistRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="32" column="9" selection-start-line="32" selection-start-column="9" selection-end-line="32" selection-end-column="9" />
+          <folding />
         </state>
       </provider>
     </entry>
