@@ -9,6 +9,7 @@
 namespace AppBundle\Controller\Secure;
 
 use AppBundle\Entity\Artist;
+use AppBundle\Entity\MarketGroup;
 use AppBundle\Entity\PendingInvitations;
 use AppBundle\Entity\Venue;
 use AppBundle\Form\ArtistSearch;
@@ -42,10 +43,14 @@ class VenueController extends Controller
                 $totalPending++;
             }
         }
-        
+
+        $marketGroup = $em->getRepository(MarketGroup::class)
+            ->findByVenue($venue);
+
         return $this->render(':secure/account/venue:venueProfile.html.twig', [
             'user' => $venue,
             'pending_invites' => $totalPending,
+            'market_group' => $marketGroup,
         ]);
     }
 

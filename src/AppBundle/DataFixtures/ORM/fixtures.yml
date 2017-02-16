@@ -10,11 +10,11 @@ AppBundle\Entity\User:
     email (unique): <freeEmail()>
     nakedPassword: '123qwe'
     createdAt: <dateTime()>
-    roles: ['ROLE_USER', 'ROLE_VENUE']
+    roles: ['ROLE_USER', 'ROLE_ARTIST']
 
 
 AppBundle\Entity\Venue:
-  venue_{1..10}:
+  venue_{1..5}:
     email (unique): <freeEmail()>
     firstName: <name()>
     lastName: <name()>
@@ -32,7 +32,7 @@ AppBundle\Entity\Venue:
 
 
 AppBundle\Entity\Artist:
-  artist_{1..10}:
+  artist_{1..5}:
     email (unique): <freeEmail()>
     firstName: <name()>
     lastName: <name()>

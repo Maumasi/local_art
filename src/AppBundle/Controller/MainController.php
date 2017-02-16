@@ -9,6 +9,7 @@
 namespace AppBundle\Controller;
 
 
+use AppBundle\Entity\Artist;
 use AppBundle\Entity\State;
 use AppBundle\Entity\Venue;
 use AppBundle\Form\MarketSearch;
@@ -41,7 +42,6 @@ class MainController extends Controller
                 $em->flush();
             }
         }
-
 
         $form = $this->createForm(MarketSearch::class);
         $venues = $em->getRepository(Venue::class);
@@ -100,13 +100,27 @@ class MainController extends Controller
     public function marketDetails($marketId) {
 
         $em = $this->getDoctrine()->getEntityManager();
-        $venue = $em->getRepository(Venue::class);
-        $market = $venue->find($marketId);
+        $venue = $em->getRepository(Venue::class)
+            ->find($marketId);
 
         return $this->render('main/marketDetailsPage.html.twig', [
-            'market' => $market,
+            'market' => $venue,
         ]);
+    }
 
+
+    /**
+     * @Route("/details/artist/{artistId}", name="artist_details")
+     */
+    public function artistDetails($artistId) {
+
+        $em = $this->getDoctrine()->getEntityManager();
+        $artist = $em->getRepository(Artist::class)
+            ->find($artistId);
+
+        return $this->render(':main:artistDetailPage.html.twig', [
+            'artist' => $artist,
+        ]);
     }
 
 
