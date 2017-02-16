@@ -34,7 +34,14 @@
             </li>
         </ul>
 
-        {{ dump(user.marketGroups) }}
+        {% if markets %}
+            <ul>
+                {% for market in markets %}
+                    {% set venue = market.venue %}
+                    <li>{{ venue.marketName }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
 
         <p><a href="{{ path('market_invites') }}">Pending market invitations <span>{{ total_invitations }}</span></a></p>
     </main>

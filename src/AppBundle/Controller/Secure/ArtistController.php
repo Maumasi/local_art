@@ -9,6 +9,7 @@
 namespace AppBundle\Controller\Secure;
 
 use AppBundle\Entity\Artist;
+use AppBundle\Entity\MarketGroup;
 use AppBundle\Entity\PendingInvitations;
 use AppBundle\Entity\Venue;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -36,6 +37,9 @@ class ArtistController extends Controller
         $invitations = $em->getRepository(PendingInvitations::class)
             ->findByArtist($artist);
 
+        $markets = $em->getRepository(MarketGroup::class)
+            ->findByArtist($artist);
+
         $totalPending = 0;
         foreach($invitations as $invite) {
             if($invite->getRequestStatus() == 'pending') {
@@ -46,6 +50,7 @@ class ArtistController extends Controller
         return $this->render(':secure/account/artist:artistProfile.html.twig', [
             'user' => $artist,
             'total_invitations' => $totalPending,
+            'markets' => $markets,
         ]);
     }
 
@@ -90,15 +95,13 @@ class ArtistController extends Controller
             $artist = $em->getRepository(Artist::class)
                 ->findArtistByUser($this->getUser())[0];
 
-            $requestingVenue = $em->getRepository(Venue::class)
+            $venue = $em->getRepository(Venue::class)
                 ->findVenueByUser($invitation->getVenue()->getUser())[0];
 
-            $requestingVenue->setArtistCollection($artist->getId());
-            $em->persist($requestingVenue);
-            $em->flush();
-
-            $artist->setMarketGroups($requestingVenue->getId());
-            $em->persist($artist);
+            $group = new MarketGroup();
+            $group->setVenue($venue);
+            $group->setArtist($artist);
+            $em->persist($group);
             $em->flush();
 
         }// if

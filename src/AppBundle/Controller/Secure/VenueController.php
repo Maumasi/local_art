@@ -42,19 +42,7 @@ class VenueController extends Controller
                 $totalPending++;
             }
         }
-
-//        $artists = [];
-//        foreach($venue->getArtistCollection() as $artistId) {
-//            $artist = $em->getRepository(Artist::class)
-//                ->findBy(['id' => $artistId])[0];
-//
-////            dump($artist);
-//            $artists[] = $artist;
-//        }
-//
-//        dump($artists);die;
-////        die;
-
+        
         return $this->render(':secure/account/venue:venueProfile.html.twig', [
             'user' => $venue,
             'pending_invites' => $totalPending,

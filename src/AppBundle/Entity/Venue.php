@@ -110,9 +110,9 @@ class Venue
     private $invitations;
 
     /**
-     * @ORM\Column(type="json_array")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\MarketGroup", mappedBy="venue")
      */
-    private $artistCollection = [];
+    private $artists;
 
 
 //    this password should never persist
@@ -507,4 +507,13 @@ class Venue
         $this->invitations = $invitations;
     }
 
+    public function getArtists()
+    {
+        return $this->artists;
+    }
+
+    public function setArtists($artists)
+    {
+        $this->artists = $artists;
+    }
 }

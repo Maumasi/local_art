@@ -77,6 +77,11 @@ class Artist
      */
     private $invitations;
 
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\MarketGroup", mappedBy="artist")
+     */
+    private $markets;
+
     // this password should never persist
     /**
      * @Assert\NotBlank()
@@ -190,4 +195,13 @@ class Artist
         $this->invitations = $invitations;
     }
 
+    public function getMarkets()
+    {
+        return $this->markets;
+    }
+
+    public function setMarkets($markets)
+    {
+        $this->markets = $markets;
+    }
 }
