@@ -1,0 +1,30 @@
+
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <main class="venue-invitations">
+
+        {% if invitations %}
+
+            <ul>
+                {% for invite in invitations %}
+                    {% if invite.requestStatus == 'pending' %}
+                        <li>
+
+                            <p>{{ invite.venue.marketName }}</p>
+                            <p><a href="{{ path('remove_invitation', { id: invite.id  }) }}">Remove</a></p>
+
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+
+        {% else %}
+
+            <p>No pending invitations</p>
+
+        {% endif %}
+
+    </main>
+{% endblock %}

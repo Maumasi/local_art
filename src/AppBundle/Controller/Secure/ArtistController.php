@@ -61,10 +61,14 @@ class ArtistController extends Controller
         $invitations = $em->getRepository(PendingInvitations::class)
             ->findByArtist($artist);
 
-        return $this->render(':secure/account/artist:artistInvitations.html.twig', [
+        $response = $this->render(':secure/account/artist:artistInvitations.html.twig', [
             'user' => $artist,
             'invitations' => $invitations,
         ]);
+
+        $response->setSharedMaxAge(10);
+
+        return $response;
     }
 
 
@@ -90,12 +94,15 @@ class ArtistController extends Controller
                 ->findVenueByUser($invitation->getVenue()->getUser())[0];
 
             $requestingVenue->setArtistCollection($artist->getId());
-
             $em->persist($requestingVenue);
+            $em->flush();
+
+            $artist->setMarketGroups($requestingVenue->getId());
+            $em->persist($artist);
             $em->flush();
 
         }// if
 
-        return self::artistInvitations();
+        return $this->redirectToRoute('market_invites');
     }
 }

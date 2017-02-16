@@ -77,11 +77,6 @@ class Artist
      */
     private $invitations;
 
-    /**
-     * @ORM\Column(type="json_array")
-     */
-    private $marketGroups = [];
-
     // this password should never persist
     /**
      * @Assert\NotBlank()
@@ -193,16 +188,6 @@ class Artist
     public function setInvitations($invitations)
     {
         $this->invitations = $invitations;
-    }
-
-    public function getMarketGroups()
-    {
-        return $this->marketGroups;
-    }
-
-    public function setMarketGroups($marketGroups)
-    {
-        $this->marketGroups = $marketGroups;
     }
 
 }

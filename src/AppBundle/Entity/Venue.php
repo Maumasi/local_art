@@ -507,14 +507,4 @@ class Venue
         $this->invitations = $invitations;
     }
 
-    public function getArtistCollection()
-    {
-        return $this->artistCollection;
-    }
-
-    public function setArtistCollection($artistCollection)
-    {
-        $this->artistCollection[] = $artistCollection;
-    }
-
 }

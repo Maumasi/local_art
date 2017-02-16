@@ -10,7 +10,7 @@ AppBundle\Entity\User:
     email (unique): <freeEmail()>
     nakedPassword: '123qwe'
     createdAt: <dateTime()>
-    roles: ['ROLE_USER', 'ROLE_VENUE']
+    roles: ['ROLE_USER', 'ROLE_ARTIST']
 
 
 AppBundle\Entity\Venue:

@@ -43,6 +43,18 @@ class VenueController extends Controller
             }
         }
 
+//        $artists = [];
+//        foreach($venue->getArtistCollection() as $artistId) {
+//            $artist = $em->getRepository(Artist::class)
+//                ->findBy(['id' => $artistId])[0];
+//
+////            dump($artist);
+//            $artists[] = $artist;
+//        }
+//
+//        dump($artists);die;
+////        die;
+
         return $this->render(':secure/account/venue:venueProfile.html.twig', [
             'user' => $venue,
             'pending_invites' => $totalPending,
@@ -112,6 +124,29 @@ class VenueController extends Controller
         ]);
     }
 
+
+    /**
+     * @Route("/pendingInvitations", name="pending_invitations")
+     */
+    public function pendingArtistInvites() {
+
+        $em = $this->getDoctrine()->getEntityManager();
+        $venue = $em->getRepository(Venue::class)
+            ->findVenueByUser($this->getUser())[0];
+
+        $invitations = $em->getRepository(PendingInvitations::class)
+            ->findByVenue($venue);
+
+        $response = $this->render(':secure/account/venue:venuePendingInvitations.html.twig', [
+            'invitations' => $invitations,
+        ]);
+
+        $response->setSharedMaxAge(10);
+
+        return $response;
+    }
+
+
     /**
      * @Route("/retractInvitation/{id}", name="remove_invitation")
      */
@@ -124,6 +159,6 @@ class VenueController extends Controller
         $em->remove($invitation);
         $em->flush();
 
-        return self::
+        return $this->redirectToRoute('pending_invitations');
     }
 }
