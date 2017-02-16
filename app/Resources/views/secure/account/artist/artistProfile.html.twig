@@ -33,5 +33,7 @@
                 <p><a href="mailto:{{ user.email }}">{{ user.email }}</a></p>
             </li>
         </ul>
+
+        <p><a href="{{ path('market_invites') }}">Pending market invitations <span>{{ total_invitations }}</span></a></p>
     </main>
 {% endblock %}

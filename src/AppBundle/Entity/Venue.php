@@ -514,8 +514,7 @@ class Venue
 
     public function setArtistCollection($artistCollection)
     {
-        $this->artistCollection = $artistCollection;
+        $this->artistCollection[] = $artistCollection;
     }
-
 
 }

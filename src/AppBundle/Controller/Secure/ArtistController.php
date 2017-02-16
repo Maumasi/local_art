@@ -10,6 +10,7 @@ namespace AppBundle\Controller\Secure;
 
 use AppBundle\Entity\Artist;
 use AppBundle\Entity\PendingInvitations;
+use AppBundle\Entity\Venue;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -29,8 +30,22 @@ class ArtistController extends Controller
         $artist = $em->getRepository(Artist::class)
             ->findArtistByUser($this->getUser())[0];
 
+        $artist = $em->getRepository(Artist::class)
+            ->findArtistByUser($this->getUser())[0];
+
+        $invitations = $em->getRepository(PendingInvitations::class)
+            ->findByArtist($artist);
+
+        $totalPending = 0;
+        foreach($invitations as $invite) {
+            if($invite->getRequestStatus() == 'pending') {
+                $totalPending++;
+            }
+        }
+
         return $this->render(':secure/account/artist:artistProfile.html.twig', [
             'user' => $artist,
+            'total_invitations' => $totalPending,
         ]);
     }
 
@@ -50,5 +65,37 @@ class ArtistController extends Controller
             'user' => $artist,
             'invitations' => $invitations,
         ]);
+    }
+
+
+    /**
+     * @Route("/artistInviteResponse/{response}/{inviteId}", name="artist_invite_response")
+     */
+    public function artistInviteResponse($response, $inviteId) {
+
+//        set the requset status
+        $em = $this->getDoctrine()->getEntityManager();
+        $invitation = $em->getRepository(PendingInvitations::class)
+            ->find($inviteId);
+        $invitation->setRequestStatus($response);
+        $em->persist($invitation);
+        $em->flush();
+
+        if ($response == 'accepted') {
+
+            $artist = $em->getRepository(Artist::class)
+                ->findArtistByUser($this->getUser())[0];
+
+            $requestingVenue = $em->getRepository(Venue::class)
+                ->findVenueByUser($invitation->getVenue()->getUser())[0];
+
+            $requestingVenue->setArtistCollection($artist->getId());
+
+            $em->persist($requestingVenue);
+            $em->flush();
+
+        }// if
+
+        return self::artistInvitations();
     }
 }

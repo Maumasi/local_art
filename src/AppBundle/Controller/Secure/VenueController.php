@@ -36,10 +36,16 @@ class VenueController extends Controller
         $pendingInites = $em->getRepository(PendingInvitations::class)
             ->findByVenue($venue);
 
+        $totalPending = 0;
+        foreach($pendingInites as $invite) {
+            if($invite->getRequestStatus() == 'pending') {
+                $totalPending++;
+            }
+        }
 
         return $this->render(':secure/account/venue:venueProfile.html.twig', [
             'user' => $venue,
-            'pending_invites' => $pendingInites,
+            'pending_invites' => $totalPending,
         ]);
     }
 
@@ -88,7 +94,7 @@ class VenueController extends Controller
 
         $em = $this->getDoctrine()->getEntityManager();
         $selectedArtist = $em->getRepository(Artist::class)
-            ->find($id );
+            ->find($id);
 
         $currentVenue = $em->getRepository(Venue::class)
             ->findVenueByUser($this->getUser());
@@ -104,5 +110,20 @@ class VenueController extends Controller
         return $this->render(':secure/account/venue:venueProfile.html.twig', [
             'user' => $currentVenue[0],
         ]);
+    }
+
+    /**
+     * @Route("/retractInvitation/{id}", name="remove_invitation")
+     */
+    public function removeInvitation($id) {
+
+        $em = $this->getDoctrine()->getEntityManager();
+        $invitation = $em->getRepository(PendingInvitations::class)
+            ->find($id);
+
+        $em->remove($invitation);
+        $em->flush();
+
+        return self::
     }
 }

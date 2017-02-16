@@ -12,7 +12,17 @@
         {#login and register#}
         <ul>
             {% if is_granted('ROLE_USER') %}
+
+
+                {% if is_granted('ROLE_ARTIST') %}
+                    <li><p><a href="{{ path('artist_profile') }}" rel="nofollow">Home</a></p></li>
+                {% elseif is_granted('ROLE_VENUE') %}
+                    <li><p><a href="{{ path('venue_profile') }}" rel="nofollow">Home</a></p></li>
+                {% endif %}
+
+
                 <li><p><a href="{{ path('logout') }}" rel="nofollow">Log out</a></p></li>
+
             {% else %}
             <li><p><a href="{{ path('secure_login') }}" rel="nofollow">Log in</a></p></li>
             <li>

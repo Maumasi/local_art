@@ -9,11 +9,15 @@
 
             <ul>
                 {% for invite in invitations %}
-                    <li>
+                    {% if invite.requestStatus == 'pending' %}
+                        <li>
 
-                        <p>{{ invite.venue.marketName }}</p>
+                            <p>{{ invite.venue.marketName }}</p>
+                            <p><a href="{{ path('artist_invite_response', { response: 'denied', inviteId: invite.id }) }}">Deny Invite</a></p>
+                            <p><a href="{{ path('artist_invite_response', { response: 'accepted', inviteId: invite.id  }) }}">Accept Invite</a></p>
 
-                    </li>
+                        </li>
+                    {% endif %}
                 {% endfor %}
             </ul>
 
