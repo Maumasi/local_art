@@ -12,8 +12,10 @@
 /vendor/
 /bin/
 /node_modules/
+node_modules
 *.DS_Store
 /composer.phar
 /.idea/workspace.xml
 *.idea/*.xml
-/.idea/*
+/.idea/
+.idea
