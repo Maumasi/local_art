@@ -1,3 +1,55 @@
 
 // login
 main.login
+
+  div.form-wrapper
+    display: flex
+    align-items: center
+    justify-content: center
+
+
+  form
+    +col(5)
+    height: 40rem
+    display: flex
+    flex-direction: column
+    padding: 4rem
+    margin: 4rem 0 6rem
+    border-radius: 1px
+    box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.15)
+
+    p
+      +displayFont(2.4)
+      color: $blue
+      text-align: center
+
+    label
+      display: none
+
+    input
+      border-bottom: 1px solid rgba(0, 0, 0, $siteGreyShade)
+      padding: 1rem
+      margin: 4rem 0 2rem
+      +displayFont(1.8)
+      color: rgba(0, 0, 0, $siteGreyShade)
+      width: 100%
+
+    button
+      +displayFont(1.8)
+      letter-spacing: 1px
+      border: 0
+      padding: 1rem
+      border-radius: 50rem
+      background: $orange
+      color: $white
+
+      &:hover
+        background: $blue
+
+  & > p
+    +paragraphFont(2.4)
+    padding: 1rem
+    background: rgba(0, 0, 0, $siteGreyShade)
+    color: $white
+    text-align: center
+    border-bottom: 2px solid $white

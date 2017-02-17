@@ -4,18 +4,71 @@
 
 <main class="login">
 
-    {% if error %}
-        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
+    <div class="form-wrapper">
+        {% if error %}
+            <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        {% endif %}
 
-    {{ form_start(login_form) }}
+        {{ form_start(login_form) }}
 
         {{ form_errors(login_form) }}
 
-        {{ form_row(login_form._email) }}
-        {{ form_row(login_form._password) }}
+        <p>Login</p>
+
+        {{ form_row(login_form._email, {
+            attr: {
+                placeholder: 'Email',
+            }
+        }) }}
+
+        {{ form_row(login_form._password, {
+            attr: {
+                placeholder: 'Password',
+            }
+        }) }}
+
         <button type="submit" formnovalidate>Login</button>
-    {{ form_end(login_form) }}
+
+        {{ form_end(login_form) }}
+    </div>
+
+    <p>Not registered? No problem.</p>
+
+    <section class="home-content">
+
+        {#/ venue CTA /#}
+        <div>
+            <a href="{{ path('venue_registration') }}">
+                <h2>Venue Registration</h2>
+
+                <ul>
+                    <li><p>add artists to your market</p></li>
+                    <li><p>feature artists at your market</p></li>
+                    <li><p>reach Local Art's user base</p></li>
+                    <li><p>show times, location, and more</p></li>
+                    <li><p>link back to your own site so users can find out more about your market</p></li>
+                </ul>
+            </a>
+        </div>
+
+
+        {#/ artist CTA /#}
+        <div id="registration">
+            <a href="{{ path('artist_registration') }}">
+                <h2>Artist Registration</h2>
+                {#<p>Create an artist account to:</p>#}
+
+                <ul>
+                    <li><p>be featured at markets</p></li>
+                    <li><p>join multiple markets</p></li>
+                    <li><p>manage your joined markets</p></li>
+                    <li><p>reach Local Art's user base</p></li>
+                    <li><p>link back to your own site so users can find out more about your market</p></li>
+                </ul>
+
+            </a>
+        </div>
+    </section>
 
 </main>
 

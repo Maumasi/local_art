@@ -146,6 +146,59 @@ footer {
     footer ul:last-child li:first-child a:hover {
       color: #46c1f0; }
 
+main.login div.form-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+main.login form {
+  width: calc((100% / 12) * 5);
+  margin: 0;
+  padding: 0;
+  height: 40rem;
+  display: flex;
+  flex-direction: column;
+  padding: 4rem;
+  margin: 4rem 0 6rem;
+  border-radius: 1px;
+  box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.15); }
+  main.login form p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 2.4rem;
+    color: #46c1f0;
+    text-align: center; }
+  main.login form label {
+    display: none; }
+  main.login form input {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.6);
+    padding: 1rem;
+    margin: 4rem 0 2rem;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.8rem;
+    color: rgba(0, 0, 0, 0.6);
+    width: 100%; }
+  main.login form button {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+    border: 0;
+    padding: 1rem;
+    border-radius: 50rem;
+    background: #f37444;
+    color: rgba(255, 255, 255, 0.89); }
+    main.login form button:hover {
+      background: #46c1f0; }
+
+main.login > p {
+  font-family: 'Slabo 27px', serif;
+  font-size: 2.4rem;
+  line-height: 3.36rem;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.6);
+  color: rgba(255, 255, 255, 0.89);
+  text-align: center;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.89); }
+
 main.home-page div.hero {
   background: url("../assets/local_art_hero.svg") no-repeat;
   background-size: cover;
