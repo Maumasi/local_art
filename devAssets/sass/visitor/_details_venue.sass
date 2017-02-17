@@ -70,12 +70,12 @@ main.venue-details-page
       +clearfix
       width: 62rem
 
+
       div#venue-map
         height: 26rem
         width: 26rem
         float: left
-
-        +devBox(red)
+        +imageGreyFrame($lightGreyShade)
 
       address
         +displayFont(1.8)
@@ -87,3 +87,48 @@ main.venue-details-page
         p:last-of-type
           font-size: 1.4rem
           margin-top: 1rem
+
+
+main.venue-details-page
+
+  section.market-artists
+    margin-top: 4rem
+
+    ul
+      display: flex
+      flex-wrap: wrap
+      justify-content: space-between
+
+      li
+        +col(3.75)
+        height: 16rem
+        margin-bottom: 4rem
+
+        div.artist-group-member-image
+          width: 100%
+          height: 100%
+          position: relative
+          +imageGreyFrame($lightGreyShade)
+          transition: border 0.1s
+          &:hover
+            border: 4px solid $subduedOrange
+
+          a
+            display: block
+            width: 100%
+            height: 100%
+
+
+
+
+            span
+              position: absolute
+              bottom: 0
+              width: 100%
+              padding: 1rem
+              +displayFont(1.6)
+              color: $white
+              text-shadow: 0 1px rgba(0, 0, 0, $siteGreyShade)
+              letter-spacing: 1px
+              text-align: center
+              background: $subduedGreen

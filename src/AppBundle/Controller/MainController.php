@@ -10,6 +10,7 @@ namespace AppBundle\Controller;
 
 
 use AppBundle\Entity\Artist;
+use AppBundle\Entity\MarketGroup;
 use AppBundle\Entity\State;
 use AppBundle\Entity\Venue;
 use AppBundle\Form\MarketSearch;
@@ -103,8 +104,22 @@ class MainController extends Controller
         $venue = $em->getRepository(Venue::class)
             ->find($marketId);
 
+        $marketGroup = $em->getRepository(MarketGroup::class)
+            ->findByVenue($venue);
+
+//        make array of artist ids
+        $artistIds = [];
+        foreach($marketGroup as $member) {
+            $artistIds[] = $member->getArtist()->getId();
+        }
+
+        $artists = $em->getRepository(Artist::class)
+            ->findBy(['id' => $artistIds]);
+
+
         return $this->render('main/marketDetailsPage.html.twig', [
             'market' => $venue,
+            'artists' => $artists,
         ]);
     }
 

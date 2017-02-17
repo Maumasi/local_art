@@ -121,9 +121,6 @@ class VenueController extends Controller
         $em->persist($invitation);
         $em->flush();
 
-//        return $this->render(':secure/account/venue:venueProfile.html.twig', [
-//            'user' => $currentVenue[0],
-//        ]);
         return $this->redirectToRoute('invite_artist_to_market');
     }
 

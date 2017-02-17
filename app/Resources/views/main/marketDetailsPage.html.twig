@@ -65,6 +65,44 @@
         </div>
     </div>
 
+    <section class="market-artists">
+
+        <h2>Artists featured at this market</h2>
+
+        {% if artists %}
+
+            <ul>
+                {% for artist in artists %}
+
+                <li>
+                    <div class="artist-group-member-image"
+                         style=" background: url( {{ asset('uploads/' ~ artist.profileImage) }} ) no-repeat;
+                                 background-size: cover;
+                                 background-position: center;
+                                 "
+                    >
+                        <a href="{{ path('artist_details', { artistId: artist.id }) }}">
+
+                            {% if artist.businessName %}
+                                <span>{{ artist.businessName }}</span>
+                            {% else %}
+                                <span>{{ artist.firstName }} {{ artist.lastName }}</span>
+                            {% endif %}
+                        </a>
+                    </div>
+                </li>
+
+                {% endfor %}
+            </ul>
+
+        {% else %}
+
+            <p>No artists are currently registered with this market</p>
+
+        {% endif %}
+
+    </section>
+
 </main>
 
 {% endblock %}

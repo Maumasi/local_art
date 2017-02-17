@@ -45,7 +45,7 @@ AppBundle\Entity\Artist:
 
 
 AppBundle\Entity\PendingInvitations:
-  invitations_{1..2}:
+  invitations_{1..100}:
     artist: '@artist_*'
     venue: '@venue_*'
     requestStatus: 'pending'

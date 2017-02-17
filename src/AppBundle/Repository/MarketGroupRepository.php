@@ -34,4 +34,5 @@ class MarketGroupRepository extends EntityRepository
             ->getQuery()
             ->execute();
     }
+
 }

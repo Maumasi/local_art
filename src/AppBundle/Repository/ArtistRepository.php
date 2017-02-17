@@ -46,7 +46,8 @@ class ArtistRepository extends EntityRepository
     }
 
 
-    public function findByFullNameAndBusinessName($firstName, $lastName, $businessName, $artistIds) {
+    public function findByFullNameAndBusinessName($firstName, $lastName, $businessName, $artistIds)
+    {
         $qb = $this->createQueryBuilder('artist');
 
         return $this->createQueryBuilder('artist')
@@ -54,9 +55,9 @@ class ArtistRepository extends EntityRepository
             ->orWhere($qb->expr()->like('artist.lastName', ':lastName'))
             ->orWhere($qb->expr()->like('artist.businessName', ':businessName'))
             ->andWhere('artist.id NOT IN (:artistIds)')
-            ->setParameter('firstName', $firstName.'%')
-            ->setParameter('lastName', $lastName.'%')
-            ->setParameter('businessName', $businessName.'%')
+            ->setParameter('firstName', $firstName . '%')
+            ->setParameter('lastName', $lastName . '%')
+            ->setParameter('businessName', $businessName . '%')
             ->setParameter('artistIds', $artistIds)
             ->getQuery()
             ->execute();

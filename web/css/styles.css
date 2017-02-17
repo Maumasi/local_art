@@ -486,7 +486,7 @@ main.venue-details-page div.market-info {
       height: 26rem;
       width: 26rem;
       float: left;
-      border: 1px solid red; }
+      border: 1px solid rgba(0, 0, 0, 0.2); }
     main.venue-details-page div.market-info div address {
       font-family: 'Roboto', sans-serif;
       font-size: 1.8rem;
@@ -497,6 +497,43 @@ main.venue-details-page div.market-info {
       main.venue-details-page div.market-info div address p:last-of-type {
         font-size: 1.4rem;
         margin-top: 1rem; }
+
+main.venue-details-page section.market-artists {
+  margin-top: 4rem; }
+  main.venue-details-page section.market-artists ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; }
+    main.venue-details-page section.market-artists ul li {
+      width: calc((100% / 12) * 3.75);
+      margin: 0;
+      padding: 0;
+      height: 16rem;
+      margin-bottom: 4rem; }
+      main.venue-details-page section.market-artists ul li div.artist-group-member-image {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        transition: border 0.1s; }
+        main.venue-details-page section.market-artists ul li div.artist-group-member-image:hover {
+          border: 4px solid rgba(243, 116, 68, 0.75); }
+        main.venue-details-page section.market-artists ul li div.artist-group-member-image a {
+          display: block;
+          width: 100%;
+          height: 100%; }
+          main.venue-details-page section.market-artists ul li div.artist-group-member-image a span {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            padding: 1rem;
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.6rem;
+            color: rgba(255, 255, 255, 0.89);
+            text-shadow: 0 1px rgba(0, 0, 0, 0.6);
+            letter-spacing: 1px;
+            text-align: center;
+            background: rgba(128, 195, 66, 0.75); }
 
 main.artist-profile div.profile-image {
   height: 45vh;
