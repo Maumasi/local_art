@@ -133,8 +133,20 @@ class MainController extends Controller
         $artist = $em->getRepository(Artist::class)
             ->find($artistId);
 
+        $groups = $em->getRepository(MarketGroup::class)
+            ->findByArtist($artist);
+
+        $venueIds = [];
+        foreach($groups as $market) {
+            $venueIds[] = $market->getVenue()->getId();
+        }
+
+        $marketGroups = $em->getRepository(Venue::class)
+            ->findBy(['id' => $venueIds]);
+        
         return $this->render(':main:artistDetailPage.html.twig', [
             'artist' => $artist,
+            'marketGroups' => $marketGroups,
         ]);
     }
 

@@ -9,4 +9,49 @@
 
         <p>{{ artist.firstName }} {{ artist.lastName }}</p>
     </main>
+
+    <main class="venue-details-page">
+        <div class="artist-image"
+             style=" background: url( {{ asset('uploads/' ~ artist.profileImage) }} ) no-repeat;
+                     background-size: cover;
+                     background-position: center;
+                     "
+        ></div>
+
+
+        {% if artist.businessName %}
+            <h1>{{ artist.businessName }}</h1>
+        {% else %}
+            <h1>{{ artist.firstName }} {{ artist.lastName }}</h1>
+        {% endif %}
+
+        <h2>artist description</h2>
+        <p>{{ artist.bio }}</p>
+
+        <section class="artist-artists">
+
+            <h2>Artists featured at this artist</h2>
+
+            <ul>
+                {% for market in marketGroups %}
+
+                <li>
+                    <div class="market-group-member-image"
+                         style=" background: url( {{ asset('uploads/' ~ market.profileImage) }} ) no-repeat;
+                                 background-size: cover;
+                                 background-position: center;
+                                 "
+                    >
+                        <a href="{{ path('artist_details', { artistId: artist.id }) }}">
+                            <span>{{ market.marketName }}</span>
+                        </a>
+                    </div>
+                </li>
+
+                {% endfor %}
+            </ul>
+
+        </section>
+
+    </main>
 {% endblock %}
