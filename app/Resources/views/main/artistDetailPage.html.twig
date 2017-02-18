@@ -1,16 +1,8 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <main class="artist-detail">
 
-        <div class="hero">
-
-        </div>
-
-        <p>{{ artist.firstName }} {{ artist.lastName }}</p>
-    </main>
-
-    <main class="venue-details-page">
+    <main class="artist-details-page">
         <div class="artist-image"
              style=" background: url( {{ asset('uploads/' ~ artist.profileImage) }} ) no-repeat;
                      background-size: cover;
@@ -28,9 +20,9 @@
         <h2>artist description</h2>
         <p>{{ artist.bio }}</p>
 
-        <section class="artist-artists">
+        <section class="artist-groups">
 
-            <h2>Artists featured at this artist</h2>
+            <h2>This artist can also be found at these other markets</h2>
 
             <ul>
                 {% for market in marketGroups %}
@@ -42,7 +34,7 @@
                                  background-position: center;
                                  "
                     >
-                        <a href="{{ path('artist_details', { artistId: artist.id }) }}">
+                        <a href="{{ path('market_details', { marketId: market.id, marketName: market.marketName }) }}">
                             <span>{{ market.marketName }}</span>
                         </a>
                     </div>

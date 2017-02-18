@@ -1,0 +1,119 @@
+
+
+main.artist-details-page
+
+  div.artist-image
+    height: 60vh
+    +imageGreyFrame($lightGreyShade)
+    margin: 2rem 0 1rem
+
+  h1
+    +displayFont(4.2)
+    color: rgba(0, 0, 0, 0.75)
+    padding-bottom: 1rem
+    border-bottom: 1px solid rgba(0, 0, 0, 0.75)
+
+    & + p:first-of-type
+      +displayFont(1.8)
+      color: rgba(0, 0, 0, 0.75)
+      padding-bottom: 0.5rem
+      border-bottom: 1px solid rgba(0, 0, 0, 0.75)
+  h2
+    +displayFont(3.4)
+    color: rgba(0, 0, 0, 0.75)
+    margin: 2rem 0 1rem
+
+    & + p
+      +col(6)
+      +paragraphFont(1.8)
+      color: rgba(0, 0, 0, 0.75)
+      margin-bottom: 4rem
+
+  div.market-info
+    display: flex
+    justify-content: space-between
+
+    table
+      +col(4)
+      background: rgba(0, 0, 0, 0.11)
+
+      tr
+        padding: 1rem
+
+        &:nth-child(even)
+          background: $subduedBlue
+
+        &:first-of-type
+          background: $subduedOrange
+
+        th
+          +displayFont(1.8)
+          color: $white
+          text-align: left
+          padding: 1rem
+
+        td
+          +displayFont(1.4)
+          color: rgba(0, 0, 0, 0.5)
+          padding: 1rem 2rem
+
+          p
+            color: rgba(0, 0, 0, 0.75)
+
+          p.open
+            letter-spacing: 0.05rem
+
+          p.closed
+            color: rgba(0, 0, 0, 0.5)
+
+
+    div
+      +colOffset('right', 1)
+      +clearfix
+      width: 62rem
+
+
+
+main.artist-details-page
+
+  section.artist-groups
+    margin-top: 4rem
+
+    ul
+      display: flex
+      flex-wrap: wrap
+      justify-content: space-between
+
+      li
+        +col(3.75)
+        height: 16rem
+        margin-bottom: 4rem
+
+        div.market-group-member-image
+          width: 100%
+          height: 100%
+          position: relative
+          +imageGreyFrame($lightGreyShade)
+          transition: border 0.1s
+          &:hover
+            border: 4px solid $subduedOrange
+
+          a
+            display: block
+            width: 100%
+            height: 100%
+
+
+
+
+            span
+              position: absolute
+              bottom: 0
+              width: 100%
+              padding: 1rem
+              +displayFont(1.6)
+              color: $white
+              text-shadow: 0 1px rgba(0, 0, 0, $siteGreyShade)
+              letter-spacing: 1px
+              text-align: center
+              background: $subduedGreen
