@@ -34,7 +34,7 @@
         </address>
 
 
-        <h2>Contact Artist</h2>
+        <h2>Contact Venue</h2>
         <ul>
             <li>
                 <p><a target="_blank" href="{{ user.website }}" >Visit artist's website</a></p>
@@ -53,13 +53,26 @@
                 {% for market in market_group %}
                     {% set artist = market.artist %}
                     <li>
-                        <p>{{ artist.firstName }} {{ artist.lastName }}</p>
-                        <p>{{ artist.businessName }}</p>
-                        <p><a href="{{ path('artist_details', { artistId: artist.id }) }}">Artist detail page</a></p>
+                        <div class="artist-group-member-image"
+                             style=" background: url( {{ asset('uploads/' ~ artist.profileImage) }} ) no-repeat;
+                                     background-size: cover;
+                                     background-position: center;
+                                     "
+                        >
+                            <a href="{{ path('artist_details', { artistId: artist.id }) }}">
+
+                                {% if artist.businessName %}
+                                    <span>{{ artist.businessName }}</span>
+                                {% else %}
+                                    <span>{{ artist.firstName }} {{ artist.lastName }}</span>
+                                {% endif %}
+                            </a>
+                        </div>
                     </li>
                 {% endfor %}
             </ul>
         {% endif %}
+        
     </main>
 
 {% endblock %}
