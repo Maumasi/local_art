@@ -1,0 +1,46 @@
+
+main.venue-profile
+  section.market-artists
+    padding-top: 4rem
+
+    div.market-invitations
+      +col(4)
+      display: flex
+      justify-content: space-between
+
+      p
+        +displayFont(1.8)
+
+        a
+          color: rgba(0, 0, 0, $siteGreyShade)
+          letter-spacing: 1px
+          padding: 1rem 0
+          border-bottom: 1px solid rgba(0, 0, 0, $siteGreyShade)
+
+          span
+            padding: 0.5rem 1.5rem
+            background: $blue
+            border-radius: 50rem
+            color: $white
+
+          &:visited
+            color: rgba(0, 0, 0, $siteGreyShade)
+          &:hover
+            color: $orange
+            border-bottom: 1px solid $orange
+            span
+              background: $orange
+
+
+      & > p:last-child
+        a
+          background: $orange
+          border-radius: 50rem
+          padding: 1rem 2rem
+          border: none
+          color: $white
+
+          &:visited
+            color: $white
+          &:hover
+            background: $blue

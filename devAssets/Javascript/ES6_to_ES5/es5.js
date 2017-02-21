@@ -231,13 +231,22 @@ function options() {
 // ======================================================================
 // generate maps
 
-var url = /details\/venue/;
-var venueDetailsPage = window.location.href.match(url);
+// run main code block if this is the current url
+var venueDetailUrl = /details\/venue/;
+var venueDetailsPage = window.location.href.match(venueDetailUrl);
+
+// run main code block if this is the current url
+var venueProfileUrl = /account\/venue/;
+var venueProfilePage = window.location.href.match(venueProfileUrl);
+
 var options = options();
 var GEO = new google.maps.Geocoder();
 
-if (venueDetailsPage !== null) {
+if (venueDetailsPage !== null || venueProfilePage !== null) {
   (function () {
+
+    // place a map marker at point of address
+    // look for successful return in order by: street address, city/state, zip code, and lastly the state if nothing else
     var markByAddress = function markByAddress(options) {
       var _this = this;
 
@@ -264,7 +273,7 @@ if (venueDetailsPage !== null) {
                   console.log('zipCode');
                   success.call(_this, responce, status);
                 } else {
-                  GEO.geocode({ address: state }, function (responce, status) {
+                  GEO.geocode({ address: zipCode }, function (responce, status) {
                     if (status === OK) {
                       console.log('state');
                       success.call(_this, responce, status);
@@ -279,7 +288,6 @@ if (venueDetailsPage !== null) {
         }
       }); // look for full address
     }; // markByAddress
-
 
     var addressSuccess = function addressSuccess(responce) {
       var geometry = responce[0].geometry;

@@ -47,10 +47,20 @@ class VenueController extends Controller
         $marketGroup = $em->getRepository(MarketGroup::class)
             ->findByVenue($venue);
 
+//        make array of artist ids
+        $artistIds = [];
+        foreach($marketGroup as $member) {
+            $artistIds[] = $member->getArtist()->getId();
+        }
+
+        $artists = $em->getRepository(Artist::class)
+            ->findBy(['id' => $artistIds]);
+
+
         return $this->render(':secure/account/venue:venueProfile.html.twig', [
             'user' => $venue,
             'pending_invites' => $totalPending,
-            'market_group' => $marketGroup,
+            'artists' => $artists,
         ]);
     }
 
