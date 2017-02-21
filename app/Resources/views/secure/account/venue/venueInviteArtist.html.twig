@@ -4,12 +4,9 @@
 
     <main class="venue-invite-artists">
 
-        {{ form_start(artistSearch) }}
-        {{ form_row(artistSearch.artist) }}
+        <h1>Invite artists to your market group</h1>
 
-        <button type="submit">Search</button>
-        {{ form_end(artistSearch) }}
-
+        {{ include(':secure/account/venue/partials:artistSearchForm.html.twig') }}
 
         {% if artists %}
 
@@ -18,7 +15,7 @@
 
         {% elseif query %}
 
-            <p>No artists found for search: <span>{{ query }}</span></p>
+            <p class="no-artist-results">No artists found for search: <span>{{ query }}</span></p>
 
         {% endif %}
 

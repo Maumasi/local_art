@@ -1,11 +1,12 @@
 
 <div class="artists-found">
 
-    <p class="total-results">Total artists found: <span>{{ artists | length }}</span></p>
+    <p class="total-results">Total pending invitations: <span>{{ invitations | length }}</span></p>
 
     <ul class="results">
 
-        {% for artist in artists %}
+        {% for invitation in invitations %}
+            {% set artist = invitation.artist %}
             <li>
                 <a href="{{ path('artist_details', { 'artistId': artist.id }) }}">
                     <div class="artist-image"
@@ -26,7 +27,7 @@
                         <p>{{ artist.bio }}</p>
                     </div>
                 </a>
-                <p class="invitation"><a href="{{ path('send_invite_to_artist', { 'id': artist.id }) }}">Send invitation</a></p>
+                <p class="remove-invitation"><a href="{{ path('remove_invitation', { 'id': invitation.id }) }}">Remove Invitation</a></p>
             </li>
         {% endfor %}
 

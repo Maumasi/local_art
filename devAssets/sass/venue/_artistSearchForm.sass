@@ -1,0 +1,51 @@
+
+main.venue-invite-artists
+  h1
+    margin: 4rem 0 2rem
+    +displayFont(4.2)
+    color: rgba(0, 0, 0, $siteGreyShade)
+    text-align: center
+
+  div.artist-search-form
+    display: flex
+    justify-content: center
+
+    form
+      +col(6)
+      padding: 0.5rem
+      background: $green
+      border-radius: 50rem
+      display: flex
+      align-items: center
+      box-shadow: 0 0 2rem 0.5rem $white
+
+      button
+        +colOffset('left', .25)
+        border-radius: 50rem
+        padding: 0.5rem 1rem
+        line-height: 2rem
+        background: $orange
+        font-size: $formFontSize
+        font-family: 'Lato', sans-serif
+
+        color: $white
+        border: none
+
+
+      div
+
+
+        +col(12)
+        display: inline-block
+        border-radius: 0
+
+        label
+          display: none
+
+        input
+          width: 100%
+          padding: 0.5rem 0.75rem
+          border-radius: 50rem
+          font-size: $formFontSize
+          font-family: 'Lato', sans-serif
+          color: $blue

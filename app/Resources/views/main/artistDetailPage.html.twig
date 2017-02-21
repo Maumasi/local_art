@@ -20,28 +20,36 @@
         <h2>artist description</h2>
         <p>{{ artist.bio }}</p>
 
+
+
         <section class="artist-groups">
 
-            <h2>This artist can also be found at these other markets</h2>
 
-            <ul>
-                {% for market in marketGroups %}
 
-                <li>
-                    <div class="market-group-member-image"
-                         style=" background: url( {{ asset('uploads/' ~ market.profileImage) }} ) no-repeat;
-                                 background-size: cover;
-                                 background-position: center;
-                                 "
-                    >
-                        <a href="{{ path('market_details', { marketId: market.id, marketName: market.marketName }) }}">
-                            <span>{{ market.marketName }}</span>
-                        </a>
-                    </div>
-                </li>
+            {% if marketGroups %}
+                <h2>This artist can also be found at these other markets</h2>
+                <ul>
+                    {% for market in marketGroups %}
 
-                {% endfor %}
-            </ul>
+                    <li>
+                        <div class="market-group-member-image"
+                             style=" background: url( {{ asset('uploads/' ~ market.profileImage) }} ) no-repeat;
+                                     background-size: cover;
+                                     background-position: center;
+                                     "
+                        >
+                            <a href="{{ path('market_details', { marketId: market.id, marketName: market.marketName }) }}">
+                                <span>{{ market.marketName }}</span>
+                            </a>
+                        </div>
+                    </li>
+
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <h2 class="artist-invite"><a href="{{ path('send_invite_to_artist', {  'id': artist.id }) }}">Invite this artist to your market group</a></h2>
+            {% endif %}
+
 
         </section>
 

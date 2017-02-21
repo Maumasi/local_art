@@ -961,16 +961,47 @@ main.venue-profile section.market-artists {
       main.venue-profile section.market-artists div.market-invitations > p:last-child a:hover {
         background: #46c1f0; }
 
+main.venue-invite-artists div.artists-found p.total-results {
+  width: calc((100% / 12) * 4);
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.8rem;
+  margin-top: 4rem;
+  color: rgba(0, 0, 0, 0.6);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.6); }
+  main.venue-invite-artists div.artists-found p.total-results span {
+    color: #f37444; }
+
 main.venue-invite-artists div.artists-found ul li {
   margin: 1rem 0 2rem;
-  padding: 1rem; }
-  main.venue-invite-artists div.artists-found ul li:before, main.venue-invite-artists div.artists-found ul li:after {
-    content: "";
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between; }
+  main.venue-invite-artists div.artists-found ul li p.invitation {
+    width: calc((100% / 12) * 1.5);
+    margin: 0;
+    padding: 0; }
+    main.venue-invite-artists div.artists-found ul li p.invitation a {
+      display: block;
+      font-family: 'Roboto', sans-serif;
+      font-size: 1.8rem;
+      letter-spacing: 1px;
+      text-align: center;
+      padding: 0.5rem 0 1rem;
+      border-radius: 50rem;
+      background: rgba(243, 116, 68, 0.75);
+      color: rgba(255, 255, 255, 0.89); }
+      main.venue-invite-artists div.artists-found ul li p.invitation a:visited {
+        color: rgba(255, 255, 255, 0.89); }
+      main.venue-invite-artists div.artists-found ul li p.invitation a:hover {
+        background: #f37444; }
+  main.venue-invite-artists div.artists-found ul li > a {
     display: block;
-    clear: both; }
-  main.venue-invite-artists div.artists-found ul li a {
-    display: block; }
-    main.venue-invite-artists div.artists-found ul li a:before, main.venue-invite-artists div.artists-found ul li a:after {
+    width: calc((100% / 12) * 9);
+    margin: 0;
+    padding: 0; }
+    main.venue-invite-artists div.artists-found ul li > a:before, main.venue-invite-artists div.artists-found ul li > a:after {
       content: "";
       display: block;
       clear: both; }
@@ -983,7 +1014,7 @@ main.venue-invite-artists div.artists-found ul li {
   main.venue-invite-artists div.artists-found ul li div {
     float: left; }
   main.venue-invite-artists div.artists-found ul li div.artist-image {
-    width: calc((100% / 12) * 3);
+    width: calc((100% / 12) * 4);
     margin: 0;
     padding: 0;
     height: 18rem; }
@@ -1000,6 +1031,82 @@ main.venue-invite-artists div.artists-found ul li {
       font-family: 'Roboto', sans-serif;
       font-size: 2.4rem;
       margin-top: 0; }
+
+main.venue-invite-artists p.no-artist-results {
+  margin-top: 4rem;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-size: 2.4rem;
+  color: rgba(0, 0, 0, 0.6); }
+  main.venue-invite-artists p.no-artist-results span {
+    color: #f37444; }
+
+main.artist-details-page h2.artist-invite {
+  text-align: center; }
+  main.artist-details-page h2.artist-invite a {
+    color: rgba(243, 116, 68, 0.75); }
+    main.artist-details-page h2.artist-invite a:visited {
+      color: rgba(243, 116, 68, 0.75); }
+    main.artist-details-page h2.artist-invite a:hover {
+      color: #f37444; }
+
+main.venue-invite-artists h1 {
+  margin: 4rem 0 2rem;
+  font-family: 'Roboto', sans-serif;
+  font-size: 4.2rem;
+  color: rgba(0, 0, 0, 0.6);
+  text-align: center; }
+
+main.venue-invite-artists div.artist-search-form {
+  display: flex;
+  justify-content: center; }
+  main.venue-invite-artists div.artist-search-form form {
+    width: calc((100% / 12) * 6);
+    margin: 0;
+    padding: 0;
+    padding: 0.5rem;
+    background: #80c342;
+    border-radius: 50rem;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 0 2rem 0.5rem rgba(255, 255, 255, 0.89); }
+    main.venue-invite-artists div.artist-search-form form button {
+      margin-left: calc((100% / 12) * 0.25);
+      border-radius: 50rem;
+      padding: 0.5rem 1rem;
+      line-height: 2rem;
+      background: #f37444;
+      font-size: 1.8rem;
+      font-family: 'Lato', sans-serif;
+      color: rgba(255, 255, 255, 0.89);
+      border: none; }
+    main.venue-invite-artists div.artist-search-form form div {
+      width: calc((100% / 12) * 12);
+      margin: 0;
+      padding: 0;
+      display: inline-block;
+      border-radius: 0; }
+      main.venue-invite-artists div.artist-search-form form div label {
+        display: none; }
+      main.venue-invite-artists div.artist-search-form form div input {
+        width: 100%;
+        padding: 0.5rem 0.75rem;
+        border-radius: 50rem;
+        font-size: 1.8rem;
+        font-family: 'Lato', sans-serif;
+        color: #46c1f0; }
+
+p.remove-invitation a {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.8rem;
+  color: rgba(0, 0, 0, 0.6);
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.6); }
+  p.remove-invitation a:visited {
+    color: rgba(0, 0, 0, 0.6); }
+  p.remove-invitation a:hover {
+    color: #f37444;
+    border-bottom: 1px solid #f37444; }
 
 .devGrid {
   background: rgba(255, 217, 0, 0.25);
