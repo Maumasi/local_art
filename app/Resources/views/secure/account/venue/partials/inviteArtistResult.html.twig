@@ -1,0 +1,32 @@
+
+<div class="artists-found">
+    <p class="total-results">Total results found: <span>{{ artists | length }}</span></p>
+
+    <ul class="results">
+
+        {% for artist in artists %}
+            <li>
+                <a href="{{ path('artist_details', { 'artistId': artist.id }) }}">
+                    <div class="artist-image"
+                         style=" background: url( {{ asset('uploads/' ~ artist.profileImage) }} ) no-repeat;
+                                 background-size: cover;
+                                 background-position: center;
+                                 "
+                    >
+                    </div>
+
+                    <div class="artist-info">
+                        {% if artist.businessName %}
+                            <p>{{ artist.businessName }}</p>
+                        {% endif %}
+
+                        <p>{{ artist.firstName }} {{ artist.lastName }}</p>
+                        <p>{{ artist.email }}</p>
+                        <p>{{ artist.bio }}</p>
+                    </div>
+                </a>
+            </li>
+        {% endfor %}
+
+    </ul>
+</div>

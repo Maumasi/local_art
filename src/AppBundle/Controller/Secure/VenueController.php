@@ -95,19 +95,21 @@ class VenueController extends Controller
             if(count($artistSearch) >= 2) {
                 $artistsRequested = $artist->findByFullNameAndBusinessName($artistSearch[0], $artistSearch[1], $artistQuery['artist'], $artistIds);
             } else {
-                $artistsRequested = $artist->findByEitherFirstLastOrBusinessName($artistQuery['artist'], $artistIds);
+                $artistsRequested = $artist->findByEitherFirstLastOrBusinessNameOrEmail($artistQuery['artist'], $artistIds);
             }
 
             return $this->render(':secure/account/venue:venueInviteArtist.html.twig', [
                 'artistSearch' => $form->createView(),
-                'artists' => $artistsRequested
+                'artists' => $artistsRequested,
+                'query' => $artistQuery['artist'],
             ]);
 
         }
 
         return $this->render(':secure/account/venue:venueInviteArtist.html.twig', [
             'artistSearch' => $form->createView(),
-            'artists' => null
+            'artists' => null,
+            'query' => null,
         ]);
     }
 

@@ -13,16 +13,12 @@
 
         {% if artists %}
 
-            <ul>
-                {% for artist in artists %}
-                    <li>
+            {{ include(':secure/account/venue/partials:inviteArtistResult.html.twig') }}
 
-                        <p><a href="{{ path('send_invite_to_artist', { 'id': artist.id }) }}">{{ artist.firstName }} {{ artist.lastName }}</a> </p>
-                    </li>
-                {% endfor %}
-            </ul>
 
-        {% else %}
+        {% elseif query %}
+
+            <p>No artists found for search: <span>{{ query }}</span></p>
 
         {% endif %}
 

@@ -961,6 +961,46 @@ main.venue-profile section.market-artists {
       main.venue-profile section.market-artists div.market-invitations > p:last-child a:hover {
         background: #46c1f0; }
 
+main.venue-invite-artists div.artists-found ul li {
+  margin: 1rem 0 2rem;
+  padding: 1rem; }
+  main.venue-invite-artists div.artists-found ul li:before, main.venue-invite-artists div.artists-found ul li:after {
+    content: "";
+    display: block;
+    clear: both; }
+  main.venue-invite-artists div.artists-found ul li a {
+    display: block; }
+    main.venue-invite-artists div.artists-found ul li a:before, main.venue-invite-artists div.artists-found ul li a:after {
+      content: "";
+      display: block;
+      clear: both; }
+  main.venue-invite-artists div.artists-found ul li:nth-child(odd) {
+    background: rgba(0, 0, 0, 0.1); }
+  main.venue-invite-artists div.artists-found ul li:nth-child(even) {
+    background: rgba(0, 0, 0, 0.2); }
+  main.venue-invite-artists div.artists-found ul li:hover {
+    background: rgba(70, 193, 240, 0.75); }
+  main.venue-invite-artists div.artists-found ul li div {
+    float: left; }
+  main.venue-invite-artists div.artists-found ul li div.artist-image {
+    width: calc((100% / 12) * 3);
+    margin: 0;
+    padding: 0;
+    height: 18rem; }
+  main.venue-invite-artists div.artists-found ul li div.artist-info {
+    width: calc((100% / 12) * 8);
+    margin: 0;
+    padding: 0; }
+    main.venue-invite-artists div.artists-found ul li div.artist-info p {
+      font-family: 'Roboto', sans-serif;
+      font-size: 1.8rem;
+      color: rgba(0, 0, 0, 0.6);
+      margin: 1rem; }
+    main.venue-invite-artists div.artists-found ul li div.artist-info > p:first-of-type {
+      font-family: 'Roboto', sans-serif;
+      font-size: 2.4rem;
+      margin-top: 0; }
+
 .devGrid {
   background: rgba(255, 217, 0, 0.25);
   position: fixed;

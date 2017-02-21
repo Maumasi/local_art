@@ -1,0 +1,39 @@
+
+main.venue-invite-artists
+  div.artists-found
+    ul
+      li
+        +clearfix
+        margin: 1rem 0 2rem
+        padding: 1rem
+
+        a
+          display: block
+          +clearfix
+
+        &:nth-child(odd)
+          background: rgba(0, 0 , 0, 0.1 )
+
+        &:nth-child(even)
+          background: rgba(0, 0 , 0, 0.2 )
+
+        &:hover
+          background: $subduedBlue
+
+        div
+          float: left
+
+        div.artist-image
+          +col(3)
+          height: 18rem
+
+        div.artist-info
+          +col(8)
+          p
+            +displayFont(1.8)
+            color: rgba(0, 0, 0, $siteGreyShade)
+            margin: 1rem
+
+          & > p:first-of-type
+            +displayFont(2.4)
+            margin-top: 0

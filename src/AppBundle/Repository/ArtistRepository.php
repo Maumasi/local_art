@@ -25,7 +25,7 @@ class ArtistRepository extends EntityRepository
     }
 
 
-    public function findByEitherFirstLastOrBusinessName($name, $artistIds) {
+    public function findByEitherFirstLastOrBusinessNameOrEmail($name, $artistIds) {
 
 //        prevent this query from returning everything from this table
         if(!$name) {
@@ -38,6 +38,7 @@ class ArtistRepository extends EntityRepository
             ->andWhere($qb->expr()->like('artist.firstName', ':name'))
             ->orWhere($qb->expr()->like('artist.lastName', ':name'))
             ->orWhere($qb->expr()->like('artist.businessName', ':name'))
+            ->orWhere($qb->expr()->like('artist.email', ':name'))
             ->andWhere('artist.id NOT IN (:artistIds)')
             ->setParameter('name', $name.'%')
             ->setParameter('artistIds', $artistIds)
