@@ -31,6 +31,10 @@ class ArtistRepository extends EntityRepository
         if(!$name) {
             return null;
         }
+//        stub the array if the is no elements to run in the query
+        if(!$artistIds) {
+            $artistIds[] = 'stub';
+        }
 
         $qb = $this->createQueryBuilder('artist');
 

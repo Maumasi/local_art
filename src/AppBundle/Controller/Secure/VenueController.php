@@ -88,6 +88,7 @@ class VenueController extends Controller
                 $artistIds[] = $request->getArtist()->getId();
             }
 
+
             $artistQuery = $form->getData();
             $artistSearch = explode(" ", $artistQuery['artist']);
 
