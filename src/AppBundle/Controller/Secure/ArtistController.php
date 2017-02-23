@@ -37,7 +37,7 @@ class ArtistController extends Controller
         $invitations = $em->getRepository(PendingInvitations::class)
             ->findByArtist($artist);
 
-        $markets = $em->getRepository(MarketGroup::class)
+        $marketGroups = $em->getRepository(MarketGroup::class)
             ->findByArtist($artist);
 
         $totalPending = 0;
@@ -50,7 +50,7 @@ class ArtistController extends Controller
         return $this->render(':secure/account/artist:artistProfile.html.twig', [
             'user' => $artist,
             'total_invitations' => $totalPending,
-            'markets' => $markets,
+            'marketGroups' => $marketGroups,
         ]);
     }
 

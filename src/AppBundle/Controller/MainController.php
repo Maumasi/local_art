@@ -103,7 +103,7 @@ class MainController extends Controller
         $em = $this->getDoctrine()->getEntityManager();
         $venue = $em->getRepository(Venue::class)
             ->find($marketId);
-
+        
         $marketGroup = $em->getRepository(MarketGroup::class)
             ->findByVenue($venue);
 

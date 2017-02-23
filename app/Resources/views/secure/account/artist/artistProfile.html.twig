@@ -1,48 +1,107 @@
+{#{% extends 'base.html.twig' %}#}
+
+{#{% block body %}#}
+
+    {#<main class="artist-profile">#}
+
+        {#/ hero image /#}
+        {#<div class="profile-image"#}
+             {#style=" background: url( {{ asset('uploads/' ~ user.profileImage) }} ) no-repeat;#}
+                     {#background-size: cover;#}
+                     {#background-position: center;#}
+                     {#">#}
+        {#</div>#}
+
+        {#/ use business name if user has one else use there name /#}
+        {#{% if user.businessName %}#}
+            {#<h1>{{ user.businessName }}</h1>#}
+        {#{% else  %}#}
+            {#<h1>{{ user.firstName ~ ' ' ~ user.lastName }}</h1>#}
+        {#{% endif %}#}
+
+        {#/ bio /#}
+        {#<h2>About {{ user.firstName ~ ' ' ~ user.lastName }}</h2>#}
+        {#<p class="bio">{{ user.bio }}</p>#}
+
+        {#<h2>Contact Artist</h2>#}
+        {#<ul>#}
+            {#<li>#}
+                {#<p><a target="_blank" href="{{ user.website }}" >Visit artist's website</a></p>#}
+            {#</li>#}
+
+            {#<li>#}
+                {#<p><a href="mailto:{{ user.email }}">{{ user.email }}</a></p>#}
+            {#</li>#}
+        {#</ul>#}
+
+        {#{% if markets %}#}
+            {#<ul>#}
+                {#{% for market in markets %}#}
+                    {#{% set venue = market.venue %}#}
+                    {#<li>{{ venue.marketName }}</li>#}
+                {#{% endfor %}#}
+            {#</ul>#}
+        {#{% endif %}#}
+
+        {#<p><a href="{{ path('market_invites') }}">Pending market invitations <span>{{ total_invitations }}</span></a></p>#}
+    {#</main>#}
+{#{% endblock %}#}
+
+
 {% extends 'base.html.twig' %}
 
 {% block body %}
 
-    <main class="artist-profile">
-
-        {#/ hero image /#}
-        <div class="profile-image"
+    <main class="artist-details-page">
+        <div class="artist-image"
              style=" background: url( {{ asset('uploads/' ~ user.profileImage) }} ) no-repeat;
                      background-size: cover;
                      background-position: center;
-                     ">
-        </div>
+                     "
+        ></div>
 
-        {#/ use business name if user has one else use there name /#}
+
         {% if user.businessName %}
             <h1>{{ user.businessName }}</h1>
-        {% else  %}
-            <h1>{{ user.firstName ~ ' ' ~ user.lastName }}</h1>
+        {% else %}
+            <h1>{{ user.firstName }} {{ user.lastName }}</h1>
         {% endif %}
 
-        {#/ bio /#}
-        <h2>About {{ user.firstName ~ ' ' ~ user.lastName }}</h2>
-        <p class="bio">{{ user.bio }}</p>
+        <h2>artist description</h2>
+        <p>{{ user.bio }}</p>
 
-        <h2>Contact Artist</h2>
-        <ul>
-            <li>
-                <p><a target="_blank" href="{{ user.website }}" >Visit artist's website</a></p>
-            </li>
 
-            <li>
-                <p><a href="mailto:{{ user.email }}">{{ user.email }}</a></p>
-            </li>
-        </ul>
 
-        {% if markets %}
-            <ul>
-                {% for market in markets %}
-                    {% set venue = market.venue %}
-                    <li>{{ venue.marketName }}</li>
-                {% endfor %}
-            </ul>
-        {% endif %}
+        <section class="artist-groups">
 
-        <p><a href="{{ path('market_invites') }}">Pending market invitations <span>{{ total_invitations }}</span></a></p>
+
+
+            {% if marketGroups %}
+                <h2>This artist can also be found at these other markets</h2>
+                <ul>
+                    {% for market in marketGroups %}
+                        {% set venue = market.venue %}
+                        <li>
+                            <div class="market-group-member-image"
+                                 style=" background: url( {{ asset('uploads/' ~ venue.profileImage) }} ) no-repeat;
+                                         background-size: cover;
+                                         background-position: center;
+                                         "
+                            >
+                                <a href="{{ path('market_details', { marketId: market.id, marketName: venue.marketName }) }}">
+                                    <span>{{ venue.marketName }}</span>
+                                </a>
+                            </div>
+                        </li>
+
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <h2>Not a member of any market groups yet</h2>
+            {% endif %}
+
+
+        </section>
+
     </main>
 {% endblock %}
