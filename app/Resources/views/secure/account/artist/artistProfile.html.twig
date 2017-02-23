@@ -74,7 +74,7 @@
 
         <section class="artist-groups">
 
-
+            <p><a href="{{ path('market_invites') }}">Pending market invitations <span>{{ total_invitations }}</span></a></p>
 
             {% if marketGroups %}
                 <h2>This artist can also be found at these other markets</h2>
@@ -99,7 +99,6 @@
             {% else %}
                 <h2>Not a member of any market groups yet</h2>
             {% endif %}
-
 
         </section>
 

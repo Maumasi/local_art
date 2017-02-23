@@ -128,8 +128,7 @@ class LoginAuthentication extends AbstractFormLoginAuthenticator
             return $this->router->generate('venue_profile');
 
         } else {
-            return $this->router->generate('home_page');
+            return $this->router->generate('secure_login');
         }
     }
-
 }

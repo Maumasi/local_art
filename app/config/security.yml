@@ -22,6 +22,3 @@ security:
 
             logout:
                 path: /logout
-
-#    access_control:
-#        - { path: ^/artist, roles: ROLE_ARTIST }
