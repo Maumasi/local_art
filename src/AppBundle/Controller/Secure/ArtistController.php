@@ -17,7 +17,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 /**
- * @Route("/account/artist")
+ * @Route("/account/artist", schemes={"%secure_channel%"})
  * @Security("is_granted('ROLE_ARTIST')")
  */
 class ArtistController extends Controller

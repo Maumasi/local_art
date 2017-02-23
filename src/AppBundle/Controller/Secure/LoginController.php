@@ -17,7 +17,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class LoginController extends Controller
 {
     /**
-     * @Route("/login", name="secure_login")
+     * @Route("/login", name="secure_login", schemes={"%secure_channel%"})
      */
     public function login() {
 

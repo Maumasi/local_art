@@ -19,7 +19,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
- * @Route("/registration")
+ * @Route("/registration", schemes={"%secure_channel%"})
  */
 class RegistrationController extends Controller
 {

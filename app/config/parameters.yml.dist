@@ -9,6 +9,7 @@ parameters:
     database_password: ~
 
     item_img_directory: '%kernel.root_dir%/../web/uploads/'
+    secure_channel: http
 
     mailer_transport:  smtp
     mailer_host:       127.0.0.1

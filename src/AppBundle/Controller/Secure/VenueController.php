@@ -20,7 +20,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
- * @Route("/account/venue")
+ * @Route("/account/venue", schemes={"%secure_channel%"})
  * @Security("is_granted('ROLE_VENUE')")
  */
 class VenueController extends Controller
