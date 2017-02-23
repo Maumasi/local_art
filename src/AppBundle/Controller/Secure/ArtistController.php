@@ -66,9 +66,17 @@ class ArtistController extends Controller
         $invitations = $em->getRepository(PendingInvitations::class)
             ->findByArtist($artist);
 
+        $pendingInvitations = 0;
+        foreach($invitations as $invite ) {
+            if($invite->getRequestStatus() == 'pending'){
+                $pendingInvitations++;
+            }
+        }
+
         $response = $this->render(':secure/account/artist:artistInvitations.html.twig', [
             'user' => $artist,
             'invitations' => $invitations,
+            'total_pending' => $pendingInvitations,
         ]);
 
         $response->setSharedMaxAge(10);

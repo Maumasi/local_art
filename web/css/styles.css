@@ -563,30 +563,35 @@ main.venue-profile section.market-artists {
             text-align: center;
             background: rgba(128, 195, 66, 0.75); }
 
-main.artist-details-page div.artist-image {
+main.artist-details-page div.artist-image,
+main.artist-profile div.artist-image {
   height: 60vh;
   border: 1px solid rgba(0, 0, 0, 0.2);
   margin: 2rem 0 1rem; }
 
-main.artist-details-page h1 {
+main.artist-details-page h1,
+main.artist-profile h1 {
   font-family: 'Roboto', sans-serif;
   font-size: 4.2rem;
   color: rgba(0, 0, 0, 0.75);
   padding-bottom: 1rem;
   border-bottom: 1px solid rgba(0, 0, 0, 0.75); }
-  main.artist-details-page h1 + p:first-of-type {
+  main.artist-details-page h1 + p:first-of-type,
+  main.artist-profile h1 + p:first-of-type {
     font-family: 'Roboto', sans-serif;
     font-size: 1.8rem;
     color: rgba(0, 0, 0, 0.75);
     padding-bottom: 0.5rem;
     border-bottom: 1px solid rgba(0, 0, 0, 0.75); }
 
-main.artist-details-page h2 {
+main.artist-details-page h2,
+main.artist-profile h2 {
   font-family: 'Roboto', sans-serif;
   font-size: 3.4rem;
   color: rgba(0, 0, 0, 0.75);
   margin: 2rem 0 1rem; }
-  main.artist-details-page h2 + p {
+  main.artist-details-page h2 + p,
+  main.artist-profile h2 + p {
     width: calc((100% / 12) * 6);
     margin: 0;
     padding: 0;
@@ -596,70 +601,90 @@ main.artist-details-page h2 {
     color: rgba(0, 0, 0, 0.75);
     margin-bottom: 4rem; }
 
-main.artist-details-page div.market-info {
+main.artist-details-page div.market-info,
+main.artist-profile div.market-info {
   display: flex;
   justify-content: space-between; }
-  main.artist-details-page div.market-info table {
+  main.artist-details-page div.market-info table,
+  main.artist-profile div.market-info table {
     width: calc((100% / 12) * 4);
     margin: 0;
     padding: 0;
     background: rgba(0, 0, 0, 0.11); }
-    main.artist-details-page div.market-info table tr {
+    main.artist-details-page div.market-info table tr,
+    main.artist-profile div.market-info table tr {
       padding: 1rem; }
-      main.artist-details-page div.market-info table tr:nth-child(even) {
+      main.artist-details-page div.market-info table tr:nth-child(even),
+      main.artist-profile div.market-info table tr:nth-child(even) {
         background: rgba(70, 193, 240, 0.75); }
-      main.artist-details-page div.market-info table tr:first-of-type {
+      main.artist-details-page div.market-info table tr:first-of-type,
+      main.artist-profile div.market-info table tr:first-of-type {
         background: rgba(243, 116, 68, 0.75); }
-      main.artist-details-page div.market-info table tr th {
+      main.artist-details-page div.market-info table tr th,
+      main.artist-profile div.market-info table tr th {
         font-family: 'Roboto', sans-serif;
         font-size: 1.8rem;
         color: rgba(255, 255, 255, 0.89);
         text-align: left;
         padding: 1rem; }
-      main.artist-details-page div.market-info table tr td {
+      main.artist-details-page div.market-info table tr td,
+      main.artist-profile div.market-info table tr td {
         font-family: 'Roboto', sans-serif;
         font-size: 1.4rem;
         color: rgba(0, 0, 0, 0.5);
         padding: 1rem 2rem; }
-        main.artist-details-page div.market-info table tr td p {
+        main.artist-details-page div.market-info table tr td p,
+        main.artist-profile div.market-info table tr td p {
           color: rgba(0, 0, 0, 0.75); }
-        main.artist-details-page div.market-info table tr td p.open {
+        main.artist-details-page div.market-info table tr td p.open,
+        main.artist-profile div.market-info table tr td p.open {
           letter-spacing: 0.05rem; }
-        main.artist-details-page div.market-info table tr td p.closed {
+        main.artist-details-page div.market-info table tr td p.closed,
+        main.artist-profile div.market-info table tr td p.closed {
           color: rgba(0, 0, 0, 0.5); }
-  main.artist-details-page div.market-info div {
+  main.artist-details-page div.market-info div,
+  main.artist-profile div.market-info div {
     margin-right: calc((100% / 12) * 1);
     width: 62rem; }
-    main.artist-details-page div.market-info div:before, main.artist-details-page div.market-info div:after {
+    main.artist-details-page div.market-info div:before, main.artist-details-page div.market-info div:after,
+    main.artist-profile div.market-info div:before,
+    main.artist-profile div.market-info div:after {
       content: "";
       display: block;
       clear: both; }
 
-main.artist-details-page section.artist-groups {
+main.artist-details-page section.artist-groups,
+main.artist-profile section.artist-groups {
   margin-top: 4rem; }
-  main.artist-details-page section.artist-groups ul {
+  main.artist-details-page section.artist-groups ul,
+  main.artist-profile section.artist-groups ul {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between; }
-    main.artist-details-page section.artist-groups ul li {
+    main.artist-details-page section.artist-groups ul li,
+    main.artist-profile section.artist-groups ul li {
       width: calc((100% / 12) * 3.75);
       margin: 0;
       padding: 0;
       height: 16rem;
       margin-bottom: 4rem; }
-      main.artist-details-page section.artist-groups ul li div.market-group-member-image {
+      main.artist-details-page section.artist-groups ul li div.market-group-member-image,
+      main.artist-profile section.artist-groups ul li div.market-group-member-image {
         width: 100%;
         height: 100%;
         position: relative;
         border: 1px solid rgba(0, 0, 0, 0.2);
         transition: border 0.1s; }
-        main.artist-details-page section.artist-groups ul li div.market-group-member-image:hover {
+        main.artist-details-page section.artist-groups ul li div.market-group-member-image:hover,
+        main.artist-profile section.artist-groups ul li div.market-group-member-image:hover {
           border: 4px solid rgba(243, 116, 68, 0.75); }
-        main.artist-details-page section.artist-groups ul li div.market-group-member-image a {
+        main.artist-details-page section.artist-groups ul li div.market-group-member-image a,
+        main.artist-profile section.artist-groups ul li div.market-group-member-image a {
           display: block;
           width: 100%;
           height: 100%; }
-          main.artist-details-page section.artist-groups ul li div.market-group-member-image a span {
+          main.artist-details-page section.artist-groups ul li div.market-group-member-image a span,
+          main.artist-profile section.artist-groups ul li div.market-group-member-image a span {
             position: absolute;
             bottom: 0;
             width: 100%;
@@ -672,35 +697,25 @@ main.artist-details-page section.artist-groups {
             text-align: center;
             background: rgba(128, 195, 66, 0.75); }
 
-main.artist-profile div.profile-image {
-  height: 45vh;
-  margin-top: 1rem;
-  position: relative;
-  background-color: #fff; }
-
-main.artist-profile h1 {
+main.artist-profile section.artist-groups > p {
   font-family: 'Roboto', sans-serif;
-  font-size: 6.2rem;
-  color: rgba(0, 0, 0, 0.6);
-  padding: 2rem 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.6); }
-
-main.artist-profile h2 {
-  font-family: 'Roboto', sans-serif;
-  font-size: 3.4rem;
-  color: rgba(0, 0, 0, 0.6);
-  padding: 2rem 0; }
-
-main.artist-profile p.bio {
-  font-family: 'Slabo 27px', serif;
-  font-size: 1.6rem;
-  line-height: 2.24rem;
-  color: rgba(0, 0, 0, 0.6);
-  margin-bottom: 4rem; }
-
-main.artist-profile h2:last-of-type + ul li a {
-  font-family: 'Roboto', sans-serif;
-  font-size: 1.8rem; }
+  font-size: 1.8rem;
+  color: rgba(0, 0, 0, 0.6); }
+  main.artist-profile section.artist-groups > p a {
+    color: rgba(0, 0, 0, 0.6);
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.6); }
+    main.artist-profile section.artist-groups > p a span {
+      padding: 0.5rem 1rem;
+      display: inline-block;
+      background: #f37444;
+      color: rgba(255, 255, 255, 0.89);
+      border-radius: 50rem; }
+    main.artist-profile section.artist-groups > p a:visited {
+      color: rgba(0, 0, 0, 0.6); }
+    main.artist-profile section.artist-groups > p a:hover {
+      color: #f37444;
+      border-bottom: 1px solid #f37444; }
 
 main.artist-regisrtation h1 {
   text-align: center;
@@ -785,6 +800,99 @@ main.artist-regisrtation form {
     font-size: 2.4rem; }
     main.artist-regisrtation form button:hover, main.artist-regisrtation form button:active {
       background: #f37444; }
+
+main.artist-invitations > p:first-child {
+  width: calc((100% / 12) * 4);
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.8rem;
+  color: rgba(0, 0, 0, 0.6);
+  margin-top: 4rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.6); }
+  main.artist-invitations > p:first-child span {
+    color: #f37444; }
+
+main.artist-invitations ul.results {
+  margin: 1rem 0 2rem; }
+  main.artist-invitations ul.results li {
+    padding: 1rem;
+    margin: 0.25rem;
+    height: 15vw;
+    background: rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: space-between; }
+    main.artist-invitations ul.results li > a {
+      height: 100%;
+      width: calc((100% / 12) * 8);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: flex-start; }
+    main.artist-invitations ul.results li:active {
+      background: #f37444; }
+    main.artist-invitations ul.results li:hover {
+      background: rgba(70, 193, 240, 0.75); }
+    main.artist-invitations ul.results li:nth-child(even) {
+      background: rgba(0, 0, 0, 0.1); }
+      main.artist-invitations ul.results li:nth-child(even):active {
+        background: #f37444; }
+      main.artist-invitations ul.results li:nth-child(even):hover {
+        background: rgba(70, 193, 240, 0.75); }
+    main.artist-invitations ul.results li div {
+      height: 100%; }
+    main.artist-invitations ul.results li div.market-image {
+      width: calc((100% / 12) * 5);
+      margin: 0;
+      padding: 0;
+      border: 1px solid rgba(0, 0, 0, 0.25); }
+    main.artist-invitations ul.results li div.market-info {
+      font-family: 'Slabo 27px', serif;
+      font-size: 1.8rem;
+      line-height: 2.52rem;
+      margin-left: 4rem;
+      padding-top: 1rem; }
+      main.artist-invitations ul.results li div.market-info p {
+        color: rgba(0, 0, 0, 0.65); }
+      main.artist-invitations ul.results li div.market-info p:first-of-type {
+        margin: 1rem 0 2rem; }
+      main.artist-invitations ul.results li div.market-info h2 {
+        font-family: 'Roboto', sans-serif;
+        font-size: 3.4rem;
+        color: rgba(0, 0, 0, 0.65); }
+    main.artist-invitations ul.results li div.invite-options {
+      width: calc((100% / 12) * 3);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: space-between; }
+      main.artist-invitations ul.results li div.invite-options p:first-child a {
+        font-family: 'Roboto', sans-serif;
+        font-size: 1.8rem;
+        letter-spacing: 1px;
+        text-align: center;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.6);
+        color: rgba(0, 0, 0, 0.6); }
+        main.artist-invitations ul.results li div.invite-options p:first-child a:visited {
+          color: rgba(0, 0, 0, 0.6); }
+        main.artist-invitations ul.results li div.invite-options p:first-child a:hover {
+          color: rgba(0, 0, 0, 0.89);
+          border-bottom: 1px solid rgba(0, 0, 0, 0.89); }
+      main.artist-invitations ul.results li div.invite-options p:last-child a {
+        font-family: 'Roboto', sans-serif;
+        font-size: 1.8rem;
+        letter-spacing: 1px;
+        text-align: center;
+        padding: 0.25rem 1rem;
+        border-radius: 50rem;
+        background: rgba(243, 116, 68, 0.75);
+        color: rgba(255, 255, 255, 0.89); }
+        main.artist-invitations ul.results li div.invite-options p:last-child a:visited {
+          color: rgba(255, 255, 255, 0.89); }
+        main.artist-invitations ul.results li div.invite-options p:last-child a:hover {
+          background: #f37444; }
 
 main.venue-profile div.profile-image {
   height: 45vh;

@@ -1,0 +1,33 @@
+
+<ul class="results">
+    {% for invite in invitations %}
+        {% set venue = invite.venue %}
+        {% if invite.requestStatus == 'pending' %}
+
+            <li>
+                <a href="{{ path('market_details', { 'marketId': venue.id, 'marketName': venue.marketName }) }}">
+                    <div class="market-image"
+                         style=" background: url( {{ asset('uploads/' ~ venue.profileImage) }} ) no-repeat;
+                                 background-size: cover;
+                                 background-position: center;
+                                 "
+                    >
+                    </div>
+
+                    <div class="market-info">
+                        <h2>{{ venue.marketName }}</h2>
+                        <p>{{ venue.marketSubtitle }}</p>
+                        <p>{{ venue.streetAddress }}</p>
+                        <p>{{ venue.city }} {{ venue.state }} {{ venue.zipCode }}</p>
+                    </div>
+                </a>
+
+                <div class="invite-options">
+                    <p><a href="{{ path('artist_invite_response', { response: 'denied', inviteId: invite.id }) }}">Deny Invite</a></p>
+                    <p><a href="{{ path('artist_invite_response', { response: 'accepted', inviteId: invite.id  }) }}">Accept Invite</a></p>
+                </div>
+            </li>
+
+        {% endif %}
+    {% endfor %}
+</ul>

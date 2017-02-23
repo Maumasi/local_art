@@ -52,7 +52,7 @@
 
 {% block body %}
 
-    <main class="artist-details-page">
+    <main class="artist-profile">
         <div class="artist-image"
              style=" background: url( {{ asset('uploads/' ~ user.profileImage) }} ) no-repeat;
                      background-size: cover;
@@ -88,7 +88,7 @@
                                          background-position: center;
                                          "
                             >
-                                <a href="{{ path('market_details', { marketId: market.id, marketName: venue.marketName }) }}">
+                                <a href="{{ path('market_details', { marketId: venue.id, marketName: venue.marketName }) }}">
                                     <span>{{ venue.marketName }}</span>
                                 </a>
                             </div>

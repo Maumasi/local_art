@@ -1,0 +1,104 @@
+
+main.artist-invitations
+
+  & > p:first-child
+    +col(4)
+    +displayFont(1.8)
+    color: rgba(0, 0, 0, $siteGreyShade)
+    margin-top: 4rem
+    padding-bottom: 0.5rem
+    border-bottom: 1px solid rgba(0, 0, 0, $siteGreyShade)
+
+    span
+      color: $orange
+
+
+
+  ul.results
+    margin: 1rem 0 2rem
+
+    li
+      padding: 1rem
+      margin: 0.25rem
+      height: 15vw
+      background: rgba(0, 0, 0, 0.2)
+      display: flex
+      justify-content: space-between
+
+      & > a
+        height: 100%
+        +col(8)
+        display: flex
+        justify-content: flex-start
+
+      &:active
+        background: $orange
+      &:hover
+        background: $subduedBlue
+
+      &:nth-child(even)
+        background: rgba(0, 0, 0, 0.1)
+
+        &:active
+          background: $orange
+        &:hover
+          background: $subduedBlue
+
+      div
+        height: 100%
+
+      div.market-image
+        +col(5)
+        +imageGreyFrame($quarterGrey)
+
+      div.market-info
+        +paragraphFont(1.8)
+        margin-left: 4rem
+        padding-top: 1rem
+
+        p
+          color: rgba(0, 0, 0, 0.65)
+
+        p:first-of-type
+          margin: 1rem 0 2rem
+
+        h2
+          +displayFont(3.4)
+          color: rgba(0, 0, 0, 0.65)
+
+
+      div.invite-options
+        +col(3)
+        display: flex
+        justify-content: space-between
+
+        p:first-child
+          a
+            +displayFont(1.8)
+            letter-spacing: 1px
+            text-align: center
+            padding-bottom: 0.5rem
+            border-bottom: 1px solid rgba(0, 0, 0, $siteGreyShade)
+            color: rgba(0, 0, 0, $siteGreyShade)
+
+            &:visited
+              color: rgba(0, 0, 0, $siteGreyShade)
+            &:hover
+              color: $black
+              border-bottom: 1px solid $black
+
+
+        p:last-child
+          a
+            +displayFont(1.8)
+            letter-spacing: 1px
+            text-align: center
+            padding: 0.25rem 1rem
+            border-radius: 50rem
+            background: $subduedOrange
+            color: $white
+
+            &:visited
+              color: $white
+            &:hover
+              background: $orange
